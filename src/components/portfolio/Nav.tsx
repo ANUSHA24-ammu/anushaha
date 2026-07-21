@@ -38,7 +38,12 @@ export function Nav() {
         <a href="#contact" className="hidden md:inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 px-4 py-2 text-xs uppercase tracking-widest text-[#E8C767] transition-all hover:bg-[#D4AF37] hover:text-black">
           Let's Talk
         </a>
-        <button onClick={() => setOpen(!open)} className="md:hidden text-white">
+        <button
+          onClick={() => setOpen(!open)}
+          className="md:hidden text-white"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+        >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>

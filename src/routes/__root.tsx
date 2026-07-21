@@ -77,7 +77,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Anusha H A — Premium Full Stack Developer & Digital Craftsman" },
+      { title: "Anusha H A — Premium Full Stack Developer & Craftsman" },
       { name: "description", content: "Anusha H A designs and develops premium, high-performance websites, mobile apps, Shopify & WordPress experiences, and SEO solutions for ambitious international brands." },
       { name: "author", content: "Anusha H A" },
       { name: "theme-color", content: "#050505" },
