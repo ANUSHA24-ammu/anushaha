@@ -1,0 +1,123 @@
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, Suspense, lazy } from "react";
+import { ArrowDown, ArrowUpRight, Mail } from "lucide-react";
+import { MagneticButton } from "./MagneticButton";
+
+const HeroScene = lazy(() => import("./HeroScene").then((m) => ({ default: m.HeroScene })));
+
+export function Hero() {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
+
+  return (
+    <section id="top" ref={ref} className="relative min-h-screen overflow-hidden bg-[#050505] pt-20">
+      {/* 3D scene */}
+      <div className="absolute inset-0">
+        <Suspense fallback={null}>
+          <HeroScene />
+        </Suspense>
+      </div>
+
+      {/* Radial vignette */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(5,5,5,0.85)_75%)]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#050505] to-transparent" />
+
+      {/* Floating particles */}
+      <Particles />
+
+      {/* Content */}
+      <motion.div
+        style={{ y, opacity, scale }}
+        className="relative z-10 mx-auto flex min-h-[calc(100vh-5rem)] max-w-7xl flex-col items-center justify-center px-6 text-center"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/5 px-4 py-1.5 backdrop-blur-xl"
+        >
+          <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF37] animate-gold-pulse" />
+          <span className="text-xs uppercase tracking-[0.3em] text-[#E8C767]">Available for Premium Projects</span>
+        </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          className="font-display text-5xl font-semibold leading-[0.95] tracking-tight text-white md:text-7xl lg:text-[8rem]"
+        >
+          Building <span className="text-gradient-gold italic font-normal">Premium</span>
+          <br />
+          Digital Experiences
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.7 }}
+          className="mx-auto mt-8 max-w-2xl font-sans text-base leading-relaxed text-white/65 md:text-lg"
+        >
+          Full Stack App & Website Developer specializing in Android, iOS, Web, Shopify, WordPress, E-commerce and SEO solutions.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.9 }}
+          className="mt-12 flex flex-wrap items-center justify-center gap-3"
+        >
+          <MagneticButton href="#contact">
+            Hire Me <ArrowUpRight size={16} />
+          </MagneticButton>
+          <MagneticButton variant="outline" href="#portfolio">
+            View Projects
+          </MagneticButton>
+          <MagneticButton variant="ghost" href="mailto:aanushaha1998@gmail.com">
+            <Mail size={14} /> Contact Me
+          </MagneticButton>
+        </motion.div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        >
+          <div className="flex flex-col items-center gap-2 text-[#D4AF37]/60">
+            <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
+            <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.8, repeat: Infinity }}>
+              <ArrowDown size={14} />
+            </motion.div>
+          </div>
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+}
+
+function Particles() {
+  const items = Array.from({ length: 24 });
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden">
+      {items.map((_, i) => {
+        const size = Math.random() * 3 + 1;
+        const left = Math.random() * 100;
+        const top = Math.random() * 100;
+        const dur = Math.random() * 8 + 6;
+        return (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-[#D4AF37]"
+            style={{ width: size, height: size, left: `${left}%`, top: `${top}%` }}
+            animate={{ y: [0, -40, 0], opacity: [0.2, 0.8, 0.2] }}
+            transition={{ duration: dur, repeat: Infinity, delay: Math.random() * 4 }}
+          />
+        );
+      })}
+    </div>
+  );
+}
