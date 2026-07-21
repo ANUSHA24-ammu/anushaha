@@ -777,13 +777,34 @@ export function FAQ() {
 
 /* ============================== CONTACT ============================== */
 export function Contact() {
-  const [state, setState] = useState({ name: "", email: "", message: "" });
+  const initialContactState = { name: "", email: "", projectType: "Website", message: "" };
+  const [state, setState] = useState(initialContactState);
   const [sent, setSent] = useState(false);
   const [focus, setFocus] = useState<string | null>(null);
+  const projectTypes = ["Website", "App", "Shopify", "Full Stack"];
+
+  const handleSubmit = () => {
+    setSent(true);
+    setTimeout(() => setState(initialContactState), 450);
+    setTimeout(() => setSent(false), 5000);
+  };
 
   return (
     <section id="contact" className="relative py-32 md:py-40">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.06),transparent_60%)]" />
+      <motion.div
+        aria-hidden="true"
+        animate={{ rotateX: [0, 18, 0], rotateY: [0, -28, 0], y: [0, -28, 0] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="pointer-events-none absolute right-[8%] top-24 hidden h-28 w-28 rounded-3xl border border-[#D4AF37]/25 bg-[#D4AF37]/5 shadow-[0_0_70px_-20px_rgba(212,175,55,0.7)] backdrop-blur-xl lg:block"
+        style={{ transformPerspective: 900 }}
+      />
+      <motion.div
+        aria-hidden="true"
+        animate={{ rotateZ: [0, 360], scale: [1, 1.12, 1] }}
+        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+        className="pointer-events-none absolute bottom-28 left-[6%] hidden h-36 w-36 rounded-full border border-dashed border-[#D4AF37]/20 lg:block"
+      />
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="mb-20 text-center">
           <Reveal>
@@ -804,7 +825,7 @@ export function Contact() {
               { icon: Mail, label: "Email", value: "aanushaha1998@gmail.com", href: "mailto:aanushaha1998@gmail.com" },
               { icon: Phone, label: "Phone", value: "+91 96634 71531", href: "tel:+919663471531" },
               { icon: MessageCircle, label: "WhatsApp", value: "+91 96634 71531", href: "https://wa.me/919663471531" },
-              { icon: Linkedin, label: "LinkedIn", value: "anusha-h-a", href: "https://www.linkedin.com/in/anusha-h-a-b44081220" },
+              { icon: Globe, label: "Portfolio", value: "View live work", href: "#portfolio" },
               { icon: MapPin, label: "Location", value: "Bangalore, Karnataka, India" },
             ].map((c, i) => (
               <motion.a
@@ -833,10 +854,18 @@ export function Contact() {
 
           <div className="lg:col-span-7">
             <Reveal delay={0.15}>
+              <iframe title="Contact form delivery" name="contact-submit-frame" className="hidden" />
               <form
-                onSubmit={(e) => { e.preventDefault(); setSent(true); setTimeout(() => setSent(false), 4000); setState({ name: "", email: "", message: "" }); }}
+                action="https://formsubmit.co/aanushaha1998@gmail.com"
+                method="POST"
+                target="contact-submit-frame"
+                onSubmit={handleSubmit}
                 className="glass-strong space-y-6 rounded-3xl p-8 md:p-10"
               >
+                <input type="hidden" name="_subject" value="New portfolio inquiry for Anusha H A" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="text" name="_honey" tabIndex={-1} autoComplete="off" className="hidden" />
                 {(["name", "email"] as const).map((f) => (
                   <div key={f} className="relative">
                     <label className={`absolute left-0 pointer-events-none font-mono text-xs uppercase tracking-[0.2em] transition-all duration-300 ${focus === f || state[f] ? "-top-1 text-[10px] text-[#D4AF37]" : "top-4 text-white/40"}`}>
@@ -845,6 +874,7 @@ export function Contact() {
                     <input
                       type={f === "email" ? "email" : "text"}
                       required
+                      name={f}
                       maxLength={f === "email" ? 255 : 100}
                       value={state[f]}
                       onFocus={() => setFocus(f)}
@@ -854,12 +884,39 @@ export function Contact() {
                     />
                   </div>
                 ))}
+                <div>
+                  <div className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-[#D4AF37]/75">Project Type</div>
+                  <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+                    {projectTypes.map((type) => (
+                      <label
+                        key={type}
+                        className={`group relative cursor-pointer rounded-2xl border p-4 text-center text-xs uppercase tracking-widest transition-all duration-300 ${
+                          state.projectType === type
+                            ? "border-[#D4AF37] bg-[#D4AF37]/10 text-[#E8C767] shadow-[0_0_30px_-18px_rgba(212,175,55,0.9)]"
+                            : "border-white/10 bg-white/[0.02] text-white/55 hover:border-[#D4AF37]/50 hover:text-[#E8C767]"
+                        }`}
+                      >
+                        <input
+                          type="radio"
+                          name="projectType"
+                          value={type}
+                          checked={state.projectType === type}
+                          onChange={() => setState({ ...state, projectType: type })}
+                          className="sr-only"
+                        />
+                        <span className="mx-auto mb-2 block h-2 w-2 rounded-full bg-[#D4AF37] opacity-40 transition-opacity group-hover:opacity-100" />
+                        {type}
+                      </label>
+                    ))}
+                  </div>
+                </div>
                 <div className="relative">
                   <label className={`absolute left-0 pointer-events-none font-mono text-xs uppercase tracking-[0.2em] transition-all duration-300 ${focus === "message" || state.message ? "-top-1 text-[10px] text-[#D4AF37]" : "top-4 text-white/40"}`}>
                     Tell me about your project
                   </label>
                   <textarea
                     required
+                    name="message"
                     rows={5}
                     maxLength={1000}
                     value={state.message}
@@ -870,10 +927,10 @@ export function Contact() {
                   />
                 </div>
                 <div className="flex items-center justify-between pt-4">
-                  <div className="text-xs text-white/40">{sent ? "Message sent — I'll be in touch soon." : "Typical reply within 24 hours."}</div>
-                  <MagneticButton onClick={() => {}}>
+                  <div className="text-xs text-white/40">{sent ? "Details sent to aanushaha1998@gmail.com." : "Typical reply within 24 hours."}</div>
+                  <button type="submit" className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#E8C767] via-[#D4AF37] to-[#A8862A] px-7 py-3.5 text-sm font-medium tracking-wide text-black gold-glow-hover">
                     Send Message <ArrowUpRight size={16} />
-                  </MagneticButton>
+                  </button>
                 </div>
               </form>
             </Reveal>
@@ -895,7 +952,7 @@ export function Footer() {
             <p className="mt-4 max-w-sm text-white/60">App Developer &amp; Full Stack Developer crafting cinematic digital experiences for premium brands worldwide. Based in Bangalore, Karnataka.</p>
             <div className="mt-6 flex flex-wrap gap-3">
               {[
-                { icon: Linkedin, href: "https://www.linkedin.com/in/anusha-h-a-b44081220", label: "LinkedIn" },
+                { icon: Globe, href: "#portfolio", label: "Portfolio" },
                 { icon: Github, href: "#", label: "GitHub" },
                 { icon: Mail, href: "mailto:aanushaha1998@gmail.com", label: "Email" },
                 { icon: MessageCircle, href: "https://wa.me/919663471531", label: "WhatsApp" },
@@ -910,7 +967,7 @@ export function Footer() {
           <div className="md:col-span-4">
             <div className="text-xs uppercase tracking-[0.3em] text-[#D4AF37]/70">Quick Links</div>
             <ul className="mt-5 grid grid-cols-2 gap-y-2 text-sm">
-              {["About", "Services", "Skills", "Portfolio", "Process", "Contact"].map((l) => (
+              {["About", "Services", "Skills", "Portfolio", "Contact"].map((l) => (
                 <li key={l}><a href={`#${l.toLowerCase()}`} className="text-white/60 transition-colors hover:text-[#E8C767]">{l}</a></li>
               ))}
             </ul>
