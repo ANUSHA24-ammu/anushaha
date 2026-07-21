@@ -40,7 +40,7 @@ export function Hero() {
           className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/5 px-4 py-1.5 backdrop-blur-xl"
         >
           <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF37] animate-gold-pulse" />
-          <span className="text-xs uppercase tracking-[0.3em] text-[#E8C767]">Available for Premium Projects</span>
+          <span className="text-xs uppercase tracking-[0.3em] text-[#E8C767]">Anusha H A · Bangalore · 4+ Years</span>
         </motion.div>
 
         <motion.h1
@@ -49,9 +49,9 @@ export function Hero() {
           transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="font-display text-5xl font-semibold leading-[0.95] tracking-tight text-white md:text-7xl lg:text-[8rem]"
         >
-          Building <span className="text-gradient-gold italic font-normal">Premium</span>
+          <span className="text-gradient-gold italic font-normal">App Developer</span>
           <br />
-          Digital Experiences
+          &amp; Full Stack Developer
         </motion.h1>
 
         <motion.p
@@ -60,7 +60,7 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.7 }}
           className="mx-auto mt-8 max-w-2xl font-sans text-base leading-relaxed text-white/65 md:text-lg"
         >
-          Full Stack App & Website Developer specializing in Android, iOS, Web, Shopify, WordPress, E-commerce and SEO solutions.
+          Anusha H A — building premium Android &amp; iOS apps, Shopify storefronts, WordPress sites and web platforms for ambitious international brands.
         </motion.p>
 
         <motion.div
