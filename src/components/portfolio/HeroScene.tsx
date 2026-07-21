@@ -1,7 +1,16 @@
 import { Suspense, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, MeshDistortMaterial, Environment, Sparkles } from "@react-three/drei";
-import type { Mesh } from "three";
+import type { Group, Mesh } from "three";
+
+function CameraRig() {
+  useFrame((state) => {
+    state.camera.position.x += (state.pointer.x * 0.65 - state.camera.position.x) * 0.025;
+    state.camera.position.y += (state.pointer.y * 0.45 - state.camera.position.y) * 0.025;
+    state.camera.lookAt(0, 0, 0);
+  });
+  return null;
+}
 
 function GoldOrb() {
   const ref = useRef<Mesh>(null);
@@ -46,6 +55,49 @@ function TorusRing({ radius, tube, speed, tilt }: { radius: number; tube: number
   );
 }
 
+function OrbitingGem({ phase, radius, speed, scale }: { phase: number; radius: number; speed: number; scale: number }) {
+  const ref = useRef<Mesh>(null);
+  useFrame((state) => {
+    if (!ref.current) return;
+    const time = state.clock.elapsedTime * speed + phase;
+    ref.current.position.x = Math.cos(time) * radius;
+    ref.current.position.y = Math.sin(time * 0.8) * 0.9;
+    ref.current.position.z = Math.sin(time) * radius * 0.5;
+    ref.current.rotation.x = time * 1.4;
+    ref.current.rotation.y = time * 1.1;
+  });
+
+  return (
+    <mesh ref={ref} scale={scale}>
+      <octahedronGeometry args={[0.45, 2]} />
+      <meshStandardMaterial color="#E8C767" metalness={1} roughness={0.12} emissive="#D4AF37" emissiveIntensity={0.2} />
+    </mesh>
+  );
+}
+
+function WireframeCage() {
+  const ref = useRef<Group>(null);
+  useFrame((state) => {
+    if (!ref.current) return;
+    ref.current.rotation.x = state.clock.elapsedTime * 0.08;
+    ref.current.rotation.y = state.clock.elapsedTime * -0.12;
+    ref.current.rotation.z = state.clock.elapsedTime * 0.04;
+  });
+
+  return (
+    <group ref={ref}>
+      <mesh scale={4.15}>
+        <dodecahedronGeometry args={[1, 0]} />
+        <meshStandardMaterial color="#D4AF37" wireframe transparent opacity={0.16} />
+      </mesh>
+      <mesh scale={3.35} rotation={[0.6, 0.2, 0.9]}>
+        <icosahedronGeometry args={[1, 1]} />
+        <meshStandardMaterial color="#E8C767" wireframe transparent opacity={0.1} />
+      </mesh>
+    </group>
+  );
+}
+
 export function HeroScene() {
   return (
     <Canvas
@@ -54,16 +106,23 @@ export function HeroScene() {
       gl={{ antialias: true, alpha: true }}
     >
       <color attach="background" args={["#050505"]} />
+      <fog attach="fog" args={["#050505", 6, 12]} />
+      <CameraRig />
       <ambientLight intensity={0.35} />
       <directionalLight position={[5, 5, 5]} intensity={1.4} color="#fff5d6" />
       <pointLight position={[-5, -3, -5]} intensity={2} color="#D4AF37" />
       <pointLight position={[3, -2, 3]} intensity={1} color="#8a6a1f" />
       <Suspense fallback={null}>
+        <WireframeCage />
         <GoldOrb />
         <TorusRing radius={2.6} tube={0.008} speed={0.15} tilt={0.4} />
         <TorusRing radius={3.1} tube={0.005} speed={-0.1} tilt={-0.6} />
         <TorusRing radius={3.6} tube={0.004} speed={0.08} tilt={1.1} />
-        <Sparkles count={80} scale={8} size={2} speed={0.4} color="#D4AF37" opacity={0.7} />
+        <TorusRing radius={4.15} tube={0.003} speed={-0.18} tilt={1.35} />
+        <OrbitingGem phase={0} radius={2.7} speed={0.55} scale={0.42} />
+        <OrbitingGem phase={2.2} radius={3.15} speed={0.42} scale={0.32} />
+        <OrbitingGem phase={4.4} radius={2.25} speed={0.62} scale={0.26} />
+        <Sparkles count={140} scale={9} size={2.6} speed={0.55} color="#D4AF37" opacity={0.75} />
         <Environment preset="city" />
       </Suspense>
     </Canvas>

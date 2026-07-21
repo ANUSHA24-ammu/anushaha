@@ -4,4 +4,4 @@
 
 ## Pages
 
-- [Home](/): Overview, services, skills, portfolio, process, testimonials, FAQ, and contact.
+- [Home](/): Overview, services, skills, portfolio, testimonials, and contact.

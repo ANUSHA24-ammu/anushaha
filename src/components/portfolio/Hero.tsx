@@ -1,9 +1,21 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, Suspense, lazy } from "react";
+import { useEffect, useRef, Suspense, lazy, useState } from "react";
 import { ArrowDown, ArrowUpRight, Mail } from "lucide-react";
 import { MagneticButton } from "./MagneticButton";
 
 const HeroScene = lazy(() => import("./HeroScene").then((m) => ({ default: m.HeroScene })));
+
+const particleSeed = Array.from({ length: 24 }, (_, i) => {
+  const x = (i * 37 + 11) % 100;
+  const y = (i * 53 + 17) % 100;
+  return {
+    size: 1 + ((i * 19) % 30) / 10,
+    left: x,
+    top: y,
+    duration: 6 + ((i * 7) % 80) / 10,
+    delay: ((i * 13) % 40) / 10,
+  };
+});
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -100,24 +112,30 @@ export function Hero() {
 }
 
 function Particles() {
-  const items = Array.from({ length: 24 });
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      {items.map((_, i) => {
-        const size = Math.random() * 3 + 1;
-        const left = Math.random() * 100;
-        const top = Math.random() * 100;
-        const dur = Math.random() * 8 + 6;
-        return (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-[#D4AF37]"
-            style={{ width: size, height: size, left: `${left}%`, top: `${top}%` }}
-            animate={{ y: [0, -40, 0], opacity: [0.2, 0.8, 0.2] }}
-            transition={{ duration: dur, repeat: Infinity, delay: Math.random() * 4 }}
-          />
-        );
-      })}
+      {particleSeed.map((particle, i) => (
+        <motion.div
+          key={i}
+          className="absolute rounded-full bg-[#D4AF37]"
+          style={{
+            width: particle.size,
+            height: particle.size,
+            left: `${particle.left}%`,
+            top: `${particle.top}%`,
+          }}
+          animate={{ y: [0, -40, 0], opacity: [0.2, 0.8, 0.2] }}
+          transition={{ duration: particle.duration, repeat: Infinity, delay: particle.delay }}
+        />
+      ))}
     </div>
   );
 }
