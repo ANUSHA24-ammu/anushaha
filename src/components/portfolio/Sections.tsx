@@ -4,7 +4,7 @@ import {
   Smartphone, Apple, Globe, Layers, ShoppingBag, Palette,
   FileCode, Store, CreditCard, Rocket, Building2, Briefcase,
   Search, Gauge, Wrench, ArrowUpRight, Github, ExternalLink,
-  Plus, Minus, Mail, Linkedin, MapPin, Phone, MessageCircle,
+  Plus, Minus, Mail, MapPin, Phone, MessageCircle,
   Sparkles, CheckCircle2, Compass, Ruler, PenTool,
   Code2, TestTube2, Cloud, LifeBuoy, Award, Zap, Cpu,
 } from "lucide-react";
