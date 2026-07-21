@@ -5,48 +5,107 @@ import {
   FileCode, Store, CreditCard, Rocket, Building2, Briefcase,
   Search, Gauge, Wrench, ArrowUpRight, Github, ExternalLink,
   Plus, Minus, Mail, Linkedin, MapPin, Phone, MessageCircle,
-  ArrowUp, Sparkles, CheckCircle2, Compass, Ruler, PenTool,
-  Code2, TestTube2, Cloud, LifeBuoy,
+  Sparkles, CheckCircle2, Compass, Ruler, PenTool,
+  Code2, TestTube2, Cloud, LifeBuoy, Award, Zap, Cpu,
 } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { Counter } from "./Counter";
 import { MagneticButton } from "./MagneticButton";
+import { Modal } from "./Modal";
+import anushaAsset from "@/assets/anusha.jpeg.asset.json";
 
 /* ============================== ABOUT ============================== */
 export function About() {
   return (
     <section id="about" className="relative overflow-hidden py-32 md:py-40">
       <div className="pointer-events-none absolute -top-40 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[#D4AF37]/10 blur-[120px]" />
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 lg:grid-cols-12">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-12">
+        {/* Photo column */}
         <div className="lg:col-span-5">
+          <Reveal>
+            <div className="relative mx-auto max-w-md">
+              <motion.div
+                animate={{ y: [0, -12, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                className="relative"
+              >
+                <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-[#D4AF37]/40 via-[#E8C767]/20 to-transparent blur-2xl" />
+                <div className="relative overflow-hidden rounded-[2rem] border border-[#D4AF37]/40 bg-[#0a0a0a] p-2">
+                  <img
+                    src={anushaAsset.url}
+                    alt="Anusha H A — App Developer & Full Stack Developer"
+                    className="w-full rounded-[1.6rem] object-cover"
+                    loading="lazy"
+                  />
+                  <div className="pointer-events-none absolute inset-2 rounded-[1.6rem] ring-1 ring-inset ring-white/10" />
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.7 }}
+                className="glass-strong absolute -bottom-6 -right-6 rounded-2xl px-5 py-4 md:-bottom-8 md:-right-8"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-[#E8C767] to-[#A8862A] text-black">
+                    <Award size={18} />
+                  </div>
+                  <div>
+                    <div className="font-display text-xl font-semibold text-white">4+ Years</div>
+                    <div className="text-[10px] uppercase tracking-widest text-[#D4AF37]/80">Experience</div>
+                  </div>
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6, duration: 0.7 }}
+                className="glass-strong absolute -top-4 -left-4 flex items-center gap-2 rounded-full px-4 py-2"
+              >
+                <MapPin size={14} className="text-[#D4AF37]" />
+                <span className="text-xs text-white/85">Bangalore, Karnataka</span>
+              </motion.div>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Text column */}
+        <div className="lg:col-span-7">
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#D4AF37]">
               <Sparkles size={12} /> About
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.1] text-white md:text-6xl">
-              Crafting <span className="text-gradient-gold italic font-normal">elegant</span> digital products with obsession for detail.
+            <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.05] text-white md:text-6xl">
+              Anusha H A —{" "}
+              <span className="text-gradient-gold italic font-normal">App Developer</span>{" "}
+              & Full Stack Developer
             </h2>
           </Reveal>
-        </div>
-        <div className="lg:col-span-7 lg:pl-8">
           <Reveal delay={0.2}>
-            <p className="font-sans text-lg leading-relaxed text-white/70">
-              I'm <span className="text-[#E8C767] font-medium">Anusha H A</span> — a full-stack developer with a designer's eye and an engineer's discipline. I build scalable, responsive, and high-performance digital experiences that blend cinematic aesthetics with rock-solid engineering.
+            <p className="mt-6 font-sans text-lg leading-relaxed text-white/70">
+              4+ years crafting scalable, cinematic digital products — from{" "}
+              <span className="text-[#E8C767]">Android &amp; iOS apps</span> to headless{" "}
+              <span className="text-[#E8C767]">Shopify</span> storefronts,{" "}
+              <span className="text-[#E8C767]">WordPress</span> sites, and premium web
+              applications. Based in Bangalore, working with brands worldwide.
             </p>
           </Reveal>
           <Reveal delay={0.3}>
-            <p className="mt-6 font-sans leading-relaxed text-white/60">
-              From premium landing pages to production-grade e-commerce platforms, from Android and iOS apps to WordPress and Shopify storefronts — I partner with founders and brands who care about the details most people never notice.
+            <p className="mt-4 font-sans leading-relaxed text-white/60">
+              I obsess over the detail no one notices — motion curves, Core Web Vitals, checkout
+              micro-copy — because that&apos;s where premium is felt.
             </p>
           </Reveal>
           <Reveal delay={0.4}>
-            <div className="mt-12 grid grid-cols-3 gap-6 border-t border-[#D4AF37]/15 pt-8">
+            <div className="mt-10 grid grid-cols-3 gap-6 border-t border-[#D4AF37]/15 pt-8">
               {[
                 { n: 80, s: "+", l: "Projects Delivered" },
                 { n: 50, s: "+", l: "Happy Clients" },
-                { n: 5, s: "★", l: "Average Rating" },
+                { n: 4, s: "+", l: "Years Experience" },
               ].map((k) => (
                 <div key={k.l}>
                   <div className="font-display text-3xl md:text-5xl font-semibold text-gradient-gold">
@@ -64,25 +123,35 @@ export function About() {
 }
 
 /* ============================== SERVICES ============================== */
-const services = [
-  { icon: Smartphone, title: "Android App Development", desc: "Native and cross-platform Android apps built for scale and speed." },
-  { icon: Apple, title: "iOS App Development", desc: "Refined, App Store–ready iOS experiences with premium polish." },
-  { icon: Globe, title: "Website Development", desc: "Marketing sites engineered for conversion and performance." },
-  { icon: Layers, title: "Web Applications", desc: "Complex SPAs and dashboards with robust state and auth." },
-  { icon: ShoppingBag, title: "Shopify Development", desc: "Bespoke Shopify themes, apps, and headless storefronts." },
-  { icon: Palette, title: "Shopify Customization", desc: "Theme surgery, checkout tweaks, and merchandising flow work." },
-  { icon: FileCode, title: "WordPress Development", desc: "Custom themes, ACF-powered blocks, and Gutenberg patterns." },
-  { icon: Store, title: "WooCommerce", desc: "Full-stack WooCommerce builds with payments and shipping." },
-  { icon: CreditCard, title: "E-commerce Development", desc: "End-to-end commerce platforms tuned for growth." },
-  { icon: Rocket, title: "Landing Pages", desc: "High-converting one-pagers for launches and campaigns." },
-  { icon: Building2, title: "Business Websites", desc: "Corporate presence sites built with brand and credibility." },
-  { icon: Briefcase, title: "Portfolio Websites", desc: "Award-worthy portfolios for creatives and studios." },
-  { icon: Search, title: "SEO Optimization", desc: "Technical + on-page SEO that ships measurable wins." },
-  { icon: Gauge, title: "Speed Optimization", desc: "Core Web Vitals, LCP, INP and CLS — dialed in." },
-  { icon: Wrench, title: "Maintenance & Support", desc: "Long-term partnership: updates, monitoring, iterations." },
+type Service = {
+  icon: typeof Smartphone;
+  title: string;
+  desc: string;
+  details: string;
+  deliverables: string[];
+};
+
+const services: Service[] = [
+  { icon: Smartphone, title: "Android App Development", desc: "Native & cross-platform Android apps built for scale.", details: "Kotlin, Jetpack Compose, and cross-platform React Native / Flutter builds engineered for Play Store approval, offline resilience, and buttery 60fps UI.", deliverables: ["Play Store–ready APK/AAB", "Push notifications & analytics", "Offline-first architecture", "In-app purchases & auth"] },
+  { icon: Apple, title: "iOS App Development", desc: "Refined, App Store–ready iOS experiences.", details: "Swift, SwiftUI, and cross-platform builds tuned for App Store review, HIG-perfect motion, and Sign in with Apple.", deliverables: ["App Store submission ready", "HIG-compliant UI", "Biometric auth", "Widgets & App Clips"] },
+  { icon: Globe, title: "Website Development", desc: "Marketing sites engineered for conversion.", details: "React / Next.js / TanStack sites with server-side rendering, edge deployment and CRO-first sections that turn traffic into revenue.", deliverables: ["Responsive, mobile-first", "Copywriting hooks", "A/B ready sections", "CMS integration"] },
+  { icon: Layers, title: "Web Applications", desc: "Complex SPAs & dashboards with robust auth.", details: "Multi-tenant SaaS, admin dashboards, real-time collaboration — with Supabase / Firebase / custom Node backends, role-based access, and observability baked in.", deliverables: ["Multi-role auth (RLS)", "Realtime updates", "Stripe billing", "Admin dashboards"] },
+  { icon: ShoppingBag, title: "Shopify Development", desc: "Bespoke themes & headless storefronts.", details: "Liquid theme surgery, custom Shopify apps, and Hydrogen/Remix headless stores for luxury and DTC brands who need editorial-grade UX.", deliverables: ["Custom Liquid theme", "Headless Hydrogen build", "Custom checkout ext.", "Metaobjects & sections"] },
+  { icon: Palette, title: "Shopify Customization", desc: "Theme surgery & merchandising flows.", details: "Speed-optimised theme refactors, custom sections, upsell/cross-sell blocks and checkout tweaks proven to lift AOV.", deliverables: ["Speed refactor (Lighthouse)", "Custom sections", "Upsell & bundling", "Subscription integration"] },
+  { icon: FileCode, title: "WordPress Development", desc: "Custom themes & Gutenberg blocks.", details: "ACF-powered custom themes, custom Gutenberg blocks, and headless WP builds that stay fast at scale.", deliverables: ["Custom theme from Figma", "ACF flexible content", "Custom Gutenberg blocks", "Headless WP + Next.js"] },
+  { icon: Store, title: "WooCommerce", desc: "Full-stack WooCommerce builds.", details: "Payments, shipping, subscriptions and multi-currency — configured, secured and speed-tuned end-to-end.", deliverables: ["Payment gateways", "Multi-currency", "Subscriptions", "Speed optimisation"] },
+  { icon: CreditCard, title: "E-commerce Development", desc: "End-to-end commerce platforms.", details: "Next.js + Stripe + Sanity / headless CMS platforms tuned for growth, SEO and lifetime value.", deliverables: ["Headless commerce", "Stripe & payments", "Inventory sync", "SEO architecture"] },
+  { icon: Rocket, title: "Landing Pages", desc: "High-converting one-pagers.", details: "Cinematic launch pages with scroll storytelling, 3D visuals and CRO-driven layouts for campaigns and product drops.", deliverables: ["Scroll storytelling", "3D visuals", "Analytics wired", "Sub-2s LCP"] },
+  { icon: Building2, title: "Business Websites", desc: "Corporate presence with brand credibility.", details: "Corporate sites that establish authority — services, case studies, careers and lead capture, all on-brand.", deliverables: ["Case studies", "Careers & lead capture", "Multi-language ready", "Brand system"] },
+  { icon: Briefcase, title: "Portfolio Websites", desc: "Award-worthy portfolios for creatives.", details: "Editorial portfolios with cinematic transitions and case-study layouts designed for Awwwards-tier presentation.", deliverables: ["Editorial layouts", "Cinematic transitions", "Case study system", "CMS-driven"] },
+  { icon: Search, title: "SEO Optimization", desc: "Technical + on-page SEO that ships wins.", details: "Full technical audit, schema, sitemaps, internal linking and content optimisation with measurable ranking outcomes.", deliverables: ["Tech audit + fixes", "Schema & sitemaps", "Keyword mapping", "Content briefs"] },
+  { icon: Gauge, title: "Speed Optimization", desc: "Core Web Vitals — dialed in.", details: "LCP, INP, CLS and TBT audits with actionable fixes. Image, font, JS and CSS budgets enforced with CI.", deliverables: ["LCP/INP/CLS fixes", "Image pipeline", "Font subsetting", "CI performance budgets"] },
+  { icon: Wrench, title: "Maintenance & Support", desc: "Long-term partnership & iterations.", details: "Monthly retainers covering monitoring, backups, security patches, small features and design iterations.", deliverables: ["Uptime monitoring", "Weekly backups", "Security patches", "Iteration credits"] },
 ];
 
 export function Services() {
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
+  const active = openIdx !== null ? services[openIdx] : null;
   return (
     <section id="services" className="relative py-32 md:py-40">
       <div className="mx-auto max-w-7xl px-6">
@@ -100,27 +169,68 @@ export function Services() {
             </Reveal>
           </div>
           <Reveal delay={0.2}>
-            <p className="max-w-sm text-white/60">Fifteen premium capabilities spanning design, engineering and growth — delivered with cinematic craft.</p>
+            <p className="max-w-sm text-white/60">Click any service to see the full delivery scope.</p>
           </Reveal>
         </div>
         <div className="grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-[#D4AF37]/15 bg-[#D4AF37]/10 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
-            <ServiceCard key={s.title} {...s} index={i} />
+            <ServiceCard key={s.title} s={s} index={i} onClick={() => setOpenIdx(i)} />
           ))}
         </div>
       </div>
+
+      <Modal open={openIdx !== null} onClose={() => setOpenIdx(null)} maxWidth="max-w-2xl">
+        {active && (
+          <div>
+            <div className="flex items-center gap-4">
+              <motion.div
+                initial={{ rotate: -20, scale: 0.6 }}
+                animate={{ rotate: 0, scale: 1 }}
+                transition={{ type: "spring", stiffness: 200, damping: 12 }}
+                className="grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-[#E8C767] to-[#A8862A] text-black"
+              >
+                <active.icon size={26} />
+              </motion.div>
+              <div>
+                <div className="text-[10px] uppercase tracking-[0.3em] text-[#D4AF37]/70">Service</div>
+                <h3 className="font-display text-2xl font-semibold text-white md:text-3xl">{active.title}</h3>
+              </div>
+            </div>
+            <p className="mt-6 leading-relaxed text-white/75">{active.details}</p>
+            <div className="mt-8">
+              <div className="text-xs uppercase tracking-[0.3em] text-[#D4AF37]/70">What you get</div>
+              <ul className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {active.deliverables.map((d) => (
+                  <li key={d} className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.02] p-3 text-sm text-white/80">
+                    <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-[#D4AF37]" />
+                    {d}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <MagneticButton href="#contact">Start a project <ArrowUpRight size={16} /></MagneticButton>
+              <MagneticButton variant="outline" href="mailto:aanushaha1998@gmail.com">Email me</MagneticButton>
+            </div>
+          </div>
+        )}
+      </Modal>
     </section>
   );
 }
 
-function ServiceCard({ icon: Icon, title, desc, index }: { icon: typeof Smartphone; title: string; desc: string; index: number }) {
+function ServiceCard({ s, index, onClick }: { s: Service; index: number; onClick: () => void }) {
+  const Icon = s.icon;
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
+    <motion.button
+      type="button"
+      onClick={onClick}
+      initial={{ opacity: 0, y: 30, rotateX: -10 }}
+      whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.6, delay: (index % 3) * 0.08 }}
-      className="group relative overflow-hidden bg-[#0a0a0a] p-8 transition-colors duration-500 hover:bg-[#0d0b06]"
+      style={{ transformPerspective: 1000 }}
+      className="group relative overflow-hidden bg-[#0a0a0a] p-8 text-left transition-colors duration-500 hover:bg-[#0d0b06]"
     >
       <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-[#D4AF37]/10 opacity-0 blur-3xl transition-opacity duration-700 group-hover:opacity-100" />
       <div className="relative flex items-start justify-between">
@@ -129,22 +239,24 @@ function ServiceCard({ icon: Icon, title, desc, index }: { icon: typeof Smartpho
         </div>
         <ArrowUpRight className="text-white/20 transition-all duration-500 group-hover:text-[#D4AF37] group-hover:translate-x-1 group-hover:-translate-y-1" size={20} />
       </div>
-      <h3 className="relative mt-8 font-display text-xl font-medium text-white">{title}</h3>
-      <p className="relative mt-3 text-sm leading-relaxed text-white/55">{desc}</p>
+      <h3 className="relative mt-8 font-display text-xl font-medium text-white">{s.title}</h3>
+      <p className="relative mt-3 text-sm leading-relaxed text-white/55">{s.desc}</p>
       <div className="relative mt-8 h-px w-full overflow-hidden bg-white/5">
         <div className="h-full w-0 bg-gradient-to-r from-[#D4AF37] to-transparent transition-all duration-700 group-hover:w-full" />
       </div>
-    </motion.div>
+    </motion.button>
   );
 }
 
 /* ============================== SKILLS ============================== */
 const skillGroups = [
-  { label: "Frontend", items: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Tailwind CSS"] },
-  { label: "Backend", items: ["Node.js", "Firebase", "Supabase"] },
-  { label: "CMS", items: ["WordPress", "WooCommerce", "Shopify"] },
-  { label: "Tools", items: ["Git", "GitHub", "Figma", "VS Code", "Vercel", "Netlify"] },
-  { label: "SEO", items: ["Technical SEO", "On-Page SEO", "Core Web Vitals", "Google Analytics", "Google Search Console"] },
+  { label: "App Development", items: ["Custom Mobile Apps", "Android (Kotlin)", "iOS (Swift)", "React Native", "Flutter", "API Integration", "App Testing & QA", "Maintenance & Support"] },
+  { label: "Frontend", items: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS", "Framer Motion", "Three.js / R3F"] },
+  { label: "Backend", items: ["Node.js", "Express", "Firebase", "Supabase", "REST", "GraphQL"] },
+  { label: "CMS & Commerce", items: ["Shopify", "Shopify Hydrogen", "WordPress", "WooCommerce"] },
+  { label: "Design & UX", items: ["UI/UX Design", "Figma", "Prototyping", "Design Systems"] },
+  { label: "SEO & Performance", items: ["Technical SEO", "On-Page SEO", "Core Web Vitals", "Google Analytics", "Search Console"] },
+  { label: "Tools", items: ["Git", "GitHub", "VS Code", "Vercel", "Netlify", "Cloudflare"] },
 ];
 
 export function Skills() {
@@ -166,7 +278,13 @@ export function Skills() {
         </div>
         <div className="space-y-4">
           {skillGroups.map((g, i) => (
-            <Reveal key={g.label} delay={i * 0.06}>
+            <motion.div
+              key={g.label}
+              initial={{ opacity: 0, x: i % 2 ? 60 : -60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            >
               <div className="glass rounded-2xl p-6 md:p-8 transition-all duration-500 hover:border-[#D4AF37]/40">
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-[220px_1fr] md:items-center">
                   <div className="flex items-center gap-3">
@@ -174,15 +292,22 @@ export function Skills() {
                     <div className="font-display text-xl font-medium text-white">{g.label}</div>
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    {g.items.map((item) => (
-                      <span key={item} className="rounded-full border border-white/10 bg-white/[0.02] px-4 py-2 text-sm text-white/80 transition-all duration-300 hover:border-[#D4AF37]/50 hover:bg-[#D4AF37]/5 hover:text-[#E8C767]">
+                    {g.items.map((item, k) => (
+                      <motion.span
+                        key={item}
+                        initial={{ opacity: 0, y: 8 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: k * 0.03, duration: 0.4 }}
+                        className="rounded-full border border-white/10 bg-white/[0.02] px-4 py-2 text-sm text-white/80 transition-all duration-300 hover:border-[#D4AF37]/50 hover:bg-[#D4AF37]/5 hover:text-[#E8C767]"
+                      >
                         {item}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
                 </div>
               </div>
-            </Reveal>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -191,20 +316,50 @@ export function Skills() {
 }
 
 /* ============================== PORTFOLIO ============================== */
-const categories = ["All", "Websites", "Android Apps", "iOS Apps", "Shopify", "WordPress", "E-commerce"] as const;
+const categories = ["All", "Websites", "Apps", "Shopify", "WordPress"] as const;
+type Cat = (typeof categories)[number];
 
-const projects = [
-  { title: "Aurum Atelier", cat: "Shopify", desc: "Headless Shopify storefront for a luxury jewelry maison with editorial-grade product storytelling.", tech: ["Shopify", "Hydrogen", "Tailwind", "GSAP"], img: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=1200&q=80" },
-  { title: "Solace Wellness", cat: "Websites", desc: "Cinematic marketing site for a premium wellness brand with parallax storytelling.", tech: ["React", "Framer Motion", "Three.js"], img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80" },
-  { title: "Vault Banking", cat: "iOS Apps", desc: "Refined iOS banking experience with biometric auth and glass UI.", tech: ["Swift", "SwiftUI", "Firebase"], img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=1200&q=80" },
-  { title: "Trail Runner Pro", cat: "Android Apps", desc: "Native Android fitness tracker with offline maps and real-time telemetry.", tech: ["Kotlin", "Jetpack", "Firebase"], img: "https://images.unsplash.com/photo-1461988320302-91bde64fc8e4?w=1200&q=80" },
-  { title: "Maison Noir", cat: "E-commerce", desc: "End-to-end commerce platform with headless CMS and custom checkout.", tech: ["Next.js", "Stripe", "Sanity"], img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&q=80" },
-  { title: "Editorial Weekly", cat: "WordPress", desc: "Custom Gutenberg blocks and ACF-driven long-form editorial platform.", tech: ["WordPress", "ACF", "PHP"], img: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80" },
+type Project = {
+  title: string;
+  cat: Exclude<Cat, "All">;
+  desc: string;
+  details: string;
+  tech: string[];
+  url: string;
+  img: string;
+};
+
+const projects: Project[] = [
+  // WEBSITES
+  { title: "Anusha Portfolio", cat: "Websites", desc: "Personal portfolio site — cinematic, editorial.", details: "Editorial portfolio site built with React and scroll-driven storytelling. Focus on typographic hierarchy and refined motion.", tech: ["React", "GSAP", "Tailwind"], url: "https://anushaha99.portfolio.website/", img: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80" },
+  { title: "Saksham Fashion", cat: "Websites", desc: "Fashion brand storefront concept.", details: "Fashion-forward marketing site built on Netlify with a lookbook-first structure and product spotlight sections.", tech: ["React", "Netlify", "Tailwind"], url: "https://sakshamfashion.netlify.app/", img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&q=80" },
+  { title: "Florida Green Contractors", cat: "Websites", desc: "Service business site with lead-capture.", details: "Full corporate site for a US-based contractor — services, portfolio, credibility signals and multi-step quote flow.", tech: ["WordPress", "PHP", "SEO"], url: "https://floridagreencontractors.com/", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80" },
+  { title: "Rol Drive", cat: "Websites", desc: "Automotive / mobility platform.", details: "Mobility brand website with fleet showcase and booking journey.", tech: ["Next.js", "Tailwind"], url: "https://www.roldrive.com/", img: "https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1200&q=80" },
+  { title: "RebuildIt Inc.", cat: "Websites", desc: "Construction & remodeling company site.", details: "Corporate site for a construction firm — service pages, gallery, testimonials and inquiry pipeline.", tech: ["React", "Tailwind"], url: "https://RebuildItInc.com", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80" },
+  { title: "Birla Pivot Form", cat: "Websites", desc: "Enterprise B2B form & flow.", details: "Multi-step enterprise onboarding form for Birla Pivot.", tech: ["React", "Form logic"], url: "http://birlapivot.com/form", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80" },
+  { title: "Author Pratik", cat: "Websites", desc: "Author personal branding site.", details: "Editorial author site with book showcase, blog and speaking enquiries.", tech: ["WordPress", "ACF"], url: "http://authorpratik.com", img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&q=80" },
+  { title: "Barry Miller", cat: "Websites", desc: "Personal brand website.", details: "Elegant personal brand site with case studies and press.", tech: ["WordPress"], url: "https://www.barrymiller.net/", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&q=80" },
+  { title: "Ruby Todd", cat: "Websites", desc: "Author / creative portfolio.", details: "Boutique portfolio for an author — refined typography and long-form content layouts.", tech: ["WordPress"], url: "https://www.ruby-todd.com/", img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200&q=80" },
+
+  // APPS
+  { title: "Unboxify", cat: "Apps", desc: "Product app experience.", details: "Custom mobile app development with polished UI and API-driven content.", tech: ["React Native", "REST API"], url: "https://www.unboxify.in", img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=1200&q=80" },
+  { title: "Olives.ie", cat: "Apps", desc: "Irish product platform.", details: "Product/e-commerce app experience with modern UI/UX.", tech: ["React", "API"], url: "https://olives.ie/", img: "https://images.unsplash.com/photo-1607082349566-187342175e2f?w=1200&q=80" },
+  { title: "MeetMux", cat: "Apps", desc: "Social/meeting platform.", details: "Social meetup platform — modern responsive UI with real-time features.", tech: ["React", "Realtime"], url: "https://www.meetmux.com/", img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" },
+  { title: "Linear (inspired)", cat: "Apps", desc: "Productivity app reference build.", details: "Reference-grade productivity app UI with dense information design and buttery motion.", tech: ["React", "TypeScript"], url: "https://linear.app/", img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&q=80" },
+
+  // SHOPIFY
+  { title: "Fitera Sport", cat: "Shopify", desc: "Sports & performance Shopify store.", details: "Shopify storefront for a performance sports brand — custom sections, product bundles and speed-tuned theme.", tech: ["Shopify", "Liquid"], url: "https://Fiterasport.store", img: "https://images.unsplash.com/photo-1483721310020-03333e577078?w=1200&q=80" },
+  { title: "The Saje", cat: "Shopify", desc: "Lifestyle Shopify storefront.", details: "Boutique lifestyle Shopify build with editorial merchandising.", tech: ["Shopify", "Liquid"], url: "https://www.thesaje.com", img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=80" },
+  { title: "RK Trends", cat: "Shopify", desc: "UAE fashion Shopify store.", details: "Fashion Shopify build for the UAE market — multi-currency, RTL-aware sections.", tech: ["Shopify", "Multi-currency"], url: "https://www.rktrends.ae/", img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&q=80" },
+  { title: "Element Home", cat: "Shopify", desc: "Home & living Shopify store.", details: "Home & living Shopify build with editorial category pages.", tech: ["Shopify", "Liquid"], url: "https://elementhome.net/", img: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=80" },
+  { title: "Saramor", cat: "Shopify", desc: "Fashion Shopify storefront.", details: "Fashion Shopify storefront with bundle logic and premium PDP.", tech: ["Shopify", "Liquid"], url: "https://saramor.store/", img: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1200&q=80" },
 ];
 
 export function Portfolio() {
-  const [active, setActive] = useState<(typeof categories)[number]>("All");
+  const [active, setActive] = useState<Cat>("All");
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
   const filtered = active === "All" ? projects : projects.filter((p) => p.cat === active);
+  const current = openIdx !== null ? filtered[openIdx] : null;
 
   return (
     <section id="portfolio" className="relative py-32 md:py-40">
@@ -218,7 +373,7 @@ export function Portfolio() {
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.05] text-white md:text-6xl">
-                Portfolio of <span className="text-gradient-gold italic font-normal">craft.</span>
+                Live projects — <span className="text-gradient-gold italic font-normal">click to explore.</span>
               </h2>
             </Reveal>
           </div>
@@ -227,7 +382,7 @@ export function Portfolio() {
               {categories.map((c) => (
                 <button
                   key={c}
-                  onClick={() => setActive(c)}
+                  onClick={() => { setActive(c); setOpenIdx(null); }}
                   className={`rounded-full border px-4 py-2 text-xs uppercase tracking-widest transition-all ${
                     active === c
                       ? "border-[#D4AF37] bg-[#D4AF37] text-black"
@@ -241,25 +396,60 @@ export function Portfolio() {
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {filtered.map((p, i) => (
-            <ProjectCard key={p.title} p={p} index={i} />
+            <ProjectCard key={p.title + p.url} p={p} index={i} onClick={() => setOpenIdx(i)} />
           ))}
         </div>
       </div>
+
+      <Modal open={openIdx !== null} onClose={() => setOpenIdx(null)} maxWidth="max-w-3xl">
+        {current && (
+          <div>
+            <div className="overflow-hidden rounded-2xl border border-[#D4AF37]/20">
+              <img src={current.img} alt={current.title} className="h-64 w-full object-cover md:h-80" />
+            </div>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <span className="rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-[#E8C767]">
+                {current.cat}
+              </span>
+              <h3 className="font-display text-3xl font-semibold text-white md:text-4xl">{current.title}</h3>
+            </div>
+            <p className="mt-4 leading-relaxed text-white/75">{current.details}</p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {current.tech.map((t) => (
+                <span key={t} className="rounded-full border border-white/10 px-3 py-1 text-[11px] text-white/60">{t}</span>
+              ))}
+            </div>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a
+                href={current.url}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#E8C767] via-[#D4AF37] to-[#A8862A] px-6 py-3 text-sm font-medium text-black gold-glow-hover"
+              >
+                <ExternalLink size={14} /> Visit Live Site
+              </a>
+              <MagneticButton variant="outline" href="#contact">Start a similar project</MagneticButton>
+            </div>
+          </div>
+        )}
+      </Modal>
     </section>
   );
 }
 
-function ProjectCard({ p, index }: { p: (typeof projects)[number]; index: number }) {
+function ProjectCard({ p, index, onClick }: { p: Project; index: number; onClick: () => void }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
+    <motion.button
+      type="button"
+      onClick={onClick}
+      initial={{ opacity: 0, y: 40, scale: 0.96 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.7, delay: (index % 2) * 0.1, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.7, delay: (index % 3) * 0.08, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -8 }}
-      className="group relative overflow-hidden rounded-3xl border border-[#D4AF37]/15 bg-[#0a0a0a]"
+      className="group relative overflow-hidden rounded-3xl border border-[#D4AF37]/15 bg-[#0a0a0a] text-left"
     >
       <div className="relative aspect-[16/10] overflow-hidden">
         <img
@@ -274,43 +464,47 @@ function ProjectCard({ p, index }: { p: (typeof projects)[number]; index: number
             {p.cat}
           </span>
         </div>
+        <div className="absolute inset-0 flex items-end justify-end p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+          <div className="rounded-full bg-[#D4AF37] px-3 py-1.5 text-[11px] font-medium text-black">View details →</div>
+        </div>
       </div>
-      <div className="p-8">
-        <h3 className="font-display text-2xl font-medium text-white md:text-3xl">{p.title}</h3>
-        <p className="mt-3 text-sm leading-relaxed text-white/60">{p.desc}</p>
-        <div className="mt-5 flex flex-wrap gap-2">
+      <div className="p-6">
+        <h3 className="font-display text-xl font-medium text-white md:text-2xl">{p.title}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-white/60">{p.desc}</p>
+        <div className="mt-4 flex flex-wrap gap-2">
           {p.tech.map((t) => (
             <span key={t} className="rounded-full border border-white/10 px-3 py-1 text-[11px] text-white/60">{t}</span>
           ))}
         </div>
-        <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-white/5 pt-6">
-          <a href="#" className="inline-flex items-center gap-1.5 rounded-full bg-[#D4AF37] px-4 py-2 text-xs font-medium text-black transition-transform hover:scale-105">
-            <ExternalLink size={13} /> Live Demo
-          </a>
-          <a href="#" className="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-4 py-2 text-xs text-white/80 transition-colors hover:border-[#D4AF37] hover:text-[#E8C767]">
-            <Github size={13} /> GitHub
-          </a>
-          <a href="#" className="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-4 py-2 text-xs text-white/80 transition-colors hover:border-[#D4AF37] hover:text-[#E8C767]">
-            Case Study <ArrowUpRight size={13} />
-          </a>
-        </div>
+        <div className="mt-4 truncate text-xs text-[#D4AF37]/70">{p.url.replace(/^https?:\/\//, "")}</div>
       </div>
-    </motion.div>
+    </motion.button>
   );
 }
 
 /* ============================== PROCESS ============================== */
-const steps = [
-  { icon: Compass, title: "Discovery", desc: "Understanding your business, users, and ambitions." },
-  { icon: Ruler, title: "Planning", desc: "Architecture, scope, and a measurable roadmap." },
-  { icon: PenTool, title: "Design", desc: "Cinematic, on-brand interfaces that convert." },
-  { icon: Code2, title: "Development", desc: "Production-grade code, engineered to scale." },
-  { icon: TestTube2, title: "Testing", desc: "Cross-device QA and performance budgets." },
-  { icon: Cloud, title: "Deployment", desc: "Zero-downtime launches on modern edge infra." },
-  { icon: LifeBuoy, title: "Support", desc: "Ongoing iteration, monitoring, and evolution." },
+type Step = {
+  icon: typeof Compass;
+  title: string;
+  desc: string;
+  details: string;
+  outputs: string[];
+};
+
+const steps: Step[] = [
+  { icon: Compass, title: "Discovery", desc: "Understanding your business, users, and ambitions.", details: "We start with a deep-dive workshop: goals, KPIs, competitors, users and constraints. I map the emotional and functional promise of the product so every later decision has a reference point.", outputs: ["Discovery doc", "User personas", "Success metrics", "Scope & risks"] },
+  { icon: Ruler, title: "Planning", desc: "Architecture, scope, and a measurable roadmap.", details: "We turn the discovery into a real plan — sitemap, information architecture, technical stack, milestones and a delivery timeline you can hold me to.", outputs: ["Sitemap & IA", "Tech architecture", "Milestone roadmap", "Fixed-price scope"] },
+  { icon: PenTool, title: "Design", desc: "Cinematic, on-brand interfaces that convert.", details: "High-fidelity design in Figma — design system, key screens, motion principles and prototypes. We iterate against real content until every screen feels inevitable.", outputs: ["Design system", "High-fi Figma", "Motion principles", "Interactive prototype"] },
+  { icon: Code2, title: "Development", desc: "Production-grade code, engineered to scale.", details: "Clean, typed, tested code — React / TanStack / Next.js on the web, Kotlin / Swift / RN on mobile. Weekly demo builds so you see progress, never a black box.", outputs: ["Weekly demo builds", "Typed codebase", "CI/CD pipeline", "Component library"] },
+  { icon: TestTube2, title: "Testing", desc: "Cross-device QA and performance budgets.", details: "Full QA across devices, unit + integration tests where they matter, accessibility audits, and Lighthouse / Core Web Vitals sign-off before launch.", outputs: ["Cross-device QA", "Accessibility audit", "CWV report", "Bug triage"] },
+  { icon: Cloud, title: "Deployment", desc: "Zero-downtime launches on modern edge infra.", details: "Launch on Vercel / Cloudflare / Netlify / App Stores with zero-downtime cutover, staged environments, DNS and analytics wired up on day one.", outputs: ["Prod deploy", "Staging env", "DNS & SSL", "Analytics wired"] },
+  { icon: LifeBuoy, title: "Support", desc: "Ongoing iteration, monitoring, and evolution.", details: "Monthly retainer: monitoring, backups, security patches, iteration credits and roadmap workshops so the product keeps evolving with the business.", outputs: ["Uptime monitoring", "Monthly reports", "Iteration credits", "Quarterly roadmap"] },
 ];
 
 export function Process() {
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
+  const active = openIdx !== null ? steps[openIdx] : null;
+
   return (
     <section id="process" className="relative py-32 md:py-40">
       <div className="mx-auto max-w-7xl px-6">
@@ -325,25 +519,41 @@ export function Process() {
               From idea to <span className="text-gradient-gold italic font-normal">launch.</span>
             </h2>
           </Reveal>
+          <Reveal delay={0.2}>
+            <p className="mx-auto mt-4 max-w-xl text-sm text-white/55">Click any step to see the full playbook.</p>
+          </Reveal>
         </div>
 
         <div className="relative">
           <div className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[#D4AF37]/30 to-transparent lg:block" />
           <div className="space-y-6 lg:space-y-16">
             {steps.map((s, i) => (
-              <Reveal key={s.title} delay={i * 0.05}>
-                <div className={`grid grid-cols-1 items-center gap-6 lg:grid-cols-2 ${i % 2 ? "lg:direction-rtl" : ""}`}>
+              <motion.div
+                key={s.title}
+                initial={{ opacity: 0, y: 40, scale: 0.97 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.7, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-2">
                   <div className={i % 2 ? "lg:order-2 lg:pl-16" : "lg:order-1 lg:pr-16 lg:text-right"}>
-                    <div className={`glass-strong inline-block rounded-3xl p-8 md:p-10 ${i % 2 ? "" : ""}`}>
+                    <button
+                      type="button"
+                      onClick={() => setOpenIdx(i)}
+                      className="glass-strong group inline-block w-full max-w-xl rounded-3xl p-8 text-left transition-all duration-500 hover:border-[#D4AF37]/60 hover:bg-[#D4AF37]/[0.06] md:p-10"
+                    >
                       <div className={`mb-4 flex items-center gap-4 ${i % 2 ? "" : "lg:flex-row-reverse"}`}>
-                        <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-[#E8C767] to-[#A8862A] text-black">
+                        <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-[#E8C767] to-[#A8862A] text-black transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
                           <s.icon size={20} />
                         </div>
                         <div className="font-mono text-xs tracking-widest text-[#D4AF37]/60">STEP / {String(i + 1).padStart(2, "0")}</div>
                       </div>
                       <h3 className="font-display text-2xl font-medium text-white md:text-3xl">{s.title}</h3>
                       <p className="mt-2 text-sm leading-relaxed text-white/60">{s.desc}</p>
-                    </div>
+                      <div className={`mt-5 inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-[#D4AF37] ${i % 2 ? "" : "lg:flex-row-reverse"}`}>
+                        Learn more <ArrowUpRight size={12} />
+                      </div>
+                    </button>
                   </div>
                   <div className={`hidden lg:block ${i % 2 ? "lg:order-1" : "lg:order-2"}`}>
                     <div className="relative h-1 w-full">
@@ -351,20 +561,76 @@ export function Process() {
                     </div>
                   </div>
                 </div>
-              </Reveal>
+              </motion.div>
             ))}
           </div>
         </div>
       </div>
+
+      <Modal open={openIdx !== null} onClose={() => setOpenIdx(null)} maxWidth="max-w-2xl">
+        {active && (
+          <div>
+            <div className="flex items-center gap-4">
+              <motion.div
+                initial={{ rotateY: -180, scale: 0.5, opacity: 0 }}
+                animate={{ rotateY: 0, scale: 1, opacity: 1 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                style={{ transformPerspective: 1000 }}
+                className="relative grid h-20 w-20 place-items-center rounded-2xl bg-gradient-to-br from-[#E8C767] via-[#D4AF37] to-[#A8862A] text-black shadow-[0_0_40px_-5px_rgba(212,175,55,0.6)]"
+              >
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-0 rounded-2xl border border-dashed border-black/20"
+                />
+                <active.icon size={30} />
+              </motion.div>
+              <div>
+                <div className="text-[10px] uppercase tracking-[0.3em] text-[#D4AF37]/70">
+                  Step {openIdx !== null ? String(openIdx + 1).padStart(2, "0") : ""}
+                </div>
+                <h3 className="font-display text-2xl font-semibold text-white md:text-3xl">{active.title}</h3>
+              </div>
+            </div>
+            <p className="mt-6 leading-relaxed text-white/75">{active.details}</p>
+            <div className="mt-8">
+              <div className="text-xs uppercase tracking-[0.3em] text-[#D4AF37]/70">Deliverables</div>
+              <ul className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {active.outputs.map((d, i) => (
+                  <motion.li
+                    key={d}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2 + i * 0.06 }}
+                    className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.02] p-3 text-sm text-white/80"
+                  >
+                    <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-[#D4AF37]" />
+                    {d}
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+            <div className="mt-8">
+              <MagneticButton href="#contact">Start with {active.title} <ArrowUpRight size={16} /></MagneticButton>
+            </div>
+          </div>
+        )}
+      </Modal>
     </section>
   );
 }
 
 /* ============================== WHY CHOOSE ME ============================== */
 const reasons = [
-  "Premium UI/UX", "Responsive Design", "High Performance",
-  "Clean Code", "SEO Friendly", "Secure Development",
-  "Modern Technologies", "Professional Communication", "Long-Term Support",
+  { icon: Award, label: "Premium UI/UX" },
+  { icon: Smartphone, label: "Responsive Design" },
+  { icon: Zap, label: "High Performance" },
+  { icon: Code2, label: "Clean Code" },
+  { icon: Search, label: "SEO Friendly" },
+  { icon: Cpu, label: "Secure Development" },
+  { icon: Sparkles, label: "Modern Technologies" },
+  { icon: MessageCircle, label: "Clear Communication" },
+  { icon: LifeBuoy, label: "Long-Term Support" },
 ];
 
 export function WhyChoose() {
@@ -385,12 +651,20 @@ export function WhyChoose() {
         </div>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {reasons.map((r, i) => (
-            <Reveal key={r} delay={(i % 3) * 0.08}>
+            <motion.div
+              key={r.label}
+              initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
+              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
+            >
               <div className="group glass flex items-center gap-4 rounded-2xl p-6 transition-all duration-500 hover:border-[#D4AF37]/50 hover:bg-[#D4AF37]/[0.04]">
-                <CheckCircle2 className="shrink-0 text-[#D4AF37] transition-transform duration-500 group-hover:scale-110" size={22} />
-                <div className="font-display text-lg font-medium text-white">{r}</div>
+                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#E8C767] to-[#A8862A] text-black transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+                  <r.icon size={18} />
+                </div>
+                <div className="font-display text-lg font-medium text-white">{r.label}</div>
               </div>
-            </Reveal>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -427,8 +701,8 @@ export function Testimonials() {
           {testimonials.map((t, i) => (
             <Reveal key={t.name} delay={(i % 2) * 0.08}>
               <motion.div whileHover={{ y: -6 }} className="glass-strong group relative overflow-hidden rounded-3xl p-8 md:p-10">
-                <div className="pointer-events-none absolute -right-8 -top-8 font-display text-[180px] leading-none text-[#D4AF37]/10">"</div>
-                <p className="relative font-display text-xl leading-relaxed text-white/85 md:text-2xl">"{t.quote}"</p>
+                <div className="pointer-events-none absolute -right-8 -top-8 font-display text-[180px] leading-none text-[#D4AF37]/10">&ldquo;</div>
+                <p className="relative font-display text-xl leading-relaxed text-white/85 md:text-2xl">&ldquo;{t.quote}&rdquo;</p>
                 <div className="relative mt-8 flex items-center gap-4 border-t border-white/10 pt-6">
                   <div className="grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-[#E8C767] to-[#A8862A] font-display text-sm font-semibold text-black">
                     {t.name.split(" ").map((n) => n[0]).join("")}
@@ -449,10 +723,10 @@ export function Testimonials() {
 
 /* ============================== FAQ ============================== */
 const faqs = [
-  { q: "What kind of projects do you take on?", a: "I focus on premium websites, e-commerce platforms, mobile apps, and Shopify/WordPress builds for founders and brands who value craft." },
-  { q: "How long does a typical project take?", a: "Landing pages: 1–2 weeks. Business sites: 3–5 weeks. Web apps and e-commerce: 6–12 weeks depending on scope." },
-  { q: "Do you work with international clients?", a: "Yes — I collaborate with clients globally and adapt to your timezone for meetings and reviews." },
-  { q: "Do you offer ongoing maintenance?", a: "Absolutely. I offer monthly maintenance retainers covering updates, monitoring, backups, and iterative improvements." },
+  { q: "What kind of projects do you take on?", a: "Premium websites, e-commerce platforms, Android & iOS apps, and Shopify/WordPress builds for founders and brands who value craft." },
+  { q: "How long does a typical project take?", a: "Landing pages: 1–2 weeks. Business sites: 3–5 weeks. Web apps, mobile apps and e-commerce: 6–12 weeks depending on scope." },
+  { q: "Do you work with international clients?", a: "Yes — I'm based in Bangalore, India and collaborate with clients globally, adapting to your timezone for meetings and reviews." },
+  { q: "Do you offer ongoing maintenance?", a: "Absolutely. Monthly retainers cover updates, monitoring, backups, security patches and iterative improvements." },
   { q: "Can you help with SEO?", a: "Yes. Technical SEO, on-page optimization, Core Web Vitals, and Google Search Console setup are core services." },
   { q: "What's your pricing model?", a: "Fixed-price for well-scoped projects, monthly retainers for ongoing work. Reach out for a tailored quote." },
 ];
@@ -519,7 +793,7 @@ export function Contact() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="mx-auto mt-6 max-w-3xl font-display text-5xl font-semibold leading-[1.02] text-white md:text-7xl">
-              Let's create <span className="text-gradient-gold italic font-normal">something premium.</span>
+              Let&apos;s create <span className="text-gradient-gold italic font-normal">something premium.</span>
             </h2>
           </Reveal>
         </div>
@@ -529,26 +803,31 @@ export function Contact() {
             {[
               { icon: Mail, label: "Email", value: "aanushaha1998@gmail.com", href: "mailto:aanushaha1998@gmail.com" },
               { icon: Phone, label: "Phone", value: "+91 96634 71531", href: "tel:+919663471531" },
+              { icon: MessageCircle, label: "WhatsApp", value: "+91 96634 71531", href: "https://wa.me/919663471531" },
               { icon: Linkedin, label: "LinkedIn", value: "anusha-h-a", href: "https://www.linkedin.com/in/anusha-h-a-b44081220" },
-              { icon: MapPin, label: "Location", value: "Karnataka, India" },
+              { icon: MapPin, label: "Location", value: "Bangalore, Karnataka, India" },
             ].map((c, i) => (
-              <Reveal key={c.label} delay={i * 0.05}>
-                <a
-                  href={c.href}
-                  target={c.href?.startsWith("http") ? "_blank" : undefined}
-                  rel="noreferrer"
-                  className="group glass flex items-center gap-5 rounded-2xl p-5 transition-all hover:border-[#D4AF37]/50 hover:bg-[#D4AF37]/[0.04]"
-                >
-                  <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#E8C767] to-[#A8862A] text-black">
-                    <c.icon size={18} />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="text-xs uppercase tracking-widest text-[#D4AF37]/70">{c.label}</div>
-                    <div className="mt-0.5 truncate font-display text-lg text-white">{c.value}</div>
-                  </div>
-                  {c.href && <ArrowUpRight className="text-white/30 transition-all group-hover:text-[#D4AF37] group-hover:translate-x-1 group-hover:-translate-y-1" size={18} />}
-                </a>
-              </Reveal>
+              <motion.a
+                key={c.label}
+                href={c.href}
+                target={c.href?.startsWith("http") ? "_blank" : undefined}
+                rel="noreferrer"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.06 }}
+                whileHover={{ x: 6 }}
+                className="group glass flex items-center gap-5 rounded-2xl p-5 transition-colors hover:border-[#D4AF37]/50 hover:bg-[#D4AF37]/[0.04]"
+              >
+                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#E8C767] to-[#A8862A] text-black">
+                  <c.icon size={18} />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="text-xs uppercase tracking-widest text-[#D4AF37]/70">{c.label}</div>
+                  <div className="mt-0.5 truncate font-display text-lg text-white">{c.value}</div>
+                </div>
+                {c.href && <ArrowUpRight className="text-white/30 transition-all group-hover:text-[#D4AF37] group-hover:translate-x-1 group-hover:-translate-y-1" size={18} />}
+              </motion.a>
             ))}
           </div>
 
@@ -607,18 +886,13 @@ export function Contact() {
 
 /* ============================== FOOTER ============================== */
 export function Footer() {
-  const [visible, setVisible] = useState(false);
-  if (typeof window !== "undefined") {
-    window.addEventListener("scroll", () => setVisible(window.scrollY > 500), { once: true });
-  }
-
   return (
     <footer className="relative border-t border-[#D4AF37]/15 bg-[#050505] pt-20">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <div className="font-display text-3xl md:text-4xl font-semibold text-gradient-gold">Anusha H A</div>
-            <p className="mt-4 max-w-sm text-white/60">Full stack developer crafting cinematic digital experiences for premium brands worldwide.</p>
+            <p className="mt-4 max-w-sm text-white/60">App Developer &amp; Full Stack Developer crafting cinematic digital experiences for premium brands worldwide. Based in Bangalore, Karnataka.</p>
             <div className="mt-6 flex flex-wrap gap-3">
               {[
                 { icon: Linkedin, href: "https://www.linkedin.com/in/anusha-h-a-b44081220", label: "LinkedIn" },
@@ -644,29 +918,18 @@ export function Footer() {
 
           <div className="md:col-span-3">
             <div className="text-xs uppercase tracking-[0.3em] text-[#D4AF37]/70">Reach Out</div>
-            <div className="mt-5 space-y-2 text-sm text-white/60">
-              <div>aanushaha1998@gmail.com</div>
-              <div>+91 96634 71531</div>
-              <div>Karnataka, India</div>
-            </div>
+            <ul className="mt-5 space-y-2 text-sm">
+              <li><a href="mailto:aanushaha1998@gmail.com" className="text-white/60 hover:text-[#E8C767]">aanushaha1998@gmail.com</a></li>
+              <li><a href="tel:+919663471531" className="text-white/60 hover:text-[#E8C767]">+91 96634 71531</a></li>
+              <li className="flex items-center gap-1.5 text-white/60"><MapPin size={12} className="text-[#D4AF37]" /> Bangalore, Karnataka</li>
+            </ul>
           </div>
         </div>
-
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/5 py-8 md:flex-row">
-          <div className="text-xs text-white/40">© {new Date().getFullYear()} Anusha H A. All rights reserved.</div>
-          <div className="text-xs text-white/40">Designed & Developed by <span className="text-[#E8C767]">Anusha H A</span></div>
+          <div className="text-xs text-white/40">© {new Date().getFullYear()} Anusha H A. Crafted with obsession.</div>
+          <div className="text-xs text-white/40">Built with React · TanStack · Framer Motion · Three.js</div>
         </div>
       </div>
-
-      {visible && (
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          aria-label="Back to top"
-          className="fixed bottom-6 right-6 z-40 grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-[#E8C767] to-[#A8862A] text-black gold-glow transition-transform hover:scale-110"
-        >
-          <ArrowUp size={18} />
-        </button>
-      )}
     </footer>
   );
 }
