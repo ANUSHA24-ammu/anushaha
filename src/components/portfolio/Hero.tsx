@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, Suspense, lazy } from "react";
+import { useEffect, useRef, Suspense, lazy, useState } from "react";
 import { ArrowDown, ArrowUpRight, Mail } from "lucide-react";
 import { MagneticButton } from "./MagneticButton";
 
@@ -112,6 +112,14 @@ export function Hero() {
 }
 
 function Particles() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
       {particleSeed.map((particle, i) => (
