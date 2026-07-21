@@ -4,9 +4,9 @@ import {
   Smartphone, Apple, Globe, Layers, ShoppingBag, Palette,
   FileCode, Store, CreditCard, Rocket, Building2, Briefcase,
   Search, Gauge, Wrench, ArrowUpRight, Github, ExternalLink,
-  Plus, Minus, Mail, MapPin, Phone, MessageCircle,
-  Sparkles, CheckCircle2, Compass, Ruler, PenTool,
-  Code2, TestTube2, Cloud, LifeBuoy, Award, Zap, Cpu,
+  Mail, MapPin, Phone, MessageCircle,
+  Sparkles, CheckCircle2,
+  Code2, LifeBuoy, Award, Zap, Cpu,
 } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { Counter } from "./Counter";
@@ -482,144 +482,6 @@ function ProjectCard({ p, index, onClick }: { p: Project; index: number; onClick
   );
 }
 
-/* ============================== PROCESS ============================== */
-type Step = {
-  icon: typeof Compass;
-  title: string;
-  desc: string;
-  details: string;
-  outputs: string[];
-};
-
-const steps: Step[] = [
-  { icon: Compass, title: "Discovery", desc: "Understanding your business, users, and ambitions.", details: "We start with a deep-dive workshop: goals, KPIs, competitors, users and constraints. I map the emotional and functional promise of the product so every later decision has a reference point.", outputs: ["Discovery doc", "User personas", "Success metrics", "Scope & risks"] },
-  { icon: Ruler, title: "Planning", desc: "Architecture, scope, and a measurable roadmap.", details: "We turn the discovery into a real plan — sitemap, information architecture, technical stack, milestones and a delivery timeline you can hold me to.", outputs: ["Sitemap & IA", "Tech architecture", "Milestone roadmap", "Fixed-price scope"] },
-  { icon: PenTool, title: "Design", desc: "Cinematic, on-brand interfaces that convert.", details: "High-fidelity design in Figma — design system, key screens, motion principles and prototypes. We iterate against real content until every screen feels inevitable.", outputs: ["Design system", "High-fi Figma", "Motion principles", "Interactive prototype"] },
-  { icon: Code2, title: "Development", desc: "Production-grade code, engineered to scale.", details: "Clean, typed, tested code — React / TanStack / Next.js on the web, Kotlin / Swift / RN on mobile. Weekly demo builds so you see progress, never a black box.", outputs: ["Weekly demo builds", "Typed codebase", "CI/CD pipeline", "Component library"] },
-  { icon: TestTube2, title: "Testing", desc: "Cross-device QA and performance budgets.", details: "Full QA across devices, unit + integration tests where they matter, accessibility audits, and Lighthouse / Core Web Vitals sign-off before launch.", outputs: ["Cross-device QA", "Accessibility audit", "CWV report", "Bug triage"] },
-  { icon: Cloud, title: "Deployment", desc: "Zero-downtime launches on modern edge infra.", details: "Launch on Vercel / Cloudflare / Netlify / App Stores with zero-downtime cutover, staged environments, DNS and analytics wired up on day one.", outputs: ["Prod deploy", "Staging env", "DNS & SSL", "Analytics wired"] },
-  { icon: LifeBuoy, title: "Support", desc: "Ongoing iteration, monitoring, and evolution.", details: "Monthly retainer: monitoring, backups, security patches, iteration credits and roadmap workshops so the product keeps evolving with the business.", outputs: ["Uptime monitoring", "Monthly reports", "Iteration credits", "Quarterly roadmap"] },
-];
-
-export function Process() {
-  const [openIdx, setOpenIdx] = useState<number | null>(null);
-  const active = openIdx !== null ? steps[openIdx] : null;
-
-  return (
-    <section id="process" className="relative py-32 md:py-40">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-20 text-center">
-          <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#D4AF37]">
-              <Sparkles size={12} /> Process
-            </span>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <h2 className="mx-auto mt-6 max-w-3xl font-display text-4xl font-semibold leading-[1.05] text-white md:text-6xl">
-              From idea to <span className="text-gradient-gold italic font-normal">launch.</span>
-            </h2>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <p className="mx-auto mt-4 max-w-xl text-sm text-white/55">Click any step to see the full playbook.</p>
-          </Reveal>
-        </div>
-
-        <div className="relative">
-          <div className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[#D4AF37]/30 to-transparent lg:block" />
-          <div className="space-y-6 lg:space-y-16">
-            {steps.map((s, i) => (
-              <motion.div
-                key={s.title}
-                initial={{ opacity: 0, y: 40, scale: 0.97 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.7, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-2">
-                  <div className={i % 2 ? "lg:order-2 lg:pl-16" : "lg:order-1 lg:pr-16 lg:text-right"}>
-                    <button
-                      type="button"
-                      onClick={() => setOpenIdx(i)}
-                      className="glass-strong group inline-block w-full max-w-xl rounded-3xl p-8 text-left transition-all duration-500 hover:border-[#D4AF37]/60 hover:bg-[#D4AF37]/[0.06] md:p-10"
-                    >
-                      <div className={`mb-4 flex items-center gap-4 ${i % 2 ? "" : "lg:flex-row-reverse"}`}>
-                        <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-[#E8C767] to-[#A8862A] text-black transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
-                          <s.icon size={20} />
-                        </div>
-                        <div className="font-mono text-xs tracking-widest text-[#D4AF37]/60">STEP / {String(i + 1).padStart(2, "0")}</div>
-                      </div>
-                      <h3 className="font-display text-2xl font-medium text-white md:text-3xl">{s.title}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-white/60">{s.desc}</p>
-                      <div className={`mt-5 inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-[#D4AF37] ${i % 2 ? "" : "lg:flex-row-reverse"}`}>
-                        Learn more <ArrowUpRight size={12} />
-                      </div>
-                    </button>
-                  </div>
-                  <div className={`hidden lg:block ${i % 2 ? "lg:order-1" : "lg:order-2"}`}>
-                    <div className="relative h-1 w-full">
-                      <div className="absolute left-1/2 top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#D4AF37] gold-glow" />
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <Modal open={openIdx !== null} onClose={() => setOpenIdx(null)} maxWidth="max-w-2xl">
-        {active && (
-          <div>
-            <div className="flex items-center gap-4">
-              <motion.div
-                initial={{ rotateY: -180, scale: 0.5, opacity: 0 }}
-                animate={{ rotateY: 0, scale: 1, opacity: 1 }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                style={{ transformPerspective: 1000 }}
-                className="relative grid h-20 w-20 place-items-center rounded-2xl bg-gradient-to-br from-[#E8C767] via-[#D4AF37] to-[#A8862A] text-black shadow-[0_0_40px_-5px_rgba(212,175,55,0.6)]"
-              >
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                  className="absolute inset-0 rounded-2xl border border-dashed border-black/20"
-                />
-                <active.icon size={30} />
-              </motion.div>
-              <div>
-                <div className="text-[10px] uppercase tracking-[0.3em] text-[#D4AF37]/70">
-                  Step {openIdx !== null ? String(openIdx + 1).padStart(2, "0") : ""}
-                </div>
-                <h3 className="font-display text-2xl font-semibold text-white md:text-3xl">{active.title}</h3>
-              </div>
-            </div>
-            <p className="mt-6 leading-relaxed text-white/75">{active.details}</p>
-            <div className="mt-8">
-              <div className="text-xs uppercase tracking-[0.3em] text-[#D4AF37]/70">Deliverables</div>
-              <ul className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                {active.outputs.map((d, i) => (
-                  <motion.li
-                    key={d}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.2 + i * 0.06 }}
-                    className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.02] p-3 text-sm text-white/80"
-                  >
-                    <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-[#D4AF37]" />
-                    {d}
-                  </motion.li>
-                ))}
-              </ul>
-            </div>
-            <div className="mt-8">
-              <MagneticButton href="#contact">Start with {active.title} <ArrowUpRight size={16} /></MagneticButton>
-            </div>
-          </div>
-        )}
-      </Modal>
-    </section>
-  );
-}
-
 /* ============================== WHY CHOOSE ME ============================== */
 const reasons = [
   { icon: Award, label: "Premium UI/UX" },
@@ -713,60 +575,6 @@ export function Testimonials() {
                   </div>
                 </div>
               </motion.div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ============================== FAQ ============================== */
-const faqs = [
-  { q: "What kind of projects do you take on?", a: "Premium websites, e-commerce platforms, Android & iOS apps, and Shopify/WordPress builds for founders and brands who value craft." },
-  { q: "How long does a typical project take?", a: "Landing pages: 1–2 weeks. Business sites: 3–5 weeks. Web apps, mobile apps and e-commerce: 6–12 weeks depending on scope." },
-  { q: "Do you work with international clients?", a: "Yes — I'm based in Bangalore, India and collaborate with clients globally, adapting to your timezone for meetings and reviews." },
-  { q: "Do you offer ongoing maintenance?", a: "Absolutely. Monthly retainers cover updates, monitoring, backups, security patches and iterative improvements." },
-  { q: "Can you help with SEO?", a: "Yes. Technical SEO, on-page optimization, Core Web Vitals, and Google Search Console setup are core services." },
-  { q: "What's your pricing model?", a: "Fixed-price for well-scoped projects, monthly retainers for ongoing work. Reach out for a tailored quote." },
-];
-
-export function FAQ() {
-  const [open, setOpen] = useState<number | null>(0);
-  return (
-    <section className="relative py-32 md:py-40">
-      <div className="mx-auto max-w-4xl px-6">
-        <div className="mb-16 text-center">
-          <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#D4AF37]">
-              <Sparkles size={12} /> FAQ
-            </span>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.05] text-white md:text-6xl">
-              Frequently <span className="text-gradient-gold italic font-normal">asked.</span>
-            </h2>
-          </Reveal>
-        </div>
-        <div className="space-y-3">
-          {faqs.map((f, i) => (
-            <Reveal key={f.q} delay={i * 0.04}>
-              <div className={`glass overflow-hidden rounded-2xl transition-all duration-500 ${open === i ? "border-[#D4AF37]/40" : ""}`}>
-                <button onClick={() => setOpen(open === i ? null : i)} className="flex w-full items-center justify-between gap-6 p-6 text-left md:p-8">
-                  <span className="font-display text-lg font-medium text-white md:text-xl">{f.q}</span>
-                  <div className={`grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[#D4AF37]/30 text-[#D4AF37] transition-transform duration-500 ${open === i ? "rotate-180 bg-[#D4AF37]/10" : ""}`}>
-                    {open === i ? <Minus size={16} /> : <Plus size={16} />}
-                  </div>
-                </button>
-                <motion.div
-                  initial={false}
-                  animate={{ height: open === i ? "auto" : 0, opacity: open === i ? 1 : 0 }}
-                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  className="overflow-hidden"
-                >
-                  <div className="px-6 pb-6 text-white/65 md:px-8 md:pb-8">{f.a}</div>
-                </motion.div>
-              </div>
             </Reveal>
           ))}
         </div>
