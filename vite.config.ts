@@ -10,6 +10,13 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 // these variables during its build, where Nitro must emit Build Output API v3.
 const isVercel = process.env.VERCEL === "1" || process.env.VERCEL_ENV != null;
 
+// Prevent Lovable-only variables copied into Vercel settings from forcing the
+// Cloudflare output format, which leaves Vercel without a routable function.
+if (isVercel) {
+  delete process.env.LOVABLE_SANDBOX;
+  delete process.env.DEV_SERVER__PROJECT_PATH;
+}
+
 export default defineConfig({
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
