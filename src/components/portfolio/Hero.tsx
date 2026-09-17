@@ -25,7 +25,7 @@ export function Hero() {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
 
   return (
-    <section id="top" ref={ref} className="relative min-h-screen overflow-hidden bg-[#050505] pt-20">
+    <section id="top" ref={ref} className="relative min-h-screen overflow-hidden bg-[#0A0B0F] pt-20">
       {/* 3D scene */}
       <div className="absolute inset-0">
         <Suspense fallback={null}>
@@ -35,7 +35,7 @@ export function Hero() {
 
       {/* Radial vignette */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(5,5,5,0.85)_75%)]" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#050505] to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#0A0B0F] to-transparent" />
 
       {/* Floating particles */}
       <Particles />
@@ -49,10 +49,10 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/5 px-4 py-1.5 backdrop-blur-xl"
+          className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/30 bg-[#3B82F6]/5 px-4 py-1.5 backdrop-blur-xl"
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF37] animate-gold-pulse" />
-          <span className="text-xs uppercase tracking-[0.3em] text-[#E8C767]">Anusha H A · Bangalore · 4+ Years</span>
+          <span className="h-1.5 w-1.5 rounded-full bg-[#3B82F6] animate-accent-pulse" />
+          <span className="text-xs uppercase tracking-[0.3em] text-[#93C5FD]">Anusha H A · Bangalore · 4+ Years</span>
         </motion.div>
 
         <motion.h1
@@ -61,7 +61,7 @@ export function Hero() {
           transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="font-display text-5xl font-semibold leading-[0.95] tracking-tight text-white md:text-7xl lg:text-[8rem]"
         >
-          <span className="text-gradient-gold italic font-normal">App Developer</span>
+          <span className="text-gradient-accent italic font-normal">App Developer</span>
           <br />
           &amp; Full Stack Developer
         </motion.h1>
@@ -99,7 +99,7 @@ export function Hero() {
           transition={{ delay: 1.5, duration: 1 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
         >
-          <div className="flex flex-col items-center gap-2 text-[#D4AF37]/60">
+          <div className="flex flex-col items-center gap-2 text-[#3B82F6]/60">
             <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
             <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.8, repeat: Infinity }}>
               <ArrowDown size={14} />
@@ -125,7 +125,7 @@ function Particles() {
       {particleSeed.map((particle, i) => (
         <motion.div
           key={i}
-          className="absolute rounded-full bg-[#D4AF37]"
+          className="absolute rounded-full bg-[#3B82F6]"
           style={{
             width: particle.size,
             height: particle.size,

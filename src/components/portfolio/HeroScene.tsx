@@ -27,12 +27,12 @@ function GoldOrb() {
       <mesh ref={ref} scale={1.8}>
         <icosahedronGeometry args={[1, 8]} />
         <MeshDistortMaterial
-          color="#D4AF37"
+          color="#3B82F6"
           roughness={0.15}
           metalness={0.95}
           distort={0.35}
           speed={1.6}
-          emissive="#8a6a1f"
+          emissive="#1D4ED8"
           emissiveIntensity={0.35}
         />
       </mesh>
@@ -50,7 +50,7 @@ function TorusRing({ radius, tube, speed, tilt }: { radius: number; tube: number
   return (
     <mesh ref={ref}>
       <torusGeometry args={[radius, tube, 32, 128]} />
-      <meshStandardMaterial color="#D4AF37" metalness={1} roughness={0.2} emissive="#D4AF37" emissiveIntensity={0.15} />
+      <meshStandardMaterial color="#3B82F6" metalness={1} roughness={0.2} emissive="#3B82F6" emissiveIntensity={0.15} />
     </mesh>
   );
 }
@@ -70,7 +70,7 @@ function OrbitingGem({ phase, radius, speed, scale }: { phase: number; radius: n
   return (
     <mesh ref={ref} scale={scale}>
       <octahedronGeometry args={[0.45, 2]} />
-      <meshStandardMaterial color="#E8C767" metalness={1} roughness={0.12} emissive="#D4AF37" emissiveIntensity={0.2} />
+      <meshStandardMaterial color="#93C5FD" metalness={1} roughness={0.12} emissive="#3B82F6" emissiveIntensity={0.2} />
     </mesh>
   );
 }
@@ -88,11 +88,11 @@ function WireframeCage() {
     <group ref={ref}>
       <mesh scale={4.15}>
         <dodecahedronGeometry args={[1, 0]} />
-        <meshStandardMaterial color="#D4AF37" wireframe transparent opacity={0.16} />
+        <meshStandardMaterial color="#3B82F6" wireframe transparent opacity={0.16} />
       </mesh>
       <mesh scale={3.35} rotation={[0.6, 0.2, 0.9]}>
         <icosahedronGeometry args={[1, 1]} />
-        <meshStandardMaterial color="#E8C767" wireframe transparent opacity={0.1} />
+        <meshStandardMaterial color="#93C5FD" wireframe transparent opacity={0.1} />
       </mesh>
     </group>
   );
@@ -105,13 +105,13 @@ export function HeroScene() {
       camera={{ position: [0, 0, 5], fov: 50 }}
       gl={{ antialias: true, alpha: true }}
     >
-      <color attach="background" args={["#050505"]} />
-      <fog attach="fog" args={["#050505", 6, 12]} />
+      <color attach="background" args={["#0A0B0F"]} />
+      <fog attach="fog" args={["#0A0B0F", 6, 12]} />
       <CameraRig />
       <ambientLight intensity={0.35} />
-      <directionalLight position={[5, 5, 5]} intensity={1.4} color="#fff5d6" />
-      <pointLight position={[-5, -3, -5]} intensity={2} color="#D4AF37" />
-      <pointLight position={[3, -2, 3]} intensity={1} color="#8a6a1f" />
+      <directionalLight position={[5, 5, 5]} intensity={1.4} color="#E6F0FF" />
+      <pointLight position={[-5, -3, -5]} intensity={2} color="#3B82F6" />
+      <pointLight position={[3, -2, 3]} intensity={1} color="#1D4ED8" />
       <Suspense fallback={null}>
         <WireframeCage />
         <GoldOrb />
@@ -122,7 +122,7 @@ export function HeroScene() {
         <OrbitingGem phase={0} radius={2.7} speed={0.55} scale={0.42} />
         <OrbitingGem phase={2.2} radius={3.15} speed={0.42} scale={0.32} />
         <OrbitingGem phase={4.4} radius={2.25} speed={0.62} scale={0.26} />
-        <Sparkles count={140} scale={9} size={2.6} speed={0.55} color="#D4AF37" opacity={0.75} />
+        <Sparkles count={140} scale={9} size={2.6} speed={0.55} color="#3B82F6" opacity={0.75} />
         <Environment preset="city" />
       </Suspense>
     </Canvas>

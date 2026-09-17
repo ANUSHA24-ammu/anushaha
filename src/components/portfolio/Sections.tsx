@@ -18,7 +18,7 @@ import anushaAsset from "@/assets/anusha.jpeg.asset.json";
 export function About() {
   return (
     <section id="about" className="relative overflow-hidden py-32 md:py-40">
-      <div className="pointer-events-none absolute -top-40 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[#D4AF37]/10 blur-[120px]" />
+      <div className="pointer-events-none absolute -top-40 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[#3B82F6]/10 blur-[120px]" />
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-12">
         {/* Photo column */}
         <div className="lg:col-span-5">
@@ -29,8 +29,8 @@ export function About() {
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                 className="relative"
               >
-                <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-[#D4AF37]/40 via-[#E8C767]/20 to-transparent blur-2xl" />
-                <div className="relative overflow-hidden rounded-[2rem] border border-[#D4AF37]/40 bg-[#0a0a0a] p-2">
+                <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-[#3B82F6]/40 via-[#93C5FD]/20 to-transparent blur-2xl" />
+                <div className="relative overflow-hidden rounded-[2rem] border border-[#3B82F6]/40 bg-[#141821] p-2">
                   <img
                     src={anushaAsset.url}
                     alt="Anusha H A — App Developer & Full Stack Developer"
@@ -48,12 +48,12 @@ export function About() {
                 className="glass-strong absolute -bottom-6 -right-6 rounded-2xl px-5 py-4 md:-bottom-8 md:-right-8"
               >
                 <div className="flex items-center gap-3">
-                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-[#E8C767] to-[#A8862A] text-black">
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-[#93C5FD] to-[#2563EB] text-black">
                     <Award size={18} />
                   </div>
                   <div>
                     <div className="font-display text-xl font-semibold text-white">4+ Years</div>
-                    <div className="text-[10px] uppercase tracking-widest text-[#D4AF37]/80">Experience</div>
+                    <div className="text-[10px] uppercase tracking-widest text-[#3B82F6]/80">Experience</div>
                   </div>
                 </div>
               </motion.div>
@@ -64,7 +64,7 @@ export function About() {
                 transition={{ delay: 0.6, duration: 0.7 }}
                 className="glass-strong absolute -top-4 -left-4 flex items-center gap-2 rounded-full px-4 py-2"
               >
-                <MapPin size={14} className="text-[#D4AF37]" />
+                <MapPin size={14} className="text-[#3B82F6]" />
                 <span className="text-xs text-white/85">Bangalore, Karnataka</span>
               </motion.div>
             </div>
@@ -74,23 +74,23 @@ export function About() {
         {/* Text column */}
         <div className="lg:col-span-7">
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#D4AF37]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#3B82F6]">
               <Sparkles size={12} /> About
             </span>
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.05] text-white md:text-6xl">
               Anusha H A —{" "}
-              <span className="text-gradient-gold italic font-normal">App Developer</span>{" "}
+              <span className="text-gradient-accent italic font-normal">App Developer</span>{" "}
               & Full Stack Developer
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-6 font-sans text-lg leading-relaxed text-white/70">
               4+ years crafting scalable, cinematic digital products — from{" "}
-              <span className="text-[#E8C767]">Android &amp; iOS apps</span> to headless{" "}
-              <span className="text-[#E8C767]">Shopify</span> storefronts,{" "}
-              <span className="text-[#E8C767]">WordPress</span> sites, and premium web
+              <span className="text-[#93C5FD]">Android &amp; iOS apps</span> to headless{" "}
+              <span className="text-[#93C5FD]">Shopify</span> storefronts,{" "}
+              <span className="text-[#93C5FD]">WordPress</span> sites, and premium web
               applications. Based in Bangalore, working with brands worldwide.
             </p>
           </Reveal>
@@ -101,14 +101,14 @@ export function About() {
             </p>
           </Reveal>
           <Reveal delay={0.4}>
-            <div className="mt-10 grid grid-cols-3 gap-6 border-t border-[#D4AF37]/15 pt-8">
+            <div className="mt-10 grid grid-cols-3 gap-6 border-t border-[#3B82F6]/15 pt-8">
               {[
                 { n: 80, s: "+", l: "Projects Delivered" },
                 { n: 50, s: "+", l: "Happy Clients" },
                 { n: 4, s: "+", l: "Years Experience" },
               ].map((k) => (
                 <div key={k.l}>
-                  <div className="font-display text-3xl md:text-5xl font-semibold text-gradient-gold">
+                  <div className="font-display text-3xl md:text-5xl font-semibold text-gradient-accent">
                     <Counter to={k.n} suffix={k.s} />
                   </div>
                   <div className="mt-2 text-xs uppercase tracking-widest text-white/50">{k.l}</div>
@@ -158,13 +158,13 @@ export function Services() {
         <div className="mb-20 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>
             <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#D4AF37]">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#3B82F6]">
                 <Sparkles size={12} /> Services
               </span>
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="mt-6 max-w-2xl font-display text-4xl font-semibold leading-[1.05] text-white md:text-6xl">
-                A full studio, <span className="text-gradient-gold italic font-normal">in one person.</span>
+                A full studio, <span className="text-gradient-accent italic font-normal">in one person.</span>
               </h2>
             </Reveal>
           </div>
@@ -172,7 +172,7 @@ export function Services() {
             <p className="max-w-sm text-white/60">Click any service to see the full delivery scope.</p>
           </Reveal>
         </div>
-        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-[#D4AF37]/15 bg-[#D4AF37]/10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-[#3B82F6]/15 bg-[#3B82F6]/10 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
             <ServiceCard key={s.title} s={s} index={i} onClick={() => setOpenIdx(i)} />
           ))}
@@ -187,22 +187,22 @@ export function Services() {
                 initial={{ rotate: -20, scale: 0.6 }}
                 animate={{ rotate: 0, scale: 1 }}
                 transition={{ type: "spring", stiffness: 200, damping: 12 }}
-                className="grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-[#E8C767] to-[#A8862A] text-black"
+                className="grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-[#93C5FD] to-[#2563EB] text-black"
               >
                 <active.icon size={26} />
               </motion.div>
               <div>
-                <div className="text-[10px] uppercase tracking-[0.3em] text-[#D4AF37]/70">Service</div>
+                <div className="text-[10px] uppercase tracking-[0.3em] text-[#3B82F6]/70">Service</div>
                 <h3 className="font-display text-2xl font-semibold text-white md:text-3xl">{active.title}</h3>
               </div>
             </div>
             <p className="mt-6 leading-relaxed text-white/75">{active.details}</p>
             <div className="mt-8">
-              <div className="text-xs uppercase tracking-[0.3em] text-[#D4AF37]/70">What you get</div>
+              <div className="text-xs uppercase tracking-[0.3em] text-[#3B82F6]/70">What you get</div>
               <ul className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {active.deliverables.map((d) => (
                   <li key={d} className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.02] p-3 text-sm text-white/80">
-                    <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-[#D4AF37]" />
+                    <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-[#3B82F6]" />
                     {d}
                   </li>
                 ))}
@@ -230,19 +230,19 @@ function ServiceCard({ s, index, onClick }: { s: Service; index: number; onClick
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.6, delay: (index % 3) * 0.08 }}
       style={{ transformPerspective: 1000 }}
-      className="group relative overflow-hidden bg-[#0a0a0a] p-8 text-left transition-colors duration-500 hover:bg-[#0d0b06]"
+      className="group relative overflow-hidden bg-[#141821] p-8 text-left transition-colors duration-500 hover:bg-[#1E2330]"
     >
-      <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-[#D4AF37]/10 opacity-0 blur-3xl transition-opacity duration-700 group-hover:opacity-100" />
+      <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-[#3B82F6]/10 opacity-0 blur-3xl transition-opacity duration-700 group-hover:opacity-100" />
       <div className="relative flex items-start justify-between">
-        <div className="grid h-14 w-14 place-items-center rounded-2xl border border-[#D4AF37]/25 bg-gradient-to-br from-[#D4AF37]/15 to-transparent text-[#E8C767] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+        <div className="grid h-14 w-14 place-items-center rounded-2xl border border-[#3B82F6]/25 bg-gradient-to-br from-[#3B82F6]/15 to-transparent text-[#93C5FD] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
           <Icon size={22} strokeWidth={1.4} />
         </div>
-        <ArrowUpRight className="text-white/20 transition-all duration-500 group-hover:text-[#D4AF37] group-hover:translate-x-1 group-hover:-translate-y-1" size={20} />
+        <ArrowUpRight className="text-white/20 transition-all duration-500 group-hover:text-[#3B82F6] group-hover:translate-x-1 group-hover:-translate-y-1" size={20} />
       </div>
       <h3 className="relative mt-8 font-display text-xl font-medium text-white">{s.title}</h3>
       <p className="relative mt-3 text-sm leading-relaxed text-white/55">{s.desc}</p>
       <div className="relative mt-8 h-px w-full overflow-hidden bg-white/5">
-        <div className="h-full w-0 bg-gradient-to-r from-[#D4AF37] to-transparent transition-all duration-700 group-hover:w-full" />
+        <div className="h-full w-0 bg-gradient-to-r from-[#3B82F6] to-transparent transition-all duration-700 group-hover:w-full" />
       </div>
     </motion.button>
   );
@@ -262,17 +262,17 @@ const skillGroups = [
 export function Skills() {
   return (
     <section id="skills" className="relative py-32 md:py-40">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(212,175,55,0.08),transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(59,130,246,0.08),transparent_60%)]" />
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="mb-16 max-w-3xl">
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#D4AF37]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#3B82F6]">
               <Sparkles size={12} /> Skills
             </span>
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.05] text-white md:text-6xl">
-              A refined <span className="text-gradient-gold italic font-normal">technology stack.</span>
+              A refined <span className="text-gradient-accent italic font-normal">technology stack.</span>
             </h2>
           </Reveal>
         </div>
@@ -285,10 +285,10 @@ export function Skills() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="glass rounded-2xl p-6 md:p-8 transition-all duration-500 hover:border-[#D4AF37]/40">
+              <div className="glass rounded-2xl p-6 md:p-8 transition-all duration-500 hover:border-[#3B82F6]/40">
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-[220px_1fr] md:items-center">
                   <div className="flex items-center gap-3">
-                    <div className="h-1.5 w-1.5 rounded-full bg-[#D4AF37] animate-gold-pulse" />
+                    <div className="h-1.5 w-1.5 rounded-full bg-[#3B82F6] animate-accent-pulse" />
                     <div className="font-display text-xl font-medium text-white">{g.label}</div>
                   </div>
                   <div className="flex flex-wrap gap-2">
@@ -299,7 +299,7 @@ export function Skills() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: k * 0.03, duration: 0.4 }}
-                        className="rounded-full border border-white/10 bg-white/[0.02] px-4 py-2 text-sm text-white/80 transition-all duration-300 hover:border-[#D4AF37]/50 hover:bg-[#D4AF37]/5 hover:text-[#E8C767]"
+                        className="rounded-full border border-white/10 bg-white/[0.02] px-4 py-2 text-sm text-white/80 transition-all duration-300 hover:border-[#3B82F6]/50 hover:bg-[#3B82F6]/5 hover:text-[#93C5FD]"
                       >
                         {item}
                       </motion.span>
@@ -367,13 +367,13 @@ export function Portfolio() {
         <div className="mb-12 flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
           <div>
             <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#D4AF37]">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#3B82F6]">
                 <Sparkles size={12} /> Selected Work
               </span>
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.05] text-white md:text-6xl">
-                Live projects — <span className="text-gradient-gold italic font-normal">click to explore.</span>
+                Live projects — <span className="text-gradient-accent italic font-normal">click to explore.</span>
               </h2>
             </Reveal>
           </div>
@@ -385,8 +385,8 @@ export function Portfolio() {
                   onClick={() => { setActive(c); setOpenIdx(null); }}
                   className={`rounded-full border px-4 py-2 text-xs uppercase tracking-widest transition-all ${
                     active === c
-                      ? "border-[#D4AF37] bg-[#D4AF37] text-black"
-                      : "border-white/10 text-white/60 hover:border-[#D4AF37]/50 hover:text-[#E8C767]"
+                      ? "border-[#3B82F6] bg-[#3B82F6] text-black"
+                      : "border-white/10 text-white/60 hover:border-[#3B82F6]/50 hover:text-[#93C5FD]"
                   }`}
                 >
                   {c}
@@ -406,11 +406,11 @@ export function Portfolio() {
       <Modal open={openIdx !== null} onClose={() => setOpenIdx(null)} maxWidth="max-w-3xl">
         {current && (
           <div>
-            <div className="overflow-hidden rounded-2xl border border-[#D4AF37]/20">
+            <div className="overflow-hidden rounded-2xl border border-[#3B82F6]/20">
               <img src={current.img} alt={current.title} className="h-64 w-full object-cover md:h-80" />
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-3">
-              <span className="rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-[#E8C767]">
+              <span className="rounded-full border border-[#3B82F6]/40 bg-[#3B82F6]/10 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-[#93C5FD]">
                 {current.cat}
               </span>
               <h3 className="font-display text-3xl font-semibold text-white md:text-4xl">{current.title}</h3>
@@ -426,7 +426,7 @@ export function Portfolio() {
                 href={current.url}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#E8C767] via-[#D4AF37] to-[#A8862A] px-6 py-3 text-sm font-medium text-black gold-glow-hover"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#93C5FD] via-[#3B82F6] to-[#2563EB] px-6 py-3 text-sm font-medium text-black accent-glow-hover"
               >
                 <ExternalLink size={14} /> Visit Live Site
               </a>
@@ -449,7 +449,7 @@ function ProjectCard({ p, index, onClick }: { p: Project; index: number; onClick
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.7, delay: (index % 3) * 0.08, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -8 }}
-      className="group relative overflow-hidden rounded-3xl border border-[#D4AF37]/15 bg-[#0a0a0a] text-left"
+      className="group relative overflow-hidden rounded-3xl border border-[#3B82F6]/15 bg-[#141821] text-left"
     >
       <div className="relative aspect-[16/10] overflow-hidden">
         <img
@@ -458,14 +458,14 @@ function ProjectCard({ p, index, onClick }: { p: Project; index: number; onClick
           loading="lazy"
           className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B0F] via-[#0A0B0F]/40 to-transparent" />
         <div className="absolute left-6 top-6">
-          <span className="rounded-full border border-[#D4AF37]/40 bg-black/40 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-[#E8C767] backdrop-blur">
+          <span className="rounded-full border border-[#3B82F6]/40 bg-black/40 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-[#93C5FD] backdrop-blur">
             {p.cat}
           </span>
         </div>
         <div className="absolute inset-0 flex items-end justify-end p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-          <div className="rounded-full bg-[#D4AF37] px-3 py-1.5 text-[11px] font-medium text-black">View details →</div>
+          <div className="rounded-full bg-[#3B82F6] px-3 py-1.5 text-[11px] font-medium text-black">View details →</div>
         </div>
       </div>
       <div className="p-6">
@@ -476,7 +476,7 @@ function ProjectCard({ p, index, onClick }: { p: Project; index: number; onClick
             <span key={t} className="rounded-full border border-white/10 px-3 py-1 text-[11px] text-white/60">{t}</span>
           ))}
         </div>
-        <div className="mt-4 truncate text-xs text-[#D4AF37]/70">{p.url.replace(/^https?:\/\//, "")}</div>
+        <div className="mt-4 truncate text-xs text-[#3B82F6]/70">{p.url.replace(/^https?:\/\//, "")}</div>
       </div>
     </motion.button>
   );
@@ -501,13 +501,13 @@ export function WhyChoose() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16">
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#D4AF37]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#3B82F6]">
               <Sparkles size={12} /> Why Choose Me
             </span>
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-6 max-w-3xl font-display text-4xl font-semibold leading-[1.05] text-white md:text-6xl">
-              Nine reasons to <span className="text-gradient-gold italic font-normal">work together.</span>
+              Nine reasons to <span className="text-gradient-accent italic font-normal">work together.</span>
             </h2>
           </Reveal>
         </div>
@@ -520,8 +520,8 @@ export function WhyChoose() {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
             >
-              <div className="group glass flex items-center gap-4 rounded-2xl p-6 transition-all duration-500 hover:border-[#D4AF37]/50 hover:bg-[#D4AF37]/[0.04]">
-                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#E8C767] to-[#A8862A] text-black transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+              <div className="group glass flex items-center gap-4 rounded-2xl p-6 transition-all duration-500 hover:border-[#3B82F6]/50 hover:bg-[#3B82F6]/[0.04]">
+                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#93C5FD] to-[#2563EB] text-black transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
                   <r.icon size={18} />
                 </div>
                 <div className="font-display text-lg font-medium text-white">{r.label}</div>
@@ -545,17 +545,17 @@ const testimonials = [
 export function Testimonials() {
   return (
     <section className="relative py-32 md:py-40">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-96 bg-[radial-gradient(ellipse_at_top,rgba(212,175,55,0.08),transparent_70%)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-96 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.08),transparent_70%)]" />
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="mb-16 text-center">
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#D4AF37]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#3B82F6]">
               <Sparkles size={12} /> Testimonials
             </span>
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="mx-auto mt-6 max-w-3xl font-display text-4xl font-semibold leading-[1.05] text-white md:text-6xl">
-              Kind words from <span className="text-gradient-gold italic font-normal">partners.</span>
+              Kind words from <span className="text-gradient-accent italic font-normal">partners.</span>
             </h2>
           </Reveal>
         </div>
@@ -563,15 +563,15 @@ export function Testimonials() {
           {testimonials.map((t, i) => (
             <Reveal key={t.name} delay={(i % 2) * 0.08}>
               <motion.div whileHover={{ y: -6 }} className="glass-strong group relative overflow-hidden rounded-3xl p-8 md:p-10">
-                <div className="pointer-events-none absolute -right-8 -top-8 font-display text-[180px] leading-none text-[#D4AF37]/10">&ldquo;</div>
+                <div className="pointer-events-none absolute -right-8 -top-8 font-display text-[180px] leading-none text-[#3B82F6]/10">&ldquo;</div>
                 <p className="relative font-display text-xl leading-relaxed text-white/85 md:text-2xl">&ldquo;{t.quote}&rdquo;</p>
                 <div className="relative mt-8 flex items-center gap-4 border-t border-white/10 pt-6">
-                  <div className="grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-[#E8C767] to-[#A8862A] font-display text-sm font-semibold text-black">
+                  <div className="grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-[#93C5FD] to-[#2563EB] font-display text-sm font-semibold text-black">
                     {t.name.split(" ").map((n) => n[0]).join("")}
                   </div>
                   <div>
                     <div className="font-medium text-white">{t.name}</div>
-                    <div className="text-xs uppercase tracking-widest text-[#D4AF37]/70">{t.role}</div>
+                    <div className="text-xs uppercase tracking-widest text-[#3B82F6]/70">{t.role}</div>
                   </div>
                 </div>
               </motion.div>
@@ -599,30 +599,30 @@ export function Contact() {
 
   return (
     <section id="contact" className="relative py-32 md:py-40">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.06),transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.06),transparent_60%)]" />
       <motion.div
         aria-hidden="true"
         animate={{ rotateX: [0, 18, 0], rotateY: [0, -28, 0], y: [0, -28, 0] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="pointer-events-none absolute right-[8%] top-24 hidden h-28 w-28 rounded-3xl border border-[#D4AF37]/25 bg-[#D4AF37]/5 shadow-[0_0_70px_-20px_rgba(212,175,55,0.7)] backdrop-blur-xl lg:block"
+        className="pointer-events-none absolute right-[8%] top-24 hidden h-28 w-28 rounded-3xl border border-[#3B82F6]/25 bg-[#3B82F6]/5 shadow-[0_0_70px_-20px_rgba(59,130,246,0.7)] backdrop-blur-xl lg:block"
         style={{ transformPerspective: 900 }}
       />
       <motion.div
         aria-hidden="true"
         animate={{ rotateZ: [0, 360], scale: [1, 1.12, 1] }}
         transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-        className="pointer-events-none absolute bottom-28 left-[6%] hidden h-36 w-36 rounded-full border border-dashed border-[#D4AF37]/20 lg:block"
+        className="pointer-events-none absolute bottom-28 left-[6%] hidden h-36 w-36 rounded-full border border-dashed border-[#3B82F6]/20 lg:block"
       />
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="mb-20 text-center">
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#D4AF37]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#3B82F6]">
               <Sparkles size={12} /> Contact
             </span>
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="mx-auto mt-6 max-w-3xl font-display text-5xl font-semibold leading-[1.02] text-white md:text-7xl">
-              Let&apos;s create <span className="text-gradient-gold italic font-normal">something premium.</span>
+              Let&apos;s create <span className="text-gradient-accent italic font-normal">something premium.</span>
             </h2>
           </Reveal>
         </div>
@@ -646,16 +646,16 @@ export function Contact() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.06 }}
                 whileHover={{ x: 6 }}
-                className="group glass flex items-center gap-5 rounded-2xl p-5 transition-colors hover:border-[#D4AF37]/50 hover:bg-[#D4AF37]/[0.04]"
+                className="group glass flex items-center gap-5 rounded-2xl p-5 transition-colors hover:border-[#3B82F6]/50 hover:bg-[#3B82F6]/[0.04]"
               >
-                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#E8C767] to-[#A8862A] text-black">
+                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#93C5FD] to-[#2563EB] text-black">
                   <c.icon size={18} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <div className="text-xs uppercase tracking-widest text-[#D4AF37]/70">{c.label}</div>
+                  <div className="text-xs uppercase tracking-widest text-[#3B82F6]/70">{c.label}</div>
                   <div className="mt-0.5 truncate font-display text-lg text-white">{c.value}</div>
                 </div>
-                {c.href && <ArrowUpRight className="text-white/30 transition-all group-hover:text-[#D4AF37] group-hover:translate-x-1 group-hover:-translate-y-1" size={18} />}
+                {c.href && <ArrowUpRight className="text-white/30 transition-all group-hover:text-[#3B82F6] group-hover:translate-x-1 group-hover:-translate-y-1" size={18} />}
               </motion.a>
             ))}
           </div>
@@ -676,7 +676,7 @@ export function Contact() {
                 <input type="text" name="_honey" tabIndex={-1} autoComplete="off" className="hidden" />
                 {(["name", "email"] as const).map((f) => (
                   <div key={f} className="relative">
-                    <label className={`absolute left-0 pointer-events-none font-mono text-xs uppercase tracking-[0.2em] transition-all duration-300 ${focus === f || state[f] ? "-top-1 text-[10px] text-[#D4AF37]" : "top-4 text-white/40"}`}>
+                    <label className={`absolute left-0 pointer-events-none font-mono text-xs uppercase tracking-[0.2em] transition-all duration-300 ${focus === f || state[f] ? "-top-1 text-[10px] text-[#3B82F6]" : "top-4 text-white/40"}`}>
                       {f === "name" ? "Your Name" : "Email Address"}
                     </label>
                     <input
@@ -688,20 +688,20 @@ export function Contact() {
                       onFocus={() => setFocus(f)}
                       onBlur={() => setFocus(null)}
                       onChange={(e) => setState({ ...state, [f]: e.target.value })}
-                      className="w-full border-b border-white/20 bg-transparent pb-2 pt-6 text-white outline-none transition-colors focus:border-[#D4AF37]"
+                      className="w-full border-b border-white/20 bg-transparent pb-2 pt-6 text-white outline-none transition-colors focus:border-[#3B82F6]"
                     />
                   </div>
                 ))}
                 <div>
-                  <div className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-[#D4AF37]/75">Project Type</div>
+                  <div className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-[#3B82F6]/75">Project Type</div>
                   <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
                     {projectTypes.map((type) => (
                       <label
                         key={type}
                         className={`group relative cursor-pointer rounded-2xl border p-4 text-center text-xs uppercase tracking-widest transition-all duration-300 ${
                           state.projectType === type
-                            ? "border-[#D4AF37] bg-[#D4AF37]/10 text-[#E8C767] shadow-[0_0_30px_-18px_rgba(212,175,55,0.9)]"
-                            : "border-white/10 bg-white/[0.02] text-white/55 hover:border-[#D4AF37]/50 hover:text-[#E8C767]"
+                            ? "border-[#3B82F6] bg-[#3B82F6]/10 text-[#93C5FD] shadow-[0_0_30px_-18px_rgba(59,130,246,0.9)]"
+                            : "border-white/10 bg-white/[0.02] text-white/55 hover:border-[#3B82F6]/50 hover:text-[#93C5FD]"
                         }`}
                       >
                         <input
@@ -712,14 +712,14 @@ export function Contact() {
                           onChange={() => setState({ ...state, projectType: type })}
                           className="sr-only"
                         />
-                        <span className="mx-auto mb-2 block h-2 w-2 rounded-full bg-[#D4AF37] opacity-40 transition-opacity group-hover:opacity-100" />
+                        <span className="mx-auto mb-2 block h-2 w-2 rounded-full bg-[#3B82F6] opacity-40 transition-opacity group-hover:opacity-100" />
                         {type}
                       </label>
                     ))}
                   </div>
                 </div>
                 <div className="relative">
-                  <label className={`absolute left-0 pointer-events-none font-mono text-xs uppercase tracking-[0.2em] transition-all duration-300 ${focus === "message" || state.message ? "-top-1 text-[10px] text-[#D4AF37]" : "top-4 text-white/40"}`}>
+                  <label className={`absolute left-0 pointer-events-none font-mono text-xs uppercase tracking-[0.2em] transition-all duration-300 ${focus === "message" || state.message ? "-top-1 text-[10px] text-[#3B82F6]" : "top-4 text-white/40"}`}>
                     Tell me about your project
                   </label>
                   <textarea
@@ -731,12 +731,12 @@ export function Contact() {
                     onFocus={() => setFocus("message")}
                     onBlur={() => setFocus(null)}
                     onChange={(e) => setState({ ...state, message: e.target.value })}
-                    className="w-full resize-none border-b border-white/20 bg-transparent pb-2 pt-6 text-white outline-none transition-colors focus:border-[#D4AF37]"
+                    className="w-full resize-none border-b border-white/20 bg-transparent pb-2 pt-6 text-white outline-none transition-colors focus:border-[#3B82F6]"
                   />
                 </div>
                 <div className="flex items-center justify-between pt-4">
                   <div className="text-xs text-white/40">{sent ? "Details sent to aanushaha1998@gmail.com." : "Typical reply within 24 hours."}</div>
-                  <button type="submit" className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#E8C767] via-[#D4AF37] to-[#A8862A] px-7 py-3.5 text-sm font-medium tracking-wide text-black gold-glow-hover">
+                  <button type="submit" className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#93C5FD] via-[#3B82F6] to-[#2563EB] px-7 py-3.5 text-sm font-medium tracking-wide text-black accent-glow-hover">
                     Send Message <ArrowUpRight size={16} />
                   </button>
                 </div>
@@ -752,11 +752,11 @@ export function Contact() {
 /* ============================== FOOTER ============================== */
 export function Footer() {
   return (
-    <footer className="relative border-t border-[#D4AF37]/15 bg-[#050505] pt-20">
+    <footer className="relative border-t border-[#3B82F6]/15 bg-[#0A0B0F] pt-20">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <div className="font-display text-3xl md:text-4xl font-semibold text-gradient-gold">Anusha H A</div>
+            <div className="font-display text-3xl md:text-4xl font-semibold text-gradient-accent">Anusha H A</div>
             <p className="mt-4 max-w-sm text-white/60">App Developer &amp; Full Stack Developer crafting cinematic digital experiences for premium brands worldwide. Based in Bangalore, Karnataka.</p>
             <div className="mt-6 flex flex-wrap gap-3">
               {[
@@ -765,7 +765,7 @@ export function Footer() {
                 { icon: Mail, href: "mailto:aanushaha1998@gmail.com", label: "Email" },
                 { icon: MessageCircle, href: "https://wa.me/919663471531", label: "WhatsApp" },
               ].map((s) => (
-                <a key={s.label} href={s.href} target="_blank" rel="noreferrer" aria-label={s.label} className="grid h-11 w-11 place-items-center rounded-full border border-white/10 text-white/70 transition-all hover:border-[#D4AF37] hover:bg-[#D4AF37]/10 hover:text-[#E8C767]">
+                <a key={s.label} href={s.href} target="_blank" rel="noreferrer" aria-label={s.label} className="grid h-11 w-11 place-items-center rounded-full border border-white/10 text-white/70 transition-all hover:border-[#3B82F6] hover:bg-[#3B82F6]/10 hover:text-[#93C5FD]">
                   <s.icon size={16} />
                 </a>
               ))}
@@ -773,20 +773,20 @@ export function Footer() {
           </div>
 
           <div className="md:col-span-4">
-            <div className="text-xs uppercase tracking-[0.3em] text-[#D4AF37]/70">Quick Links</div>
+            <div className="text-xs uppercase tracking-[0.3em] text-[#3B82F6]/70">Quick Links</div>
             <ul className="mt-5 grid grid-cols-2 gap-y-2 text-sm">
               {["About", "Services", "Skills", "Portfolio", "Contact"].map((l) => (
-                <li key={l}><a href={`#${l.toLowerCase()}`} className="text-white/60 transition-colors hover:text-[#E8C767]">{l}</a></li>
+                <li key={l}><a href={`#${l.toLowerCase()}`} className="text-white/60 transition-colors hover:text-[#93C5FD]">{l}</a></li>
               ))}
             </ul>
           </div>
 
           <div className="md:col-span-3">
-            <div className="text-xs uppercase tracking-[0.3em] text-[#D4AF37]/70">Reach Out</div>
+            <div className="text-xs uppercase tracking-[0.3em] text-[#3B82F6]/70">Reach Out</div>
             <ul className="mt-5 space-y-2 text-sm">
-              <li><a href="mailto:aanushaha1998@gmail.com" className="text-white/60 hover:text-[#E8C767]">aanushaha1998@gmail.com</a></li>
-              <li><a href="tel:+919663471531" className="text-white/60 hover:text-[#E8C767]">+91 96634 71531</a></li>
-              <li className="flex items-center gap-1.5 text-white/60"><MapPin size={12} className="text-[#D4AF37]" /> Bangalore, Karnataka</li>
+              <li><a href="mailto:aanushaha1998@gmail.com" className="text-white/60 hover:text-[#93C5FD]">aanushaha1998@gmail.com</a></li>
+              <li><a href="tel:+919663471531" className="text-white/60 hover:text-[#93C5FD]">+91 96634 71531</a></li>
+              <li className="flex items-center gap-1.5 text-white/60"><MapPin size={12} className="text-[#3B82F6]" /> Bangalore, Karnataka</li>
             </ul>
           </div>
         </div>

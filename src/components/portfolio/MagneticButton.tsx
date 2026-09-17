@@ -29,9 +29,9 @@ export function MagneticButton({ children, onClick, variant = "gold", href, clas
 
   const base = "relative inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium tracking-wide transition-colors";
   const styles = {
-    gold: "bg-gradient-to-r from-[#E8C767] via-[#D4AF37] to-[#A8862A] text-black gold-glow-hover",
-    outline: "border border-[#D4AF37]/40 text-[#E8C767] hover:bg-[#D4AF37]/10 hover:border-[#D4AF37]",
-    ghost: "text-white/80 hover:text-[#E8C767]",
+    gold: "bg-gradient-to-r from-[#93C5FD] via-[#3B82F6] to-[#2563EB] text-black accent-glow-hover",
+    outline: "border border-[#3B82F6]/40 text-[#93C5FD] hover:bg-[#3B82F6]/10 hover:border-[#3B82F6]",
+    ghost: "text-white/80 hover:text-[#93C5FD]",
   }[variant];
 
   const inner = (
