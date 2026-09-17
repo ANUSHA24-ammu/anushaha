@@ -20,11 +20,21 @@ export function Loader() {
     return () => clearInterval(t);
   }, []);
 
+  // Hard safety net: never let the intro overlay trap the page.
+  useEffect(() => {
+    const t = setTimeout(() => {
+      setDone(true);
+      setTimeout(() => setHidden(true), 1000);
+    }, 3200);
+    return () => clearTimeout(t);
+  }, []);
+
   useEffect(() => {
     if (!done) return;
     const t = setTimeout(() => setHidden(true), 1100);
     return () => clearTimeout(t);
   }, [done]);
+
 
   if (hidden) return null;
 
