@@ -48,7 +48,7 @@ export function About() {
                 className="glass-strong absolute -bottom-6 -right-6 rounded-2xl px-5 py-4 md:-bottom-8 md:-right-8"
               >
                 <div className="flex items-center gap-3">
-                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-[#93C5FD] to-[#2563EB] text-black">
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-[#3B82F6] to-[#1D4ED8] text-white">
                     <Award size={18} />
                   </div>
                   <div>
@@ -187,7 +187,7 @@ export function Services() {
                 initial={{ rotate: -20, scale: 0.6 }}
                 animate={{ rotate: 0, scale: 1 }}
                 transition={{ type: "spring", stiffness: 200, damping: 12 }}
-                className="grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-[#93C5FD] to-[#2563EB] text-black"
+                className="grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-[#3B82F6] to-[#1D4ED8] text-white"
               >
                 <active.icon size={26} />
               </motion.div>
@@ -385,7 +385,7 @@ export function Portfolio() {
                   onClick={() => { setActive(c); setOpenIdx(null); }}
                   className={`rounded-full border px-4 py-2 text-xs uppercase tracking-widest transition-all ${
                     active === c
-                      ? "border-[#3B82F6] bg-[#3B82F6] text-black"
+                      ? "border-[#3B82F6] bg-[#3B82F6] text-white"
                       : "border-white/10 text-white/60 hover:border-[#3B82F6]/50 hover:text-[#93C5FD]"
                   }`}
                 >
@@ -426,7 +426,7 @@ export function Portfolio() {
                 href={current.url}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#93C5FD] via-[#3B82F6] to-[#2563EB] px-6 py-3 text-sm font-medium text-black accent-glow-hover"
+                className="inline-flex items-center gap-2 rounded-full bg-[#3B82F6] hover:bg-[#2563EB] px-6 py-3 text-sm font-medium text-white accent-glow-hover"
               >
                 <ExternalLink size={14} /> Visit Live Site
               </a>
@@ -465,7 +465,7 @@ function ProjectCard({ p, index, onClick }: { p: Project; index: number; onClick
           </span>
         </div>
         <div className="absolute inset-0 flex items-end justify-end p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-          <div className="rounded-full bg-[#3B82F6] px-3 py-1.5 text-[11px] font-medium text-black">View details →</div>
+          <div className="rounded-full bg-[#3B82F6] px-3 py-1.5 text-[11px] font-medium text-white">View details →</div>
         </div>
       </div>
       <div className="p-6">
@@ -521,7 +521,7 @@ export function WhyChoose() {
               transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
             >
               <div className="group glass flex items-center gap-4 rounded-2xl p-6 transition-all duration-500 hover:border-[#3B82F6]/50 hover:bg-[#3B82F6]/[0.04]">
-                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#93C5FD] to-[#2563EB] text-black transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#3B82F6] to-[#1D4ED8] text-white transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
                   <r.icon size={18} />
                 </div>
                 <div className="font-display text-lg font-medium text-white">{r.label}</div>
@@ -566,7 +566,7 @@ export function Testimonials() {
                 <div className="pointer-events-none absolute -right-8 -top-8 font-display text-[180px] leading-none text-[#3B82F6]/10">&ldquo;</div>
                 <p className="relative font-display text-xl leading-relaxed text-white/85 md:text-2xl">&ldquo;{t.quote}&rdquo;</p>
                 <div className="relative mt-8 flex items-center gap-4 border-t border-white/10 pt-6">
-                  <div className="grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-[#93C5FD] to-[#2563EB] font-display text-sm font-semibold text-black">
+                  <div className="grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-[#3B82F6] to-[#1D4ED8] font-display text-sm font-semibold text-white">
                     {t.name.split(" ").map((n) => n[0]).join("")}
                   </div>
                   <div>
@@ -648,7 +648,7 @@ export function Contact() {
                 whileHover={{ x: 6 }}
                 className="group glass flex items-center gap-5 rounded-2xl p-5 transition-colors hover:border-[#3B82F6]/50 hover:bg-[#3B82F6]/[0.04]"
               >
-                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#93C5FD] to-[#2563EB] text-black">
+                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#3B82F6] to-[#1D4ED8] text-white">
                   <c.icon size={18} />
                 </div>
                 <div className="min-w-0 flex-1">
@@ -736,7 +736,7 @@ export function Contact() {
                 </div>
                 <div className="flex items-center justify-between pt-4">
                   <div className="text-xs text-white/40">{sent ? "Details sent to aanushaha1998@gmail.com." : "Typical reply within 24 hours."}</div>
-                  <button type="submit" className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#93C5FD] via-[#3B82F6] to-[#2563EB] px-7 py-3.5 text-sm font-medium tracking-wide text-black accent-glow-hover">
+                  <button type="submit" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#3B82F6] hover:bg-[#2563EB] px-7 py-3.5 text-sm font-medium tracking-wide text-white accent-glow-hover">
                     Send Message <ArrowUpRight size={16} />
                   </button>
                 </div>

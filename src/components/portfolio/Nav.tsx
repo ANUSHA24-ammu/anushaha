@@ -34,7 +34,7 @@ export function Nav() {
             </a>
           ))}
         </nav>
-        <a href="#contact" className="hidden md:inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/40 px-4 py-2 text-xs uppercase tracking-widest text-[#93C5FD] transition-all hover:bg-[#3B82F6] hover:text-black">
+        <a href="#contact" className="hidden md:inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/40 px-4 py-2 text-xs uppercase tracking-widest text-[#93C5FD] transition-all hover:bg-[#3B82F6] hover:text-white">
           Let's Talk
         </a>
         <button
