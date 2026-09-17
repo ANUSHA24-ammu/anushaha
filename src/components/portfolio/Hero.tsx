@@ -19,7 +19,7 @@ export function Hero() {
       className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#0A0B0F] px-5 pt-28 pb-24 sm:px-6 md:pt-32"
     >
       {/* Ambient 3D backdrop */}
-      <div className="pointer-events-none absolute inset-0 opacity-60">
+      <div className="pointer-events-none absolute inset-0 opacity-40">
         <Suspense fallback={null}>
           <HeroScene />
         </Suspense>
