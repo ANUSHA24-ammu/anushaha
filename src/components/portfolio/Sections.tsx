@@ -101,21 +101,20 @@ export function About() {
             </p>
           </Reveal>
           <Reveal delay={0.4}>
-            <div className="mt-10 grid grid-cols-3 gap-6 border-t border-[#3B82F6]/15 pt-8">
+            <div className="mt-10 grid grid-cols-1 gap-4 border-t border-white/10 pt-8 sm:grid-cols-3">
               {[
-                { n: 80, s: "+", l: "Projects Delivered" },
-                { n: 50, s: "+", l: "Happy Clients" },
-                { n: 4, s: "+", l: "Years Experience" },
+                { l: "Experience", v: "4+ Years" },
+                { l: "Based in", v: "Bangalore, India" },
+                { l: "Working with", v: "Brands worldwide" },
               ].map((k) => (
-                <div key={k.l}>
-                  <div className="font-display text-3xl md:text-5xl font-semibold text-gradient-accent">
-                    <Counter to={k.n} suffix={k.s} />
-                  </div>
-                  <div className="mt-2 text-xs uppercase tracking-widest text-white/50">{k.l}</div>
+                <div key={k.l} className="rounded-2xl border border-white/8 bg-white/[0.02] p-5">
+                  <div className="text-[10px] uppercase tracking-[0.25em] text-[#93C5FD]/70">{k.l}</div>
+                  <div className="mt-2 font-display text-lg font-semibold text-white md:text-xl">{k.v}</div>
                 </div>
               ))}
             </div>
           </Reveal>
+
         </div>
       </div>
     </section>
