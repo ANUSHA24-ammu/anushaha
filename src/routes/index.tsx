@@ -12,7 +12,18 @@ import { Loader } from "@/components/portfolio/Loader";
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
+    meta: [
+      { title: "Anusha H A — Web & App Developer in Bangalore" },
+      { name: "description", content: "Anusha H A builds Android & iOS apps, Shopify storefronts, WordPress sites and full stack web platforms for brands worldwide. 4+ years experience, Bangalore." },
+      { property: "og:title", content: "Anusha H A — Web & App Developer in Bangalore" },
+      { property: "og:description", content: "Android & iOS apps, Shopify storefronts, WordPress sites and full stack web platforms. See live client projects and get in touch." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Anusha H A — Web & App Developer in Bangalore" },
+      { name: "twitter:description", content: "Android & iOS apps, Shopify storefronts, WordPress sites and full stack web platforms. See live client projects and get in touch." },
+    ],
     scripts: [
+
       {
         type: "application/ld+json",
         children: JSON.stringify({
