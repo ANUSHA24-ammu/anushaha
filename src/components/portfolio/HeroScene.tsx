@@ -15,8 +15,6 @@ function CameraRig() {
 
 function TorusRing({ radius, tube, speed, tilt }: { radius: number; tube: number; speed: number; tilt: number }) {
 
-
-function TorusRing({ radius, tube, speed, tilt }: { radius: number; tube: number; speed: number; tilt: number }) {
   const ref = useRef<Mesh>(null);
   useFrame((state) => {
     if (!ref.current) return;
