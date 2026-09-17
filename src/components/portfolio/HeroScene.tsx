@@ -1,7 +1,8 @@
 import { Suspense, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, MeshDistortMaterial, Environment, Sparkles } from "@react-three/drei";
+import { Sparkles } from "@react-three/drei";
 import type { Group, Mesh } from "three";
+
 
 function CameraRig() {
   useFrame((state) => {
@@ -12,33 +13,8 @@ function CameraRig() {
   return null;
 }
 
-function GoldOrb() {
-  const ref = useRef<Mesh>(null);
-  useFrame((state) => {
-    if (!ref.current) return;
-    ref.current.rotation.x = state.clock.elapsedTime * 0.15;
-    ref.current.rotation.y = state.clock.elapsedTime * 0.2;
-    const { x, y } = state.pointer;
-    ref.current.position.x += (x * 0.5 - ref.current.position.x) * 0.05;
-    ref.current.position.y += (y * 0.5 - ref.current.position.y) * 0.05;
-  });
-  return (
-    <Float speed={1.4} rotationIntensity={0.6} floatIntensity={1.2}>
-      <mesh ref={ref} scale={1.8}>
-        <icosahedronGeometry args={[1, 8]} />
-        <MeshDistortMaterial
-          color="#3B82F6"
-          roughness={0.15}
-          metalness={0.95}
-          distort={0.35}
-          speed={1.6}
-          emissive="#1D4ED8"
-          emissiveIntensity={0.35}
-        />
-      </mesh>
-    </Float>
-  );
-}
+function TorusRing({ radius, tube, speed, tilt }: { radius: number; tube: number; speed: number; tilt: number }) {
+
 
 function TorusRing({ radius, tube, speed, tilt }: { radius: number; tube: number; speed: number; tilt: number }) {
   const ref = useRef<Mesh>(null);
