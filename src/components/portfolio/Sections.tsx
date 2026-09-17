@@ -17,9 +17,9 @@ import anushaAsset from "@/assets/anusha.jpeg.asset.json";
 /* ============================== ABOUT ============================== */
 export function About() {
   return (
-    <section id="about" className="relative overflow-hidden py-32 md:py-40">
+    <section id="about" className="relative overflow-hidden py-24 md:py-32 lg:py-40">
       <div className="pointer-events-none absolute -top-40 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[#3B82F6]/10 blur-[120px]" />
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-12">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 sm:px-6 lg:grid-cols-12 lg:gap-16">
         {/* Photo column */}
         <div className="lg:col-span-5">
           <Reveal>
@@ -74,14 +74,14 @@ export function About() {
         {/* Text column */}
         <div className="lg:col-span-7">
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#3B82F6]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/25 bg-[#141821] px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-[#93C5FD] sm:text-xs">
               <Sparkles size={12} /> About
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.05] text-white md:text-6xl">
+            <h2 className="mt-6 font-display text-3xl font-bold leading-[1.08] tracking-tight text-white sm:text-4xl md:text-6xl">
               Anusha H A —{" "}
-              <span className="text-gradient-accent italic font-normal">App Developer</span>{" "}
+              <span className="text-gradient-accent">App Developer</span>{" "}
               & Full Stack Developer
             </h2>
           </Reveal>
@@ -152,18 +152,18 @@ export function Services() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
   const active = openIdx !== null ? services[openIdx] : null;
   return (
-    <section id="services" className="relative py-32 md:py-40">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="services" className="relative py-24 md:py-32 lg:py-40">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6">
         <div className="mb-20 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>
             <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#3B82F6]">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/25 bg-[#141821] px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-[#93C5FD] sm:text-xs">
                 <Sparkles size={12} /> Services
               </span>
             </Reveal>
             <Reveal delay={0.1}>
-              <h2 className="mt-6 max-w-2xl font-display text-4xl font-semibold leading-[1.05] text-white md:text-6xl">
-                A full studio, <span className="text-gradient-accent italic font-normal">in one person.</span>
+              <h2 className="mt-6 max-w-2xl font-display text-3xl font-bold leading-[1.08] tracking-tight text-white sm:text-4xl md:text-6xl">
+                A full studio, <span className="text-gradient-accent">in one person.</span>
               </h2>
             </Reveal>
           </div>
@@ -260,18 +260,18 @@ const skillGroups = [
 
 export function Skills() {
   return (
-    <section id="skills" className="relative py-32 md:py-40">
+    <section id="skills" className="relative py-24 md:py-32 lg:py-40">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(59,130,246,0.08),transparent_60%)]" />
-      <div className="relative mx-auto max-w-7xl px-6">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
         <div className="mb-16 max-w-3xl">
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#3B82F6]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/25 bg-[#141821] px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-[#93C5FD] sm:text-xs">
               <Sparkles size={12} /> Skills
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.05] text-white md:text-6xl">
-              A refined <span className="text-gradient-accent italic font-normal">technology stack.</span>
+            <h2 className="mt-6 font-display text-3xl font-bold leading-[1.08] tracking-tight text-white sm:text-4xl md:text-6xl">
+              A refined <span className="text-gradient-accent">technology stack.</span>
             </h2>
           </Reveal>
         </div>
@@ -564,17 +564,17 @@ const reasons = [
 
 export function WhyChoose() {
   return (
-    <section className="relative py-32 md:py-40">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="relative py-24 md:py-32 lg:py-40">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6">
         <div className="mb-16">
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#3B82F6]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/25 bg-[#141821] px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-[#93C5FD] sm:text-xs">
               <Sparkles size={12} /> Why Choose Me
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="mt-6 max-w-3xl font-display text-4xl font-semibold leading-[1.05] text-white md:text-6xl">
-              Nine reasons to <span className="text-gradient-accent italic font-normal">work together.</span>
+            <h2 className="mt-6 max-w-3xl font-display text-3xl font-bold leading-[1.08] tracking-tight text-white sm:text-4xl md:text-6xl">
+              Nine reasons to <span className="text-gradient-accent">work together.</span>
             </h2>
           </Reveal>
         </div>
@@ -611,18 +611,18 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="relative py-32 md:py-40">
+    <section className="relative py-24 md:py-32 lg:py-40">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-96 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.08),transparent_70%)]" />
-      <div className="relative mx-auto max-w-7xl px-6">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
         <div className="mb-16 text-center">
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#3B82F6]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/25 bg-[#141821] px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-[#93C5FD] sm:text-xs">
               <Sparkles size={12} /> Testimonials
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="mx-auto mt-6 max-w-3xl font-display text-4xl font-semibold leading-[1.05] text-white md:text-6xl">
-              Kind words from <span className="text-gradient-accent italic font-normal">partners.</span>
+            <h2 className="mx-auto mt-6 max-w-3xl font-display text-3xl font-bold leading-[1.08] tracking-tight text-white sm:text-4xl md:text-6xl">
+              Kind words from <span className="text-gradient-accent">partners.</span>
             </h2>
           </Reveal>
         </div>
@@ -665,7 +665,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-32 md:py-40">
+    <section id="contact" className="relative py-24 md:py-32 lg:py-40">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.06),transparent_60%)]" />
       <motion.div
         aria-hidden="true"
@@ -680,16 +680,16 @@ export function Contact() {
         transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
         className="pointer-events-none absolute bottom-28 left-[6%] hidden h-36 w-36 rounded-full border border-dashed border-[#3B82F6]/20 lg:block"
       />
-      <div className="relative mx-auto max-w-7xl px-6">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
         <div className="mb-20 text-center">
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#3B82F6]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/25 bg-[#141821] px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-[#93C5FD] sm:text-xs">
               <Sparkles size={12} /> Contact
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="mx-auto mt-6 max-w-3xl font-display text-5xl font-semibold leading-[1.02] text-white md:text-7xl">
-              Let&apos;s create <span className="text-gradient-accent italic font-normal">something premium.</span>
+            <h2 className="mx-auto mt-6 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-7xl">
+              Let&apos;s create <span className="text-gradient-accent">something premium.</span>
             </h2>
           </Reveal>
         </div>
@@ -820,7 +820,7 @@ export function Contact() {
 export function Footer() {
   return (
     <footer className="relative border-t border-[#3B82F6]/15 bg-[#0A0B0F] pt-20">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <div className="font-display text-3xl md:text-4xl font-semibold text-gradient-accent">Anusha H A</div>
