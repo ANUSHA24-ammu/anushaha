@@ -315,7 +315,7 @@ export function Skills() {
 }
 
 /* ============================== PORTFOLIO ============================== */
-const categories = ["All", "Websites", "Apps", "Shopify", "WordPress"] as const;
+const categories = ["All", "Websites", "Apps", "Shopify"] as const;
 type Cat = (typeof categories)[number];
 
 type Project = {
@@ -323,35 +323,37 @@ type Project = {
   cat: Exclude<Cat, "All">;
   desc: string;
   details: string;
+  features: string[];
   tech: string[];
   url: string;
   img: string;
 };
 
+const shot = (url: string) => `https://s0.wp.com/mshots/v1/${encodeURIComponent(url)}?w=1280&h=860`;
+
 const projects: Project[] = [
   // WEBSITES
-  { title: "Anusha Portfolio", cat: "Websites", desc: "Personal portfolio site — cinematic, editorial.", details: "Editorial portfolio site built with React and scroll-driven storytelling. Focus on typographic hierarchy and refined motion.", tech: ["React", "GSAP", "Tailwind"], url: "https://anushaha99.portfolio.website/", img: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80" },
-  { title: "Saksham Fashion", cat: "Websites", desc: "Fashion brand storefront concept.", details: "Fashion-forward marketing site built on Netlify with a lookbook-first structure and product spotlight sections.", tech: ["React", "Netlify", "Tailwind"], url: "https://sakshamfashion.netlify.app/", img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&q=80" },
-  { title: "Florida Green Contractors", cat: "Websites", desc: "Service business site with lead-capture.", details: "Full corporate site for a US-based contractor — services, portfolio, credibility signals and multi-step quote flow.", tech: ["WordPress", "PHP", "SEO"], url: "https://floridagreencontractors.com/", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80" },
-  { title: "Rol Drive", cat: "Websites", desc: "Automotive / mobility platform.", details: "Mobility brand website with fleet showcase and booking journey.", tech: ["Next.js", "Tailwind"], url: "https://www.roldrive.com/", img: "https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1200&q=80" },
-  { title: "RebuildIt Inc.", cat: "Websites", desc: "Construction & remodeling company site.", details: "Corporate site for a construction firm — service pages, gallery, testimonials and inquiry pipeline.", tech: ["React", "Tailwind"], url: "https://RebuildItInc.com", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80" },
-  { title: "Birla Pivot Form", cat: "Websites", desc: "Enterprise B2B form & flow.", details: "Multi-step enterprise onboarding form for Birla Pivot.", tech: ["React", "Form logic"], url: "http://birlapivot.com/form", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80" },
-  { title: "Author Pratik", cat: "Websites", desc: "Author personal branding site.", details: "Editorial author site with book showcase, blog and speaking enquiries.", tech: ["WordPress", "ACF"], url: "http://authorpratik.com", img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&q=80" },
-  { title: "Barry Miller", cat: "Websites", desc: "Personal brand website.", details: "Elegant personal brand site with case studies and press.", tech: ["WordPress"], url: "https://www.barrymiller.net/", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&q=80" },
-  { title: "Ruby Todd", cat: "Websites", desc: "Author / creative portfolio.", details: "Boutique portfolio for an author — refined typography and long-form content layouts.", tech: ["WordPress"], url: "https://www.ruby-todd.com/", img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200&q=80" },
+  { title: "Florida Green Contractors", cat: "Websites", desc: "Service business site with lead-capture.", details: "Full corporate site for a US-based contractor — services, portfolio, credibility signals and multi-step quote flow.", features: ["Service & portfolio pages", "Multi-step quote flow", "On-page SEO structure"], tech: ["WordPress", "PHP", "SEO"], url: "https://floridagreencontractors.com/", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80" },
+  { title: "Rol Drive", cat: "Websites", desc: "Automotive / mobility platform.", details: "Mobility brand website with fleet showcase and booking journey.", features: ["Fleet showcase", "Booking journey", "Responsive layouts"], tech: ["Next.js", "Tailwind"], url: "https://www.roldrive.com/", img: "https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1200&q=80" },
+  { title: "RebuildIt Inc.", cat: "Websites", desc: "Construction & remodeling company site.", details: "Corporate site for a construction firm — service pages, gallery, testimonials and inquiry pipeline.", features: ["Service pages & gallery", "Testimonials section", "Inquiry pipeline"], tech: ["React", "Tailwind"], url: "https://RebuildItInc.com", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80" },
+  { title: "Saksham Fashion", cat: "Websites", desc: "Fashion brand storefront concept.", details: "Fashion-forward marketing site built on Netlify with a lookbook-first structure and product spotlight sections.", features: ["Lookbook-first structure", "Product spotlight sections", "Netlify deployment"], tech: ["React", "Netlify", "Tailwind"], url: "https://sakshamfashion.netlify.app/", img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&q=80" },
+  { title: "Birla Pivot Form", cat: "Websites", desc: "Enterprise B2B form & flow.", details: "Multi-step enterprise onboarding form for Birla Pivot.", features: ["Multi-step onboarding", "Validation logic", "Enterprise UI patterns"], tech: ["React", "Form logic"], url: "http://birlapivot.com/form", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80" },
+  { title: "Author Pratik", cat: "Websites", desc: "Author personal branding site.", details: "Editorial author site with book showcase, blog and speaking enquiries.", features: ["Book showcase", "Blog with ACF fields", "Speaking enquiry form"], tech: ["WordPress", "ACF"], url: "http://authorpratik.com", img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&q=80" },
+  { title: "Barry Miller", cat: "Websites", desc: "Personal brand website.", details: "Elegant personal brand site with case studies and press.", features: ["Case study layouts", "Press section", "Editorial typography"], tech: ["WordPress"], url: "https://www.barrymiller.net/", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&q=80" },
+  { title: "Ruby Todd", cat: "Websites", desc: "Author / creative portfolio.", details: "Boutique portfolio for an author — refined typography and long-form content layouts.", features: ["Long-form layouts", "Refined typography", "Content management"], tech: ["WordPress"], url: "https://www.ruby-todd.com/", img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200&q=80" },
+  { title: "Anusha Portfolio", cat: "Websites", desc: "Personal portfolio site — cinematic, editorial.", details: "Editorial portfolio site built with React and scroll-driven storytelling. Focus on typographic hierarchy and refined motion.", features: ["Scroll-driven storytelling", "Typographic hierarchy", "Refined motion"], tech: ["React", "GSAP", "Tailwind"], url: "https://anushaha99.portfolio.website/", img: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80" },
 
   // APPS
-  { title: "Unboxify", cat: "Apps", desc: "Product app experience.", details: "Custom mobile app development with polished UI and API-driven content.", tech: ["React Native", "REST API"], url: "https://www.unboxify.in", img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=1200&q=80" },
-  { title: "Olives.ie", cat: "Apps", desc: "Irish product platform.", details: "Product/e-commerce app experience with modern UI/UX.", tech: ["React", "API"], url: "https://olives.ie/", img: "https://images.unsplash.com/photo-1607082349566-187342175e2f?w=1200&q=80" },
-  { title: "MeetMux", cat: "Apps", desc: "Social/meeting platform.", details: "Social meetup platform — modern responsive UI with real-time features.", tech: ["React", "Realtime"], url: "https://www.meetmux.com/", img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" },
-  { title: "Linear (inspired)", cat: "Apps", desc: "Productivity app reference build.", details: "Reference-grade productivity app UI with dense information design and buttery motion.", tech: ["React", "TypeScript"], url: "https://linear.app/", img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&q=80" },
+  { title: "Unboxify", cat: "Apps", desc: "Product app experience.", details: "Custom mobile app development with polished UI and API-driven content.", features: ["Custom mobile app UI", "API-driven content", "Cross-platform build"], tech: ["React Native", "REST API"], url: "https://www.unboxify.in", img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=1200&q=80" },
+  { title: "Olives.ie", cat: "Apps", desc: "Irish product platform.", details: "Product/e-commerce app experience with modern UI/UX.", features: ["Product browsing flow", "Modern UI/UX", "API integration"], tech: ["React", "API"], url: "https://olives.ie/", img: "https://images.unsplash.com/photo-1607082349566-187342175e2f?w=1200&q=80" },
+  { title: "MeetMux", cat: "Apps", desc: "Social/meeting platform.", details: "Social meetup platform — modern responsive UI with real-time features.", features: ["Real-time features", "Responsive UI", "Social meetup flows"], tech: ["React", "Realtime"], url: "https://www.meetmux.com/", img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" },
 
   // SHOPIFY
-  { title: "Fitera Sport", cat: "Shopify", desc: "Sports & performance Shopify store.", details: "Shopify storefront for a performance sports brand — custom sections, product bundles and speed-tuned theme.", tech: ["Shopify", "Liquid"], url: "https://Fiterasport.store", img: "https://images.unsplash.com/photo-1483721310020-03333e577078?w=1200&q=80" },
-  { title: "The Saje", cat: "Shopify", desc: "Lifestyle Shopify storefront.", details: "Boutique lifestyle Shopify build with editorial merchandising.", tech: ["Shopify", "Liquid"], url: "https://www.thesaje.com", img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=80" },
-  { title: "RK Trends", cat: "Shopify", desc: "UAE fashion Shopify store.", details: "Fashion Shopify build for the UAE market — multi-currency, RTL-aware sections.", tech: ["Shopify", "Multi-currency"], url: "https://www.rktrends.ae/", img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&q=80" },
-  { title: "Element Home", cat: "Shopify", desc: "Home & living Shopify store.", details: "Home & living Shopify build with editorial category pages.", tech: ["Shopify", "Liquid"], url: "https://elementhome.net/", img: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=80" },
-  { title: "Saramor", cat: "Shopify", desc: "Fashion Shopify storefront.", details: "Fashion Shopify storefront with bundle logic and premium PDP.", tech: ["Shopify", "Liquid"], url: "https://saramor.store/", img: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1200&q=80" },
+  { title: "Fitera Sport", cat: "Shopify", desc: "Sports & performance Shopify store.", details: "Shopify storefront for a performance sports brand — custom sections, product bundles and speed-tuned theme.", features: ["Custom Liquid sections", "Product bundles", "Speed-tuned theme"], tech: ["Shopify", "Liquid"], url: "https://Fiterasport.store", img: "https://images.unsplash.com/photo-1483721310020-03333e577078?w=1200&q=80" },
+  { title: "The Saje", cat: "Shopify", desc: "Lifestyle Shopify storefront.", details: "Boutique lifestyle Shopify build with editorial merchandising.", features: ["Editorial merchandising", "Custom collection pages", "Boutique PDP"], tech: ["Shopify", "Liquid"], url: "https://www.thesaje.com", img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=80" },
+  { title: "RK Trends", cat: "Shopify", desc: "UAE fashion Shopify store.", details: "Fashion Shopify build for the UAE market — multi-currency, RTL-aware sections.", features: ["Multi-currency setup", "RTL-aware sections", "Fashion merchandising"], tech: ["Shopify", "Multi-currency"], url: "https://www.rktrends.ae/", img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&q=80" },
+  { title: "Element Home", cat: "Shopify", desc: "Home & living Shopify store.", details: "Home & living Shopify build with editorial category pages.", features: ["Editorial category pages", "Custom sections", "Clean product grid"], tech: ["Shopify", "Liquid"], url: "https://elementhome.net/", img: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=80" },
+  { title: "Saramor", cat: "Shopify", desc: "Fashion Shopify storefront.", details: "Fashion Shopify storefront with bundle logic and premium PDP.", features: ["Bundle logic", "Premium PDP", "Custom theme work"], tech: ["Shopify", "Liquid"], url: "https://saramor.store/", img: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1200&q=80" },
 ];
 
 export function Portfolio() {
@@ -361,18 +363,18 @@ export function Portfolio() {
   const current = openIdx !== null ? filtered[openIdx] : null;
 
   return (
-    <section id="portfolio" className="relative py-32 md:py-40">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-12 flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
+    <section id="portfolio" className="relative py-24 md:py-32 lg:py-40">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6">
+        <div className="mb-12 flex flex-col items-start justify-between gap-8 md:mb-16 md:flex-row md:items-end">
           <div>
             <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#3B82F6]">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/25 bg-[#141821] px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-[#93C5FD] sm:text-xs">
                 <Sparkles size={12} /> Selected Work
               </span>
             </Reveal>
             <Reveal delay={0.1}>
-              <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.05] text-white md:text-6xl">
-                Live projects — <span className="text-gradient-accent italic font-normal">click to explore.</span>
+              <h2 className="mt-6 max-w-2xl font-display text-3xl font-bold leading-[1.08] tracking-tight text-white sm:text-4xl md:text-6xl">
+                Live client projects, <span className="text-gradient-accent">shipped and running.</span>
               </h2>
             </Reveal>
           </div>
@@ -382,10 +384,10 @@ export function Portfolio() {
                 <button
                   key={c}
                   onClick={() => { setActive(c); setOpenIdx(null); }}
-                  className={`rounded-full border px-4 py-2 text-xs uppercase tracking-widest transition-all ${
+                  className={`rounded-full border px-4 py-2 text-[11px] font-semibold uppercase tracking-widest transition-all ${
                     active === c
                       ? "border-[#3B82F6] bg-[#3B82F6] text-white"
-                      : "border-white/10 text-white/60 hover:border-[#3B82F6]/50 hover:text-[#93C5FD]"
+                      : "border-white/10 text-white/55 hover:border-[#3B82F6]/50 hover:text-[#93C5FD]"
                   }`}
                 >
                   {c}
@@ -395,9 +397,9 @@ export function Portfolio() {
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="space-y-16 md:space-y-24">
           {filtered.map((p, i) => (
-            <ProjectCard key={p.title + p.url} p={p} index={i} onClick={() => setOpenIdx(i)} />
+            <ProjectBand key={p.title + p.url} p={p} index={i} onClick={() => setOpenIdx(i)} />
           ))}
         </div>
       </div>
@@ -405,16 +407,23 @@ export function Portfolio() {
       <Modal open={openIdx !== null} onClose={() => setOpenIdx(null)} maxWidth="max-w-3xl">
         {current && (
           <div>
-            <div className="overflow-hidden rounded-2xl border border-[#3B82F6]/20">
-              <img src={current.img} alt={current.title} className="h-64 w-full object-cover md:h-80" />
+            <div className="overflow-hidden rounded-2xl border border-white/10">
+              <ProjectShot p={current} className="h-56 w-full object-cover object-top md:h-80" />
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <span className="rounded-full border border-[#3B82F6]/40 bg-[#3B82F6]/10 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-[#93C5FD]">
                 {current.cat}
               </span>
-              <h3 className="font-display text-3xl font-semibold text-white md:text-4xl">{current.title}</h3>
+              <h3 className="font-display text-2xl font-bold text-white md:text-4xl">{current.title}</h3>
             </div>
-            <p className="mt-4 leading-relaxed text-white/75">{current.details}</p>
+            <p className="mt-4 leading-relaxed text-white/70">{current.details}</p>
+            <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {current.features.map((f) => (
+                <li key={f} className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.02] p-3 text-sm text-white/80">
+                  <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-[#3B82F6]" /> {f}
+                </li>
+              ))}
+            </ul>
             <div className="mt-5 flex flex-wrap gap-2">
               {current.tech.map((t) => (
                 <span key={t} className="rounded-full border border-white/10 px-3 py-1 text-[11px] text-white/60">{t}</span>
@@ -425,11 +434,16 @@ export function Portfolio() {
                 href={current.url}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-[#3B82F6] hover:bg-[#2563EB] px-6 py-3 text-sm font-medium text-white accent-glow-hover"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#3B82F6] px-6 py-3.5 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-[#2563EB]"
               >
-                <ExternalLink size={14} /> Visit Live Site
+                <ExternalLink size={15} /> Live Demo
               </a>
-              <MagneticButton variant="outline" href="#contact">Start a similar project</MagneticButton>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-[#141821] px-6 py-3.5 text-sm font-semibold text-white transition-all hover:border-white/20"
+              >
+                Start a similar project
+              </a>
             </div>
           </div>
         )}
@@ -438,48 +452,102 @@ export function Portfolio() {
   );
 }
 
-function ProjectCard({ p, index, onClick }: { p: Project; index: number; onClick: () => void }) {
+function ProjectShot({ p, className }: { p: Project; className?: string }) {
   return (
-    <motion.button
-      type="button"
-      onClick={onClick}
-      initial={{ opacity: 0, y: 40, scale: 0.96 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.7, delay: (index % 3) * 0.08, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -8 }}
-      className="group relative overflow-hidden rounded-3xl border border-[#3B82F6]/15 bg-[#141821] text-left"
-    >
-      <div className="relative aspect-[16/10] overflow-hidden">
-        <img
-          src={p.img}
-          alt={p.title}
-          loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B0F] via-[#0A0B0F]/40 to-transparent" />
-        <div className="absolute left-6 top-6">
-          <span className="rounded-full border border-[#3B82F6]/40 bg-black/40 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-[#93C5FD] backdrop-blur">
-            {p.cat}
-          </span>
-        </div>
-        <div className="absolute inset-0 flex items-end justify-end p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-          <div className="rounded-full bg-[#3B82F6] px-3 py-1.5 text-[11px] font-medium text-white">View details →</div>
-        </div>
-      </div>
-      <div className="p-6">
-        <h3 className="font-display text-xl font-medium text-white md:text-2xl">{p.title}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-white/60">{p.desc}</p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {p.tech.map((t) => (
-            <span key={t} className="rounded-full border border-white/10 px-3 py-1 text-[11px] text-white/60">{t}</span>
-          ))}
-        </div>
-        <div className="mt-4 truncate text-xs text-[#3B82F6]/70">{p.url.replace(/^https?:\/\//, "")}</div>
-      </div>
-    </motion.button>
+    <img
+      src={shot(p.url)}
+      alt={`${p.title} — live site screenshot`}
+      loading="lazy"
+      className={className}
+      onError={(e) => {
+        const img = e.currentTarget;
+        if (img.src !== p.img) img.src = p.img;
+      }}
+    />
   );
 }
+
+function ProjectBand({ p, index, onClick }: { p: Project; index: number; onClick: () => void }) {
+  const flipped = index % 2 === 1;
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 48 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-14"
+    >
+      {/* Screenshot */}
+      <div className={`lg:col-span-7 ${flipped ? "lg:order-2" : ""}`}>
+        <button
+          type="button"
+          onClick={onClick}
+          aria-label={`View details for ${p.title}`}
+          className="group relative block w-full overflow-hidden rounded-2xl border border-white/10 bg-[#141821] p-2 text-left transition-all duration-500 hover:border-[#3B82F6]/40 md:rounded-3xl md:p-3"
+        >
+          <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+            <div className="absolute -inset-20 bg-[#3B82F6]/10 blur-3xl" />
+          </div>
+          {/* Browser chrome */}
+          <div className="relative mb-2 flex items-center gap-2 px-2 py-1.5">
+            <span className="h-2 w-2 rounded-full bg-white/15" />
+            <span className="h-2 w-2 rounded-full bg-white/15" />
+            <span className="h-2 w-2 rounded-full bg-white/15" />
+            <span className="ml-2 truncate text-[10px] text-white/35">{p.url.replace(/^https?:\/\//, "")}</span>
+          </div>
+          <div className="relative aspect-[16/10] overflow-hidden rounded-xl md:rounded-2xl">
+            <ProjectShot p={p} className="h-full w-full object-cover object-top transition-transform duration-[1200ms] group-hover:scale-[1.04]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B0F]/60 via-transparent to-transparent" />
+          </div>
+        </button>
+      </div>
+
+      {/* Copy */}
+      <div className={`lg:col-span-5 ${flipped ? "lg:order-1" : ""}`}>
+        <div className="flex items-center gap-3">
+          <span className="rounded-full border border-[#3B82F6]/30 bg-[#3B82F6]/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#93C5FD]">
+            {p.cat}
+          </span>
+          <span className="font-mono text-[11px] text-white/25">{String(index + 1).padStart(2, "0")}</span>
+        </div>
+        <h3 className="mt-4 font-display text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl">{p.title}</h3>
+        <p className="mt-3 leading-relaxed text-white/60">{p.details}</p>
+        <ul className="mt-6 space-y-2.5">
+          {p.features.map((f) => (
+            <li key={f} className="flex items-start gap-2.5 text-sm text-white/75">
+              <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-[#3B82F6]" /> {f}
+            </li>
+          ))}
+        </ul>
+        <div className="mt-6 flex flex-wrap gap-2">
+          {p.tech.map((t) => (
+            <span key={t} className="rounded-full border border-white/10 bg-white/[0.02] px-3 py-1.5 text-[11px] font-medium text-white/65">
+              {t}
+            </span>
+          ))}
+        </div>
+        <div className="mt-7 flex flex-wrap items-center gap-3">
+          <a
+            href={p.url}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-xl bg-[#3B82F6] px-6 py-3.5 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-[#2563EB] hover:shadow-[0_0_25px_rgba(59,130,246,0.35)]"
+          >
+            <ExternalLink size={15} /> Live Demo
+          </a>
+          <button
+            type="button"
+            onClick={onClick}
+            className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-[#141821] px-6 py-3.5 text-sm font-semibold text-white transition-all hover:border-white/20 hover:bg-[#1E2330]"
+          >
+            View Details <ArrowUpRight size={15} />
+          </button>
+        </div>
+      </div>
+    </motion.article>
+  );
+}
+
 
 /* ============================== WHY CHOOSE ME ============================== */
 const reasons = [
