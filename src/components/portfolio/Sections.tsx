@@ -9,6 +9,7 @@ import {
   Code2, LifeBuoy, Award, Zap, Cpu,
 } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { Counter } from "./Counter";
 import { MagneticButton } from "./MagneticButton";
 import { Modal } from "./Modal";
 import anushaAsset from "@/assets/anusha.jpeg.asset.json";
@@ -16,9 +17,9 @@ import anushaAsset from "@/assets/anusha.jpeg.asset.json";
 /* ============================== ABOUT ============================== */
 export function About() {
   return (
-    <section id="about" className="relative overflow-hidden py-24 md:py-32 lg:py-40">
-      <div className="pointer-events-none absolute -top-40 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[#3B82F6]/10 blur-[120px]" />
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 sm:px-6 lg:grid-cols-12 lg:gap-16">
+    <section id="about" className="relative overflow-hidden py-32 md:py-40">
+      <div className="pointer-events-none absolute -top-40 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[#D4AF37]/10 blur-[120px]" />
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-12">
         {/* Photo column */}
         <div className="lg:col-span-5">
           <Reveal>
@@ -28,8 +29,8 @@ export function About() {
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                 className="relative"
               >
-                <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-[#3B82F6]/40 via-[#93C5FD]/20 to-transparent blur-2xl" />
-                <div className="relative overflow-hidden rounded-[2rem] border border-[#3B82F6]/40 bg-[#141821] p-2">
+                <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-[#D4AF37]/40 via-[#E8C767]/20 to-transparent blur-2xl" />
+                <div className="relative overflow-hidden rounded-[2rem] border border-[#D4AF37]/40 bg-[#0a0a0a] p-2">
                   <img
                     src={anushaAsset.url}
                     alt="Anusha H A — App Developer & Full Stack Developer"
@@ -47,12 +48,12 @@ export function About() {
                 className="glass-strong absolute -bottom-6 -right-6 rounded-2xl px-5 py-4 md:-bottom-8 md:-right-8"
               >
                 <div className="flex items-center gap-3">
-                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-[#3B82F6] to-[#1D4ED8] text-white">
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-[#E8C767] to-[#A8862A] text-black">
                     <Award size={18} />
                   </div>
                   <div>
                     <div className="font-display text-xl font-semibold text-white">4+ Years</div>
-                    <div className="text-[10px] uppercase tracking-widest text-[#3B82F6]/80">Experience</div>
+                    <div className="text-[10px] uppercase tracking-widest text-[#D4AF37]/80">Experience</div>
                   </div>
                 </div>
               </motion.div>
@@ -63,7 +64,7 @@ export function About() {
                 transition={{ delay: 0.6, duration: 0.7 }}
                 className="glass-strong absolute -top-4 -left-4 flex items-center gap-2 rounded-full px-4 py-2"
               >
-                <MapPin size={14} className="text-[#3B82F6]" />
+                <MapPin size={14} className="text-[#D4AF37]" />
                 <span className="text-xs text-white/85">Bangalore, Karnataka</span>
               </motion.div>
             </div>
@@ -73,23 +74,23 @@ export function About() {
         {/* Text column */}
         <div className="lg:col-span-7">
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/25 bg-[#141821] px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-[#93C5FD] sm:text-xs">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#D4AF37]">
               <Sparkles size={12} /> About
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="mt-6 font-display text-3xl font-bold leading-[1.08] tracking-tight text-white sm:text-4xl md:text-6xl">
+            <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.05] text-white md:text-6xl">
               Anusha H A —{" "}
-              <span className="text-gradient-accent">App Developer</span>{" "}
+              <span className="text-gradient-gold italic font-normal">App Developer</span>{" "}
               & Full Stack Developer
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-6 font-sans text-lg leading-relaxed text-white/70">
               4+ years crafting scalable, cinematic digital products — from{" "}
-              <span className="text-[#93C5FD]">Android &amp; iOS apps</span> to headless{" "}
-              <span className="text-[#93C5FD]">Shopify</span> storefronts,{" "}
-              <span className="text-[#93C5FD]">WordPress</span> sites, and premium web
+              <span className="text-[#E8C767]">Android &amp; iOS apps</span> to headless{" "}
+              <span className="text-[#E8C767]">Shopify</span> storefronts,{" "}
+              <span className="text-[#E8C767]">WordPress</span> sites, and premium web
               applications. Based in Bangalore, working with brands worldwide.
             </p>
           </Reveal>
@@ -100,20 +101,21 @@ export function About() {
             </p>
           </Reveal>
           <Reveal delay={0.4}>
-            <div className="mt-10 grid grid-cols-1 gap-4 border-t border-white/10 pt-8 sm:grid-cols-3">
+            <div className="mt-10 grid grid-cols-3 gap-6 border-t border-[#D4AF37]/15 pt-8">
               {[
-                { l: "Experience", v: "4+ Years" },
-                { l: "Based in", v: "Bangalore, India" },
-                { l: "Working with", v: "Brands worldwide" },
+                { n: 80, s: "+", l: "Projects Delivered" },
+                { n: 50, s: "+", l: "Happy Clients" },
+                { n: 4, s: "+", l: "Years Experience" },
               ].map((k) => (
-                <div key={k.l} className="rounded-2xl border border-white/8 bg-white/[0.02] p-5">
-                  <div className="text-[10px] uppercase tracking-[0.25em] text-[#93C5FD]/70">{k.l}</div>
-                  <div className="mt-2 font-display text-lg font-semibold text-white md:text-xl">{k.v}</div>
+                <div key={k.l}>
+                  <div className="font-display text-3xl md:text-5xl font-semibold text-gradient-gold">
+                    <Counter to={k.n} suffix={k.s} />
+                  </div>
+                  <div className="mt-2 text-xs uppercase tracking-widest text-white/50">{k.l}</div>
                 </div>
               ))}
             </div>
           </Reveal>
-
         </div>
       </div>
     </section>
@@ -151,18 +153,18 @@ export function Services() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
   const active = openIdx !== null ? services[openIdx] : null;
   return (
-    <section id="services" className="relative py-24 md:py-32 lg:py-40">
-      <div className="mx-auto max-w-7xl px-5 sm:px-6">
+    <section id="services" className="relative py-32 md:py-40">
+      <div className="mx-auto max-w-7xl px-6">
         <div className="mb-20 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>
             <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/25 bg-[#141821] px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-[#93C5FD] sm:text-xs">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#D4AF37]">
                 <Sparkles size={12} /> Services
               </span>
             </Reveal>
             <Reveal delay={0.1}>
-              <h2 className="mt-6 max-w-2xl font-display text-3xl font-bold leading-[1.08] tracking-tight text-white sm:text-4xl md:text-6xl">
-                A full studio, <span className="text-gradient-accent">in one person.</span>
+              <h2 className="mt-6 max-w-2xl font-display text-4xl font-semibold leading-[1.05] text-white md:text-6xl">
+                A full studio, <span className="text-gradient-gold italic font-normal">in one person.</span>
               </h2>
             </Reveal>
           </div>
@@ -170,7 +172,7 @@ export function Services() {
             <p className="max-w-sm text-white/60">Click any service to see the full delivery scope.</p>
           </Reveal>
         </div>
-        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-[#3B82F6]/15 bg-[#3B82F6]/10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-[#D4AF37]/15 bg-[#D4AF37]/10 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
             <ServiceCard key={s.title} s={s} index={i} onClick={() => setOpenIdx(i)} />
           ))}
@@ -185,22 +187,22 @@ export function Services() {
                 initial={{ rotate: -20, scale: 0.6 }}
                 animate={{ rotate: 0, scale: 1 }}
                 transition={{ type: "spring", stiffness: 200, damping: 12 }}
-                className="grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-[#3B82F6] to-[#1D4ED8] text-white"
+                className="grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-[#E8C767] to-[#A8862A] text-black"
               >
                 <active.icon size={26} />
               </motion.div>
               <div>
-                <div className="text-[10px] uppercase tracking-[0.3em] text-[#3B82F6]/70">Service</div>
+                <div className="text-[10px] uppercase tracking-[0.3em] text-[#D4AF37]/70">Service</div>
                 <h3 className="font-display text-2xl font-semibold text-white md:text-3xl">{active.title}</h3>
               </div>
             </div>
             <p className="mt-6 leading-relaxed text-white/75">{active.details}</p>
             <div className="mt-8">
-              <div className="text-xs uppercase tracking-[0.3em] text-[#3B82F6]/70">What you get</div>
+              <div className="text-xs uppercase tracking-[0.3em] text-[#D4AF37]/70">What you get</div>
               <ul className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {active.deliverables.map((d) => (
                   <li key={d} className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.02] p-3 text-sm text-white/80">
-                    <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-[#3B82F6]" />
+                    <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-[#D4AF37]" />
                     {d}
                   </li>
                 ))}
@@ -228,19 +230,19 @@ function ServiceCard({ s, index, onClick }: { s: Service; index: number; onClick
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.6, delay: (index % 3) * 0.08 }}
       style={{ transformPerspective: 1000 }}
-      className="group relative overflow-hidden bg-[#141821] p-8 text-left transition-colors duration-500 hover:bg-[#1E2330]"
+      className="group relative overflow-hidden bg-[#0a0a0a] p-8 text-left transition-colors duration-500 hover:bg-[#0d0b06]"
     >
-      <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-[#3B82F6]/10 opacity-0 blur-3xl transition-opacity duration-700 group-hover:opacity-100" />
+      <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-[#D4AF37]/10 opacity-0 blur-3xl transition-opacity duration-700 group-hover:opacity-100" />
       <div className="relative flex items-start justify-between">
-        <div className="grid h-14 w-14 place-items-center rounded-2xl border border-[#3B82F6]/25 bg-gradient-to-br from-[#3B82F6]/15 to-transparent text-[#93C5FD] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+        <div className="grid h-14 w-14 place-items-center rounded-2xl border border-[#D4AF37]/25 bg-gradient-to-br from-[#D4AF37]/15 to-transparent text-[#E8C767] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
           <Icon size={22} strokeWidth={1.4} />
         </div>
-        <ArrowUpRight className="text-white/20 transition-all duration-500 group-hover:text-[#3B82F6] group-hover:translate-x-1 group-hover:-translate-y-1" size={20} />
+        <ArrowUpRight className="text-white/20 transition-all duration-500 group-hover:text-[#D4AF37] group-hover:translate-x-1 group-hover:-translate-y-1" size={20} />
       </div>
       <h3 className="relative mt-8 font-display text-xl font-medium text-white">{s.title}</h3>
       <p className="relative mt-3 text-sm leading-relaxed text-white/55">{s.desc}</p>
       <div className="relative mt-8 h-px w-full overflow-hidden bg-white/5">
-        <div className="h-full w-0 bg-gradient-to-r from-[#3B82F6] to-transparent transition-all duration-700 group-hover:w-full" />
+        <div className="h-full w-0 bg-gradient-to-r from-[#D4AF37] to-transparent transition-all duration-700 group-hover:w-full" />
       </div>
     </motion.button>
   );
@@ -259,18 +261,18 @@ const skillGroups = [
 
 export function Skills() {
   return (
-    <section id="skills" className="relative py-24 md:py-32 lg:py-40">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(59,130,246,0.08),transparent_60%)]" />
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
+    <section id="skills" className="relative py-32 md:py-40">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(212,175,55,0.08),transparent_60%)]" />
+      <div className="relative mx-auto max-w-7xl px-6">
         <div className="mb-16 max-w-3xl">
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/25 bg-[#141821] px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-[#93C5FD] sm:text-xs">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#D4AF37]">
               <Sparkles size={12} /> Skills
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="mt-6 font-display text-3xl font-bold leading-[1.08] tracking-tight text-white sm:text-4xl md:text-6xl">
-              A refined <span className="text-gradient-accent">technology stack.</span>
+            <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.05] text-white md:text-6xl">
+              A refined <span className="text-gradient-gold italic font-normal">technology stack.</span>
             </h2>
           </Reveal>
         </div>
@@ -283,10 +285,10 @@ export function Skills() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="glass rounded-2xl p-6 md:p-8 transition-all duration-500 hover:border-[#3B82F6]/40">
+              <div className="glass rounded-2xl p-6 md:p-8 transition-all duration-500 hover:border-[#D4AF37]/40">
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-[220px_1fr] md:items-center">
                   <div className="flex items-center gap-3">
-                    <div className="h-1.5 w-1.5 rounded-full bg-[#3B82F6] animate-accent-pulse" />
+                    <div className="h-1.5 w-1.5 rounded-full bg-[#D4AF37] animate-gold-pulse" />
                     <div className="font-display text-xl font-medium text-white">{g.label}</div>
                   </div>
                   <div className="flex flex-wrap gap-2">
@@ -297,7 +299,7 @@ export function Skills() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: k * 0.03, duration: 0.4 }}
-                        className="rounded-full border border-white/10 bg-white/[0.02] px-4 py-2 text-sm text-white/80 transition-all duration-300 hover:border-[#3B82F6]/50 hover:bg-[#3B82F6]/5 hover:text-[#93C5FD]"
+                        className="rounded-full border border-white/10 bg-white/[0.02] px-4 py-2 text-sm text-white/80 transition-all duration-300 hover:border-[#D4AF37]/50 hover:bg-[#D4AF37]/5 hover:text-[#E8C767]"
                       >
                         {item}
                       </motion.span>
@@ -314,7 +316,7 @@ export function Skills() {
 }
 
 /* ============================== PORTFOLIO ============================== */
-const categories = ["All", "Websites", "Apps", "Shopify"] as const;
+const categories = ["All", "Websites", "Apps", "Shopify", "WordPress"] as const;
 type Cat = (typeof categories)[number];
 
 type Project = {
@@ -322,37 +324,35 @@ type Project = {
   cat: Exclude<Cat, "All">;
   desc: string;
   details: string;
-  features: string[];
   tech: string[];
   url: string;
   img: string;
 };
 
-const shot = (url: string) => `https://s0.wp.com/mshots/v1/${encodeURIComponent(url)}?w=1280&h=860`;
-
 const projects: Project[] = [
   // WEBSITES
-  { title: "Rol Drive", cat: "Websites", desc: "Automotive / mobility platform.", details: "Mobility brand website with fleet showcase and booking journey.", features: ["Fleet showcase", "Booking journey", "Responsive layouts"], tech: ["Next.js", "Tailwind"], url: "https://www.roldrive.com/", img: "https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1200&q=80" },
-  { title: "RebuildIt Inc.", cat: "Websites", desc: "Construction & remodeling company site.", details: "Corporate site for a construction firm — service pages, gallery, testimonials and inquiry pipeline.", features: ["Service pages & gallery", "Testimonials section", "Inquiry pipeline"], tech: ["React", "Tailwind"], url: "https://RebuildItInc.com", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80" },
-  { title: "Saksham Fashion", cat: "Websites", desc: "Fashion brand storefront concept.", details: "Fashion-forward marketing site built on Netlify with a lookbook-first structure and product spotlight sections.", features: ["Lookbook-first structure", "Product spotlight sections", "Netlify deployment"], tech: ["React", "Netlify", "Tailwind"], url: "https://sakshamfashion.netlify.app/", img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&q=80" },
-  { title: "Florida Green Contractors", cat: "Websites", desc: "Service business site with lead-capture.", details: "Full corporate site for a US-based contractor — services, portfolio, credibility signals and multi-step quote flow.", features: ["Service & portfolio pages", "Multi-step quote flow", "On-page SEO structure"], tech: ["WordPress", "PHP", "SEO"], url: "https://floridagreencontractors.com/", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80" },
-  { title: "Birla Pivot Form", cat: "Websites", desc: "Enterprise B2B form & flow.", details: "Multi-step enterprise onboarding form for Birla Pivot.", features: ["Multi-step onboarding", "Validation logic", "Enterprise UI patterns"], tech: ["React", "Form logic"], url: "http://birlapivot.com/form", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80" },
-  { title: "Author Pratik", cat: "Websites", desc: "Author personal branding site.", details: "Editorial author site with book showcase, blog and speaking enquiries.", features: ["Book showcase", "Blog with ACF fields", "Speaking enquiry form"], tech: ["WordPress", "ACF"], url: "http://authorpratik.com", img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&q=80" },
-  { title: "Barry Miller", cat: "Websites", desc: "Personal brand website.", details: "Elegant personal brand site with case studies and press.", features: ["Case study layouts", "Press section", "Editorial typography"], tech: ["WordPress"], url: "https://www.barrymiller.net/", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&q=80" },
-  { title: "Ruby Todd", cat: "Websites", desc: "Author / creative portfolio.", details: "Boutique portfolio for an author — refined typography and long-form content layouts.", features: ["Long-form layouts", "Refined typography", "Content management"], tech: ["WordPress"], url: "https://www.ruby-todd.com/", img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200&q=80" },
-  { title: "Anusha Portfolio", cat: "Websites", desc: "Personal portfolio site — cinematic, editorial.", details: "Editorial portfolio site built with React and scroll-driven storytelling. Focus on typographic hierarchy and refined motion.", features: ["Scroll-driven storytelling", "Typographic hierarchy", "Refined motion"], tech: ["React", "GSAP", "Tailwind"], url: "https://anushaha99.portfolio.website/", img: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80" },
+  { title: "Anusha Portfolio", cat: "Websites", desc: "Personal portfolio site — cinematic, editorial.", details: "Editorial portfolio site built with React and scroll-driven storytelling. Focus on typographic hierarchy and refined motion.", tech: ["React", "GSAP", "Tailwind"], url: "https://anushaha99.portfolio.website/", img: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80" },
+  { title: "Saksham Fashion", cat: "Websites", desc: "Fashion brand storefront concept.", details: "Fashion-forward marketing site built on Netlify with a lookbook-first structure and product spotlight sections.", tech: ["React", "Netlify", "Tailwind"], url: "https://sakshamfashion.netlify.app/", img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&q=80" },
+  { title: "Florida Green Contractors", cat: "Websites", desc: "Service business site with lead-capture.", details: "Full corporate site for a US-based contractor — services, portfolio, credibility signals and multi-step quote flow.", tech: ["WordPress", "PHP", "SEO"], url: "https://floridagreencontractors.com/", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80" },
+  { title: "Rol Drive", cat: "Websites", desc: "Automotive / mobility platform.", details: "Mobility brand website with fleet showcase and booking journey.", tech: ["Next.js", "Tailwind"], url: "https://www.roldrive.com/", img: "https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1200&q=80" },
+  { title: "RebuildIt Inc.", cat: "Websites", desc: "Construction & remodeling company site.", details: "Corporate site for a construction firm — service pages, gallery, testimonials and inquiry pipeline.", tech: ["React", "Tailwind"], url: "https://RebuildItInc.com", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80" },
+  { title: "Birla Pivot Form", cat: "Websites", desc: "Enterprise B2B form & flow.", details: "Multi-step enterprise onboarding form for Birla Pivot.", tech: ["React", "Form logic"], url: "http://birlapivot.com/form", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80" },
+  { title: "Author Pratik", cat: "Websites", desc: "Author personal branding site.", details: "Editorial author site with book showcase, blog and speaking enquiries.", tech: ["WordPress", "ACF"], url: "http://authorpratik.com", img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&q=80" },
+  { title: "Barry Miller", cat: "Websites", desc: "Personal brand website.", details: "Elegant personal brand site with case studies and press.", tech: ["WordPress"], url: "https://www.barrymiller.net/", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&q=80" },
+  { title: "Ruby Todd", cat: "Websites", desc: "Author / creative portfolio.", details: "Boutique portfolio for an author — refined typography and long-form content layouts.", tech: ["WordPress"], url: "https://www.ruby-todd.com/", img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200&q=80" },
 
   // APPS
-  { title: "Unboxify", cat: "Apps", desc: "Product app experience.", details: "Custom mobile app development with polished UI and API-driven content.", features: ["Custom mobile app UI", "API-driven content", "Cross-platform build"], tech: ["React Native", "REST API"], url: "https://www.unboxify.in", img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=1200&q=80" },
-  { title: "Olives.ie", cat: "Apps", desc: "Irish product platform.", details: "Product/e-commerce app experience with modern UI/UX.", features: ["Product browsing flow", "Modern UI/UX", "API integration"], tech: ["React", "API"], url: "https://olives.ie/", img: "https://images.unsplash.com/photo-1607082349566-187342175e2f?w=1200&q=80" },
-  { title: "MeetMux", cat: "Apps", desc: "Social/meeting platform.", details: "Social meetup platform — modern responsive UI with real-time features.", features: ["Real-time features", "Responsive UI", "Social meetup flows"], tech: ["React", "Realtime"], url: "https://www.meetmux.com/", img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" },
+  { title: "Unboxify", cat: "Apps", desc: "Product app experience.", details: "Custom mobile app development with polished UI and API-driven content.", tech: ["React Native", "REST API"], url: "https://www.unboxify.in", img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=1200&q=80" },
+  { title: "Olives.ie", cat: "Apps", desc: "Irish product platform.", details: "Product/e-commerce app experience with modern UI/UX.", tech: ["React", "API"], url: "https://olives.ie/", img: "https://images.unsplash.com/photo-1607082349566-187342175e2f?w=1200&q=80" },
+  { title: "MeetMux", cat: "Apps", desc: "Social/meeting platform.", details: "Social meetup platform — modern responsive UI with real-time features.", tech: ["React", "Realtime"], url: "https://www.meetmux.com/", img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" },
+  { title: "Linear (inspired)", cat: "Apps", desc: "Productivity app reference build.", details: "Reference-grade productivity app UI with dense information design and buttery motion.", tech: ["React", "TypeScript"], url: "https://linear.app/", img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&q=80" },
 
   // SHOPIFY
-  { title: "Fitera Sport", cat: "Shopify", desc: "Sports & performance Shopify store.", details: "Shopify storefront for a performance sports brand — custom sections, product bundles and speed-tuned theme.", features: ["Custom Liquid sections", "Product bundles", "Speed-tuned theme"], tech: ["Shopify", "Liquid"], url: "https://Fiterasport.store", img: "https://images.unsplash.com/photo-1483721310020-03333e577078?w=1200&q=80" },
-  { title: "The Saje", cat: "Shopify", desc: "Lifestyle Shopify storefront.", details: "Boutique lifestyle Shopify build with editorial merchandising.", features: ["Editorial merchandising", "Custom collection pages", "Boutique PDP"], tech: ["Shopify", "Liquid"], url: "https://www.thesaje.com", img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=80" },
-  { title: "RK Trends", cat: "Shopify", desc: "UAE fashion Shopify store.", details: "Fashion Shopify build for the UAE market — multi-currency, RTL-aware sections.", features: ["Multi-currency setup", "RTL-aware sections", "Fashion merchandising"], tech: ["Shopify", "Multi-currency"], url: "https://www.rktrends.ae/", img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&q=80" },
-  { title: "Element Home", cat: "Shopify", desc: "Home & living Shopify store.", details: "Home & living Shopify build with editorial category pages.", features: ["Editorial category pages", "Custom sections", "Clean product grid"], tech: ["Shopify", "Liquid"], url: "https://elementhome.net/", img: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=80" },
-  { title: "Saramor", cat: "Shopify", desc: "Fashion Shopify storefront.", details: "Fashion Shopify storefront with bundle logic and premium PDP.", features: ["Bundle logic", "Premium PDP", "Custom theme work"], tech: ["Shopify", "Liquid"], url: "https://saramor.store/", img: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1200&q=80" },
+  { title: "Fitera Sport", cat: "Shopify", desc: "Sports & performance Shopify store.", details: "Shopify storefront for a performance sports brand — custom sections, product bundles and speed-tuned theme.", tech: ["Shopify", "Liquid"], url: "https://Fiterasport.store", img: "https://images.unsplash.com/photo-1483721310020-03333e577078?w=1200&q=80" },
+  { title: "The Saje", cat: "Shopify", desc: "Lifestyle Shopify storefront.", details: "Boutique lifestyle Shopify build with editorial merchandising.", tech: ["Shopify", "Liquid"], url: "https://www.thesaje.com", img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=80" },
+  { title: "RK Trends", cat: "Shopify", desc: "UAE fashion Shopify store.", details: "Fashion Shopify build for the UAE market — multi-currency, RTL-aware sections.", tech: ["Shopify", "Multi-currency"], url: "https://www.rktrends.ae/", img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&q=80" },
+  { title: "Element Home", cat: "Shopify", desc: "Home & living Shopify store.", details: "Home & living Shopify build with editorial category pages.", tech: ["Shopify", "Liquid"], url: "https://elementhome.net/", img: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=80" },
+  { title: "Saramor", cat: "Shopify", desc: "Fashion Shopify storefront.", details: "Fashion Shopify storefront with bundle logic and premium PDP.", tech: ["Shopify", "Liquid"], url: "https://saramor.store/", img: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1200&q=80" },
 ];
 
 export function Portfolio() {
@@ -362,18 +362,18 @@ export function Portfolio() {
   const current = openIdx !== null ? filtered[openIdx] : null;
 
   return (
-    <section id="portfolio" className="relative py-24 md:py-32 lg:py-40">
-      <div className="mx-auto max-w-7xl px-5 sm:px-6">
-        <div className="mb-12 flex flex-col items-start justify-between gap-8 md:mb-16 md:flex-row md:items-end">
+    <section id="portfolio" className="relative py-32 md:py-40">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mb-12 flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
           <div>
             <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/25 bg-[#141821] px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-[#93C5FD] sm:text-xs">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#D4AF37]">
                 <Sparkles size={12} /> Selected Work
               </span>
             </Reveal>
             <Reveal delay={0.1}>
-              <h2 className="mt-6 max-w-2xl font-display text-3xl font-bold leading-[1.08] tracking-tight text-white sm:text-4xl md:text-6xl">
-                Live client projects, <span className="text-gradient-accent">shipped and running.</span>
+              <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.05] text-white md:text-6xl">
+                Live projects — <span className="text-gradient-gold italic font-normal">click to explore.</span>
               </h2>
             </Reveal>
           </div>
@@ -383,10 +383,10 @@ export function Portfolio() {
                 <button
                   key={c}
                   onClick={() => { setActive(c); setOpenIdx(null); }}
-                  className={`rounded-full border px-4 py-2 text-[11px] font-semibold uppercase tracking-widest transition-all ${
+                  className={`rounded-full border px-4 py-2 text-xs uppercase tracking-widest transition-all ${
                     active === c
-                      ? "border-[#3B82F6] bg-[#3B82F6] text-white"
-                      : "border-white/10 text-white/55 hover:border-[#3B82F6]/50 hover:text-[#93C5FD]"
+                      ? "border-[#D4AF37] bg-[#D4AF37] text-black"
+                      : "border-white/10 text-white/60 hover:border-[#D4AF37]/50 hover:text-[#E8C767]"
                   }`}
                 >
                   {c}
@@ -396,9 +396,9 @@ export function Portfolio() {
           </Reveal>
         </div>
 
-        <div className="space-y-16 md:space-y-24">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {filtered.map((p, i) => (
-            <ProjectBand key={p.title + p.url} p={p} index={i} onClick={() => setOpenIdx(i)} />
+            <ProjectCard key={p.title + p.url} p={p} index={i} onClick={() => setOpenIdx(i)} />
           ))}
         </div>
       </div>
@@ -406,23 +406,16 @@ export function Portfolio() {
       <Modal open={openIdx !== null} onClose={() => setOpenIdx(null)} maxWidth="max-w-3xl">
         {current && (
           <div>
-            <div className="overflow-hidden rounded-2xl border border-white/10">
-              <ProjectShot p={current} className="h-56 w-full object-cover object-top md:h-80" />
+            <div className="overflow-hidden rounded-2xl border border-[#D4AF37]/20">
+              <img src={current.img} alt={current.title} className="h-64 w-full object-cover md:h-80" />
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-3">
-              <span className="rounded-full border border-[#3B82F6]/40 bg-[#3B82F6]/10 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-[#93C5FD]">
+              <span className="rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-[#E8C767]">
                 {current.cat}
               </span>
-              <h3 className="font-display text-2xl font-bold text-white md:text-4xl">{current.title}</h3>
+              <h3 className="font-display text-3xl font-semibold text-white md:text-4xl">{current.title}</h3>
             </div>
-            <p className="mt-4 leading-relaxed text-white/70">{current.details}</p>
-            <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
-              {current.features.map((f) => (
-                <li key={f} className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.02] p-3 text-sm text-white/80">
-                  <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-[#3B82F6]" /> {f}
-                </li>
-              ))}
-            </ul>
+            <p className="mt-4 leading-relaxed text-white/75">{current.details}</p>
             <div className="mt-5 flex flex-wrap gap-2">
               {current.tech.map((t) => (
                 <span key={t} className="rounded-full border border-white/10 px-3 py-1 text-[11px] text-white/60">{t}</span>
@@ -433,16 +426,11 @@ export function Portfolio() {
                 href={current.url}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#3B82F6] px-6 py-3.5 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-[#2563EB]"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#E8C767] via-[#D4AF37] to-[#A8862A] px-6 py-3 text-sm font-medium text-black gold-glow-hover"
               >
-                <ExternalLink size={15} /> Live Demo
+                <ExternalLink size={14} /> Visit Live Site
               </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-[#141821] px-6 py-3.5 text-sm font-semibold text-white transition-all hover:border-white/20"
-              >
-                Start a similar project
-              </a>
+              <MagneticButton variant="outline" href="#contact">Start a similar project</MagneticButton>
             </div>
           </div>
         )}
@@ -451,102 +439,48 @@ export function Portfolio() {
   );
 }
 
-function ProjectShot({ p, className }: { p: Project; className?: string }) {
+function ProjectCard({ p, index, onClick }: { p: Project; index: number; onClick: () => void }) {
   return (
-    <img
-      src={shot(p.url)}
-      alt={`${p.title} — live site screenshot`}
-      loading="lazy"
-      className={className}
-      onError={(e) => {
-        const img = e.currentTarget;
-        if (img.src !== p.img) img.src = p.img;
-      }}
-    />
-  );
-}
-
-function ProjectBand({ p, index, onClick }: { p: Project; index: number; onClick: () => void }) {
-  const flipped = index % 2 === 1;
-  return (
-    <motion.article
-      initial={{ opacity: 0, y: 48 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-14"
+    <motion.button
+      type="button"
+      onClick={onClick}
+      initial={{ opacity: 0, y: 40, scale: 0.96 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.7, delay: (index % 3) * 0.08, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -8 }}
+      className="group relative overflow-hidden rounded-3xl border border-[#D4AF37]/15 bg-[#0a0a0a] text-left"
     >
-      {/* Screenshot */}
-      <div className={`lg:col-span-7 ${flipped ? "lg:order-2" : ""}`}>
-        <button
-          type="button"
-          onClick={onClick}
-          aria-label={`View details for ${p.title}`}
-          className="group relative block w-full overflow-hidden rounded-2xl border border-white/10 bg-[#141821] p-2 text-left transition-all duration-500 hover:border-[#3B82F6]/40 md:rounded-3xl md:p-3"
-        >
-          <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-            <div className="absolute -inset-20 bg-[#3B82F6]/10 blur-3xl" />
-          </div>
-          {/* Browser chrome */}
-          <div className="relative mb-2 flex items-center gap-2 px-2 py-1.5">
-            <span className="h-2 w-2 rounded-full bg-white/15" />
-            <span className="h-2 w-2 rounded-full bg-white/15" />
-            <span className="h-2 w-2 rounded-full bg-white/15" />
-            <span className="ml-2 truncate text-[10px] text-white/35">{p.url.replace(/^https?:\/\//, "")}</span>
-          </div>
-          <div className="relative aspect-[16/10] overflow-hidden rounded-xl md:rounded-2xl">
-            <ProjectShot p={p} className="h-full w-full object-cover object-top transition-transform duration-[1200ms] group-hover:scale-[1.04]" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B0F]/60 via-transparent to-transparent" />
-          </div>
-        </button>
-      </div>
-
-      {/* Copy */}
-      <div className={`lg:col-span-5 ${flipped ? "lg:order-1" : ""}`}>
-        <div className="flex items-center gap-3">
-          <span className="rounded-full border border-[#3B82F6]/30 bg-[#3B82F6]/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#93C5FD]">
+      <div className="relative aspect-[16/10] overflow-hidden">
+        <img
+          src={p.img}
+          alt={p.title}
+          loading="lazy"
+          className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent" />
+        <div className="absolute left-6 top-6">
+          <span className="rounded-full border border-[#D4AF37]/40 bg-black/40 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-[#E8C767] backdrop-blur">
             {p.cat}
           </span>
-          <span className="font-mono text-[11px] text-white/25">{String(index + 1).padStart(2, "0")}</span>
         </div>
-        <h3 className="mt-4 font-display text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl">{p.title}</h3>
-        <p className="mt-3 leading-relaxed text-white/60">{p.details}</p>
-        <ul className="mt-6 space-y-2.5">
-          {p.features.map((f) => (
-            <li key={f} className="flex items-start gap-2.5 text-sm text-white/75">
-              <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-[#3B82F6]" /> {f}
-            </li>
-          ))}
-        </ul>
-        <div className="mt-6 flex flex-wrap gap-2">
-          {p.tech.map((t) => (
-            <span key={t} className="rounded-full border border-white/10 bg-white/[0.02] px-3 py-1.5 text-[11px] font-medium text-white/65">
-              {t}
-            </span>
-          ))}
-        </div>
-        <div className="mt-7 flex flex-wrap items-center gap-3">
-          <a
-            href={p.url}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl bg-[#3B82F6] px-6 py-3.5 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-[#2563EB] hover:shadow-[0_0_25px_rgba(59,130,246,0.35)]"
-          >
-            <ExternalLink size={15} /> Live Demo
-          </a>
-          <button
-            type="button"
-            onClick={onClick}
-            className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-[#141821] px-6 py-3.5 text-sm font-semibold text-white transition-all hover:border-white/20 hover:bg-[#1E2330]"
-          >
-            View Details <ArrowUpRight size={15} />
-          </button>
+        <div className="absolute inset-0 flex items-end justify-end p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+          <div className="rounded-full bg-[#D4AF37] px-3 py-1.5 text-[11px] font-medium text-black">View details →</div>
         </div>
       </div>
-    </motion.article>
+      <div className="p-6">
+        <h3 className="font-display text-xl font-medium text-white md:text-2xl">{p.title}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-white/60">{p.desc}</p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {p.tech.map((t) => (
+            <span key={t} className="rounded-full border border-white/10 px-3 py-1 text-[11px] text-white/60">{t}</span>
+          ))}
+        </div>
+        <div className="mt-4 truncate text-xs text-[#D4AF37]/70">{p.url.replace(/^https?:\/\//, "")}</div>
+      </div>
+    </motion.button>
   );
 }
-
 
 /* ============================== WHY CHOOSE ME ============================== */
 const reasons = [
@@ -563,17 +497,17 @@ const reasons = [
 
 export function WhyChoose() {
   return (
-    <section className="relative py-24 md:py-32 lg:py-40">
-      <div className="mx-auto max-w-7xl px-5 sm:px-6">
+    <section className="relative py-32 md:py-40">
+      <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16">
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/25 bg-[#141821] px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-[#93C5FD] sm:text-xs">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#D4AF37]">
               <Sparkles size={12} /> Why Choose Me
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="mt-6 max-w-3xl font-display text-3xl font-bold leading-[1.08] tracking-tight text-white sm:text-4xl md:text-6xl">
-              Nine reasons to <span className="text-gradient-accent">work together.</span>
+            <h2 className="mt-6 max-w-3xl font-display text-4xl font-semibold leading-[1.05] text-white md:text-6xl">
+              Nine reasons to <span className="text-gradient-gold italic font-normal">work together.</span>
             </h2>
           </Reveal>
         </div>
@@ -586,8 +520,8 @@ export function WhyChoose() {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
             >
-              <div className="group glass flex items-center gap-4 rounded-2xl p-6 transition-all duration-500 hover:border-[#3B82F6]/50 hover:bg-[#3B82F6]/[0.04]">
-                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#3B82F6] to-[#1D4ED8] text-white transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+              <div className="group glass flex items-center gap-4 rounded-2xl p-6 transition-all duration-500 hover:border-[#D4AF37]/50 hover:bg-[#D4AF37]/[0.04]">
+                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#E8C767] to-[#A8862A] text-black transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
                   <r.icon size={18} />
                 </div>
                 <div className="font-display text-lg font-medium text-white">{r.label}</div>
@@ -610,18 +544,18 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="relative py-24 md:py-32 lg:py-40">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-96 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.08),transparent_70%)]" />
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
+    <section className="relative py-32 md:py-40">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-96 bg-[radial-gradient(ellipse_at_top,rgba(212,175,55,0.08),transparent_70%)]" />
+      <div className="relative mx-auto max-w-7xl px-6">
         <div className="mb-16 text-center">
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/25 bg-[#141821] px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-[#93C5FD] sm:text-xs">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#D4AF37]">
               <Sparkles size={12} /> Testimonials
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="mx-auto mt-6 max-w-3xl font-display text-3xl font-bold leading-[1.08] tracking-tight text-white sm:text-4xl md:text-6xl">
-              Kind words from <span className="text-gradient-accent">partners.</span>
+            <h2 className="mx-auto mt-6 max-w-3xl font-display text-4xl font-semibold leading-[1.05] text-white md:text-6xl">
+              Kind words from <span className="text-gradient-gold italic font-normal">partners.</span>
             </h2>
           </Reveal>
         </div>
@@ -629,15 +563,15 @@ export function Testimonials() {
           {testimonials.map((t, i) => (
             <Reveal key={t.name} delay={(i % 2) * 0.08}>
               <motion.div whileHover={{ y: -6 }} className="glass-strong group relative overflow-hidden rounded-3xl p-8 md:p-10">
-                <div className="pointer-events-none absolute -right-8 -top-8 font-display text-[180px] leading-none text-[#3B82F6]/10">&ldquo;</div>
+                <div className="pointer-events-none absolute -right-8 -top-8 font-display text-[180px] leading-none text-[#D4AF37]/10">&ldquo;</div>
                 <p className="relative font-display text-xl leading-relaxed text-white/85 md:text-2xl">&ldquo;{t.quote}&rdquo;</p>
                 <div className="relative mt-8 flex items-center gap-4 border-t border-white/10 pt-6">
-                  <div className="grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-[#3B82F6] to-[#1D4ED8] font-display text-sm font-semibold text-white">
+                  <div className="grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-[#E8C767] to-[#A8862A] font-display text-sm font-semibold text-black">
                     {t.name.split(" ").map((n) => n[0]).join("")}
                   </div>
                   <div>
                     <div className="font-medium text-white">{t.name}</div>
-                    <div className="text-xs uppercase tracking-widest text-[#3B82F6]/70">{t.role}</div>
+                    <div className="text-xs uppercase tracking-widest text-[#D4AF37]/70">{t.role}</div>
                   </div>
                 </div>
               </motion.div>
@@ -664,31 +598,31 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-24 md:py-32 lg:py-40">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.06),transparent_60%)]" />
+    <section id="contact" className="relative py-32 md:py-40">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.06),transparent_60%)]" />
       <motion.div
         aria-hidden="true"
         animate={{ rotateX: [0, 18, 0], rotateY: [0, -28, 0], y: [0, -28, 0] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="pointer-events-none absolute right-[8%] top-24 hidden h-28 w-28 rounded-3xl border border-[#3B82F6]/25 bg-[#3B82F6]/5 shadow-[0_0_70px_-20px_rgba(59,130,246,0.7)] backdrop-blur-xl lg:block"
+        className="pointer-events-none absolute right-[8%] top-24 hidden h-28 w-28 rounded-3xl border border-[#D4AF37]/25 bg-[#D4AF37]/5 shadow-[0_0_70px_-20px_rgba(212,175,55,0.7)] backdrop-blur-xl lg:block"
         style={{ transformPerspective: 900 }}
       />
       <motion.div
         aria-hidden="true"
         animate={{ rotateZ: [0, 360], scale: [1, 1.12, 1] }}
         transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-        className="pointer-events-none absolute bottom-28 left-[6%] hidden h-36 w-36 rounded-full border border-dashed border-[#3B82F6]/20 lg:block"
+        className="pointer-events-none absolute bottom-28 left-[6%] hidden h-36 w-36 rounded-full border border-dashed border-[#D4AF37]/20 lg:block"
       />
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
+      <div className="relative mx-auto max-w-7xl px-6">
         <div className="mb-20 text-center">
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/25 bg-[#141821] px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-[#93C5FD] sm:text-xs">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#D4AF37]">
               <Sparkles size={12} /> Contact
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="mx-auto mt-6 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-7xl">
-              Let&apos;s create <span className="text-gradient-accent">something premium.</span>
+            <h2 className="mx-auto mt-6 max-w-3xl font-display text-5xl font-semibold leading-[1.02] text-white md:text-7xl">
+              Let&apos;s create <span className="text-gradient-gold italic font-normal">something premium.</span>
             </h2>
           </Reveal>
         </div>
@@ -712,16 +646,16 @@ export function Contact() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.06 }}
                 whileHover={{ x: 6 }}
-                className="group glass flex items-center gap-5 rounded-2xl p-5 transition-colors hover:border-[#3B82F6]/50 hover:bg-[#3B82F6]/[0.04]"
+                className="group glass flex items-center gap-5 rounded-2xl p-5 transition-colors hover:border-[#D4AF37]/50 hover:bg-[#D4AF37]/[0.04]"
               >
-                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#3B82F6] to-[#1D4ED8] text-white">
+                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#E8C767] to-[#A8862A] text-black">
                   <c.icon size={18} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <div className="text-xs uppercase tracking-widest text-[#3B82F6]/70">{c.label}</div>
+                  <div className="text-xs uppercase tracking-widest text-[#D4AF37]/70">{c.label}</div>
                   <div className="mt-0.5 truncate font-display text-lg text-white">{c.value}</div>
                 </div>
-                {c.href && <ArrowUpRight className="text-white/30 transition-all group-hover:text-[#3B82F6] group-hover:translate-x-1 group-hover:-translate-y-1" size={18} />}
+                {c.href && <ArrowUpRight className="text-white/30 transition-all group-hover:text-[#D4AF37] group-hover:translate-x-1 group-hover:-translate-y-1" size={18} />}
               </motion.a>
             ))}
           </div>
@@ -742,7 +676,7 @@ export function Contact() {
                 <input type="text" name="_honey" tabIndex={-1} autoComplete="off" className="hidden" />
                 {(["name", "email"] as const).map((f) => (
                   <div key={f} className="relative">
-                    <label className={`absolute left-0 pointer-events-none font-mono text-xs uppercase tracking-[0.2em] transition-all duration-300 ${focus === f || state[f] ? "-top-1 text-[10px] text-[#3B82F6]" : "top-4 text-white/40"}`}>
+                    <label className={`absolute left-0 pointer-events-none font-mono text-xs uppercase tracking-[0.2em] transition-all duration-300 ${focus === f || state[f] ? "-top-1 text-[10px] text-[#D4AF37]" : "top-4 text-white/40"}`}>
                       {f === "name" ? "Your Name" : "Email Address"}
                     </label>
                     <input
@@ -754,20 +688,20 @@ export function Contact() {
                       onFocus={() => setFocus(f)}
                       onBlur={() => setFocus(null)}
                       onChange={(e) => setState({ ...state, [f]: e.target.value })}
-                      className="w-full border-b border-white/20 bg-transparent pb-2 pt-6 text-white outline-none transition-colors focus:border-[#3B82F6]"
+                      className="w-full border-b border-white/20 bg-transparent pb-2 pt-6 text-white outline-none transition-colors focus:border-[#D4AF37]"
                     />
                   </div>
                 ))}
                 <div>
-                  <div className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-[#3B82F6]/75">Project Type</div>
+                  <div className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-[#D4AF37]/75">Project Type</div>
                   <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
                     {projectTypes.map((type) => (
                       <label
                         key={type}
                         className={`group relative cursor-pointer rounded-2xl border p-4 text-center text-xs uppercase tracking-widest transition-all duration-300 ${
                           state.projectType === type
-                            ? "border-[#3B82F6] bg-[#3B82F6]/10 text-[#93C5FD] shadow-[0_0_30px_-18px_rgba(59,130,246,0.9)]"
-                            : "border-white/10 bg-white/[0.02] text-white/55 hover:border-[#3B82F6]/50 hover:text-[#93C5FD]"
+                            ? "border-[#D4AF37] bg-[#D4AF37]/10 text-[#E8C767] shadow-[0_0_30px_-18px_rgba(212,175,55,0.9)]"
+                            : "border-white/10 bg-white/[0.02] text-white/55 hover:border-[#D4AF37]/50 hover:text-[#E8C767]"
                         }`}
                       >
                         <input
@@ -778,14 +712,14 @@ export function Contact() {
                           onChange={() => setState({ ...state, projectType: type })}
                           className="sr-only"
                         />
-                        <span className="mx-auto mb-2 block h-2 w-2 rounded-full bg-[#3B82F6] opacity-40 transition-opacity group-hover:opacity-100" />
+                        <span className="mx-auto mb-2 block h-2 w-2 rounded-full bg-[#D4AF37] opacity-40 transition-opacity group-hover:opacity-100" />
                         {type}
                       </label>
                     ))}
                   </div>
                 </div>
                 <div className="relative">
-                  <label className={`absolute left-0 pointer-events-none font-mono text-xs uppercase tracking-[0.2em] transition-all duration-300 ${focus === "message" || state.message ? "-top-1 text-[10px] text-[#3B82F6]" : "top-4 text-white/40"}`}>
+                  <label className={`absolute left-0 pointer-events-none font-mono text-xs uppercase tracking-[0.2em] transition-all duration-300 ${focus === "message" || state.message ? "-top-1 text-[10px] text-[#D4AF37]" : "top-4 text-white/40"}`}>
                     Tell me about your project
                   </label>
                   <textarea
@@ -797,12 +731,12 @@ export function Contact() {
                     onFocus={() => setFocus("message")}
                     onBlur={() => setFocus(null)}
                     onChange={(e) => setState({ ...state, message: e.target.value })}
-                    className="w-full resize-none border-b border-white/20 bg-transparent pb-2 pt-6 text-white outline-none transition-colors focus:border-[#3B82F6]"
+                    className="w-full resize-none border-b border-white/20 bg-transparent pb-2 pt-6 text-white outline-none transition-colors focus:border-[#D4AF37]"
                   />
                 </div>
                 <div className="flex items-center justify-between pt-4">
                   <div className="text-xs text-white/40">{sent ? "Details sent to aanushaha1998@gmail.com." : "Typical reply within 24 hours."}</div>
-                  <button type="submit" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#3B82F6] hover:bg-[#2563EB] px-7 py-3.5 text-sm font-medium tracking-wide text-white accent-glow-hover">
+                  <button type="submit" className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#E8C767] via-[#D4AF37] to-[#A8862A] px-7 py-3.5 text-sm font-medium tracking-wide text-black gold-glow-hover">
                     Send Message <ArrowUpRight size={16} />
                   </button>
                 </div>
@@ -818,11 +752,11 @@ export function Contact() {
 /* ============================== FOOTER ============================== */
 export function Footer() {
   return (
-    <footer className="relative border-t border-[#3B82F6]/15 bg-[#0A0B0F] pt-20">
-      <div className="mx-auto max-w-7xl px-5 sm:px-6">
+    <footer className="relative border-t border-[#D4AF37]/15 bg-[#050505] pt-20">
+      <div className="mx-auto max-w-7xl px-6">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <div className="font-display text-3xl md:text-4xl font-semibold text-gradient-accent">Anusha H A</div>
+            <div className="font-display text-3xl md:text-4xl font-semibold text-gradient-gold">Anusha H A</div>
             <p className="mt-4 max-w-sm text-white/60">App Developer &amp; Full Stack Developer crafting cinematic digital experiences for premium brands worldwide. Based in Bangalore, Karnataka.</p>
             <div className="mt-6 flex flex-wrap gap-3">
               {[
@@ -831,7 +765,7 @@ export function Footer() {
                 { icon: Mail, href: "mailto:aanushaha1998@gmail.com", label: "Email" },
                 { icon: MessageCircle, href: "https://wa.me/919663471531", label: "WhatsApp" },
               ].map((s) => (
-                <a key={s.label} href={s.href} target="_blank" rel="noreferrer" aria-label={s.label} className="grid h-11 w-11 place-items-center rounded-full border border-white/10 text-white/70 transition-all hover:border-[#3B82F6] hover:bg-[#3B82F6]/10 hover:text-[#93C5FD]">
+                <a key={s.label} href={s.href} target="_blank" rel="noreferrer" aria-label={s.label} className="grid h-11 w-11 place-items-center rounded-full border border-white/10 text-white/70 transition-all hover:border-[#D4AF37] hover:bg-[#D4AF37]/10 hover:text-[#E8C767]">
                   <s.icon size={16} />
                 </a>
               ))}
@@ -839,20 +773,20 @@ export function Footer() {
           </div>
 
           <div className="md:col-span-4">
-            <div className="text-xs uppercase tracking-[0.3em] text-[#3B82F6]/70">Quick Links</div>
+            <div className="text-xs uppercase tracking-[0.3em] text-[#D4AF37]/70">Quick Links</div>
             <ul className="mt-5 grid grid-cols-2 gap-y-2 text-sm">
               {["About", "Services", "Skills", "Portfolio", "Contact"].map((l) => (
-                <li key={l}><a href={`#${l.toLowerCase()}`} className="text-white/60 transition-colors hover:text-[#93C5FD]">{l}</a></li>
+                <li key={l}><a href={`#${l.toLowerCase()}`} className="text-white/60 transition-colors hover:text-[#E8C767]">{l}</a></li>
               ))}
             </ul>
           </div>
 
           <div className="md:col-span-3">
-            <div className="text-xs uppercase tracking-[0.3em] text-[#3B82F6]/70">Reach Out</div>
+            <div className="text-xs uppercase tracking-[0.3em] text-[#D4AF37]/70">Reach Out</div>
             <ul className="mt-5 space-y-2 text-sm">
-              <li><a href="mailto:aanushaha1998@gmail.com" className="text-white/60 hover:text-[#93C5FD]">aanushaha1998@gmail.com</a></li>
-              <li><a href="tel:+919663471531" className="text-white/60 hover:text-[#93C5FD]">+91 96634 71531</a></li>
-              <li className="flex items-center gap-1.5 text-white/60"><MapPin size={12} className="text-[#3B82F6]" /> Bangalore, Karnataka</li>
+              <li><a href="mailto:aanushaha1998@gmail.com" className="text-white/60 hover:text-[#E8C767]">aanushaha1998@gmail.com</a></li>
+              <li><a href="tel:+919663471531" className="text-white/60 hover:text-[#E8C767]">+91 96634 71531</a></li>
+              <li className="flex items-center gap-1.5 text-white/60"><MapPin size={12} className="text-[#D4AF37]" /> Bangalore, Karnataka</li>
             </ul>
           </div>
         </div>
