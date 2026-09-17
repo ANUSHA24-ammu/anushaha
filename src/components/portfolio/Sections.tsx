@@ -9,7 +9,6 @@ import {
   Code2, LifeBuoy, Award, Zap, Cpu,
 } from "lucide-react";
 import { Reveal } from "./Reveal";
-import { Counter } from "./Counter";
 import { MagneticButton } from "./MagneticButton";
 import { Modal } from "./Modal";
 import anushaAsset from "@/assets/anusha.jpeg.asset.json";
