@@ -514,7 +514,7 @@ function ProjectCard({ p, index, onClick }: { p: Project; index: number; onClick
         aria-hidden
         className="pointer-events-none absolute inset-px z-[1] rounded-[15px] bg-[#0a0a0a]"
       />
-      <div className="relative aspect-[16/10] overflow-hidden">
+      <div className="relative z-[2] aspect-[16/10] overflow-hidden">
         <motion.img
           src={p.img}
           alt={p.title}
