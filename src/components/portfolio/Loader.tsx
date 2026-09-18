@@ -9,20 +9,20 @@ export function Loader() {
   useEffect(() => {
     let p = 0;
     const t = setInterval(() => {
-      p += Math.random() * 12 + 4;
+      p += 28;
       if (p >= 100) {
         p = 100;
         clearInterval(t);
-        setTimeout(() => setDone(true), 500);
+        setTimeout(() => setDone(true), 80);
       }
       setProgress(Math.min(100, p));
-    }, 120);
+    }, 55);
     return () => clearInterval(t);
   }, []);
 
   useEffect(() => {
     if (!done) return;
-    const t = setTimeout(() => setHidden(true), 1100);
+    const t = setTimeout(() => setHidden(true), 500);
     return () => clearTimeout(t);
   }, [done]);
 
