@@ -34,7 +34,7 @@ export function About() {
                   <img
                     src={anushaAsset.url}
                     alt="Anusha H A — App Developer & Full Stack Developer"
-                    className="w-full rounded-[1.6rem] object-cover"
+                    className="h-[340px] w-full rounded-[1.6rem] object-cover object-top sm:h-[420px] md:h-auto"
                     loading="lazy"
                   />
                   <div className="pointer-events-none absolute inset-2 rounded-[1.6rem] ring-1 ring-inset ring-white/10" />
@@ -45,7 +45,7 @@ export function About() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 0.7 }}
-                className="glass-strong absolute -bottom-6 -right-6 rounded-2xl px-5 py-4 md:-bottom-8 md:-right-8"
+                className="glass-strong absolute -bottom-4 right-2 rounded-2xl px-4 py-3 sm:-right-6 md:-bottom-8 md:-right-8 md:px-5 md:py-4"
               >
                 <div className="flex items-center gap-3">
                   <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-[#E8C767] to-[#A8862A] text-black">
@@ -62,7 +62,7 @@ export function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.6, duration: 0.7 }}
-                className="glass-strong absolute -top-4 -left-4 flex items-center gap-2 rounded-full px-4 py-2"
+                className="glass-strong absolute -top-3 left-2 flex items-center gap-2 rounded-full px-3 py-1.5 md:-top-4 md:-left-4 md:px-4 md:py-2"
               >
                 <MapPin size={14} className="text-[#D4AF37]" />
                 <span className="text-xs text-white/85">Bangalore, Karnataka</span>
@@ -461,22 +461,54 @@ export function Portfolio() {
 }
 
 function ProjectCard({ p, index, onClick }: { p: Project; index: number; onClick: () => void }) {
+  const cardRef = useRef<HTMLButtonElement>(null);
+  const rotateX = useMotionValue(0);
+  const rotateY = useMotionValue(0);
+  const glareX = useMotionValue(50);
+  const glareY = useMotionValue(50);
+  const springX = useSpring(rotateX, { stiffness: 220, damping: 20 });
+  const springY = useSpring(rotateY, { stiffness: 220, damping: 20 });
+
+  const handleMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const el = cardRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width;
+    const py = (e.clientY - rect.top) / rect.height;
+    rotateY.set((px - 0.5) * 16);
+    rotateX.set((0.5 - py) * 14);
+    glareX.set(px * 100);
+    glareY.set(py * 100);
+  };
+
+  const handleLeave = () => {
+    rotateX.set(0);
+    rotateY.set(0);
+    glareX.set(50);
+    glareY.set(50);
+  };
+
   return (
     <motion.button
+      ref={cardRef}
       type="button"
       onClick={onClick}
+      onMouseMove={handleMove}
+      onMouseLeave={handleLeave}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, delay: (index % 3) * 0.06, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -6 }}
-      className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0a0a0a] text-left transition-colors hover:border-[#D4AF37]/40"
+      whileHover={{ y: -8 }}
+      style={{ rotateX: springX, rotateY: springY, transformPerspective: 1000, transformStyle: "preserve-3d" }}
+      className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0a0a0a] text-left transition-colors hover:border-[#D4AF37]/40 hover:shadow-[0_30px_80px_-40px_rgba(212,175,55,0.65)]"
     >
       <div className="relative aspect-[16/10] overflow-hidden">
-        <img
+        <motion.img
           src={p.img}
           alt={p.title}
           loading="lazy"
+          style={{ translateZ: 40 }}
           className="h-full w-full object-cover transition-transform duration-[900ms] group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/30 to-transparent" />
@@ -484,14 +516,19 @@ function ProjectCard({ p, index, onClick }: { p: Project; index: number; onClick
           {p.cat}
         </span>
       </div>
-      <div className="p-6">
+      <motion.div
+        aria-hidden
+        style={{ background: useMotionTemplate`radial-gradient(400px circle at ${glareX}% ${glareY}%, rgba(212,175,55,0.18), transparent 60%)` }}
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+      />
+      <motion.div style={{ translateZ: 25 }} className="p-6">
         <h3 className="font-display text-xl font-medium text-white md:text-2xl">{p.title}</h3>
         <div className="mt-1 text-xs uppercase tracking-widest text-white/40">{p.client}</div>
         <p className="mt-3 text-sm leading-relaxed text-white/60">{p.desc}</p>
         <div className="mt-5 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-[#D4AF37] transition-transform group-hover:translate-x-1">
           View case study <ArrowUpRight size={14} />
         </div>
-      </div>
+      </motion.div>
     </motion.button>
   );
 }
