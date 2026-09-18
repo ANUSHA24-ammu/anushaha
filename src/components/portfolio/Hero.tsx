@@ -65,7 +65,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-5xl font-semibold leading-[0.95] tracking-tight text-white md:text-7xl lg:text-[8rem]"
+          className="font-display text-[2.6rem] font-semibold leading-[1] tracking-tight text-white sm:text-5xl md:text-7xl lg:text-[8rem]"
         >
           <span className="text-gradient-gold italic font-normal">App Developer</span>
           <br />
