@@ -70,7 +70,7 @@ export function Hero() {
           className="relative mb-8 md:hidden"
         >
           <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-[#D4AF37]/35 via-[#E8C767]/15 to-transparent blur-2xl" />
-          <div className="relative h-[210px] w-[170px] overflow-hidden rounded-[1.75rem] border border-[#D4AF37]/45 bg-[#0a0a0a] p-1.5 xs:h-[240px] xs:w-[190px] sm:h-[280px] sm:w-[225px]">
+          <div className="relative h-[210px] w-[170px] overflow-hidden rounded-[1.75rem] border border-[#D4AF37]/45 bg-[#0a0a0a] p-1.5 sm:h-[280px] sm:w-[225px]">
             <img
               src={anushaAsset.url}
               alt="Anusha H A — App Developer & Full Stack Developer"
