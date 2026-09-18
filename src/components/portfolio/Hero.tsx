@@ -3,6 +3,7 @@ import { useEffect, useRef, Suspense, lazy, useState } from "react";
 import { ArrowDown, ArrowUpRight, Mail } from "lucide-react";
 import { MagneticButton } from "./MagneticButton";
 import { useIsMobile } from "@/hooks/use-mobile";
+import anushaAsset from "@/assets/anusha.jpeg.asset.json";
 
 const HeroScene = lazy(() => import("./HeroScene").then((m) => ({ default: m.HeroScene })));
 
