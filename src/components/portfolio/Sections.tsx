@@ -30,12 +30,15 @@ export function About() {
                 className="relative pb-28 sm:pb-24 lg:pb-0"
               >
                 <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-[#D4AF37]/40 via-[#E8C767]/20 to-transparent blur-2xl" />
-                <div className="relative overflow-hidden rounded-[2rem] border border-[#D4AF37]/40 bg-[#0a0a0a] p-2">
+                <div className="relative rounded-[2rem] border border-[#D4AF37]/40 bg-[#0a0a0a] p-2">
                   <img
                     src={anushaAsset.url}
                     alt="Anusha H A — App Developer & Full Stack Developer"
-                    className="block h-auto w-full rounded-[1.6rem] object-contain"
-                    loading="lazy"
+                    className="block h-auto w-full max-w-full rounded-[1.6rem] object-contain opacity-100"
+                    style={{ visibility: "visible" }}
+                    loading="eager"
+                    decoding="async"
+                    fetchPriority="high"
                   />
                   <div className="pointer-events-none absolute inset-2 rounded-[1.6rem] ring-1 ring-inset ring-white/10" />
                 </div>
