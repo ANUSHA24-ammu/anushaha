@@ -322,8 +322,11 @@ type Cat = (typeof categories)[number];
 type Project = {
   title: string;
   cat: Exclude<Cat, "All">;
+  client: string;
   desc: string;
-  details: string;
+  problem: string;
+  solution: string;
+  result: string;
   tech: string[];
   url: string;
   img: string;
@@ -331,28 +334,27 @@ type Project = {
 
 const projects: Project[] = [
   // WEBSITES
-  { title: "Anusha Portfolio", cat: "Websites", desc: "Personal portfolio site — cinematic, editorial.", details: "Editorial portfolio site built with React and scroll-driven storytelling. Focus on typographic hierarchy and refined motion.", tech: ["React", "GSAP", "Tailwind"], url: "https://anushaha99.portfolio.website/", img: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80" },
-  { title: "Saksham Fashion", cat: "Websites", desc: "Fashion brand storefront concept.", details: "Fashion-forward marketing site built on Netlify with a lookbook-first structure and product spotlight sections.", tech: ["React", "Netlify", "Tailwind"], url: "https://sakshamfashion.netlify.app/", img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&q=80" },
-  { title: "Florida Green Contractors", cat: "Websites", desc: "Service business site with lead-capture.", details: "Full corporate site for a US-based contractor — services, portfolio, credibility signals and multi-step quote flow.", tech: ["WordPress", "PHP", "SEO"], url: "https://floridagreencontractors.com/", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80" },
-  { title: "Rol Drive", cat: "Websites", desc: "Automotive / mobility platform.", details: "Mobility brand website with fleet showcase and booking journey.", tech: ["Next.js", "Tailwind"], url: "https://www.roldrive.com/", img: "https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1200&q=80" },
-  { title: "RebuildIt Inc.", cat: "Websites", desc: "Construction & remodeling company site.", details: "Corporate site for a construction firm — service pages, gallery, testimonials and inquiry pipeline.", tech: ["React", "Tailwind"], url: "https://RebuildItInc.com", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80" },
-  { title: "Birla Pivot Form", cat: "Websites", desc: "Enterprise B2B form & flow.", details: "Multi-step enterprise onboarding form for Birla Pivot.", tech: ["React", "Form logic"], url: "http://birlapivot.com/form", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80" },
-  { title: "Author Pratik", cat: "Websites", desc: "Author personal branding site.", details: "Editorial author site with book showcase, blog and speaking enquiries.", tech: ["WordPress", "ACF"], url: "http://authorpratik.com", img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&q=80" },
-  { title: "Barry Miller", cat: "Websites", desc: "Personal brand website.", details: "Elegant personal brand site with case studies and press.", tech: ["WordPress"], url: "https://www.barrymiller.net/", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&q=80" },
-  { title: "Ruby Todd", cat: "Websites", desc: "Author / creative portfolio.", details: "Boutique portfolio for an author — refined typography and long-form content layouts.", tech: ["WordPress"], url: "https://www.ruby-todd.com/", img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200&q=80" },
+  { title: "Anusha Portfolio", cat: "Websites", client: "Personal brand", desc: "Editorial portfolio with scroll-driven storytelling.", problem: "Needed a personal brand site that instantly signalled senior-level craft to international clients.", solution: "Designed and built an editorial, scroll-driven site with refined typography and cinematic motion.", result: "Higher enquiry quality and a clear first impression for prospective clients.", tech: ["React", "GSAP", "Tailwind"], url: "https://anushaha99.portfolio.website/", img: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80" },
+  { title: "Saksham Fashion", cat: "Websites", client: "Fashion label", desc: "Lookbook-first storefront concept.", problem: "A fashion label needed a launch site that felt premium without a heavy platform.", solution: "Built a fast lookbook-first marketing site with product spotlight sections and clean mobile layouts.", result: "Launched quickly with a fast, image-led experience on every device.", tech: ["React", "Netlify", "Tailwind"], url: "https://sakshamfashion.netlify.app/", img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&q=80" },
+  { title: "Florida Green Contractors", cat: "Websites", client: "US contractor", desc: "Service business site with lead capture.", problem: "A US contractor was losing enquiries through an outdated site with no clear quote path.", solution: "Rebuilt the site around service pages, credibility signals and a multi-step quote form.", result: "A structured lead pipeline and stronger search visibility.", tech: ["WordPress", "PHP", "SEO"], url: "https://floridagreencontractors.com/", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80" },
+  { title: "Rol Drive", cat: "Websites", client: "Mobility brand", desc: "Fleet showcase and booking journey.", problem: "Customers could not easily browse the fleet or start a booking.", solution: "Created a fleet showcase with a guided booking journey and responsive layouts.", result: "Simpler booking path and clearer fleet presentation.", tech: ["Next.js", "Tailwind"], url: "https://www.roldrive.com/", img: "https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1200&q=80" },
+  { title: "RebuildIt Inc.", cat: "Websites", client: "Construction firm", desc: "Remodeling company site with project gallery.", problem: "The firm's past work was invisible online, making trust hard to earn.", solution: "Built service pages, a project gallery, testimonials and an enquiry pipeline.", result: "Past work now sells the business before the first call.", tech: ["React", "Tailwind"], url: "https://RebuildItInc.com", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80" },
+  { title: "Birla Pivot Form", cat: "Websites", client: "Enterprise B2B", desc: "Multi-step enterprise onboarding flow.", problem: "A long enterprise onboarding form had heavy drop-off and validation errors.", solution: "Split it into a multi-step flow with inline validation and saved progress.", result: "Cleaner submissions and a far less intimidating form.", tech: ["React", "Form logic"], url: "http://birlapivot.com/form", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80" },
+  { title: "Author Pratik", cat: "Websites", client: "Author", desc: "Author branding site with book showcase.", problem: "No central home for books, blog and speaking enquiries.", solution: "Built an editorial author site with book showcase, blog and enquiry forms.", result: "One destination for readers, press and event organisers.", tech: ["WordPress", "ACF"], url: "http://authorpratik.com", img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&q=80" },
+  { title: "Barry Miller", cat: "Websites", client: "Personal brand", desc: "Personal brand site with case studies.", problem: "Needed a credible online presence for a consulting practice.", solution: "Designed an elegant personal brand site with case studies and press coverage.", result: "A polished presence that supports high-value conversations.", tech: ["WordPress"], url: "https://www.barrymiller.net/", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&q=80" },
+  { title: "Ruby Todd", cat: "Websites", client: "Author", desc: "Boutique author portfolio.", problem: "Long-form writing needed a calm, readable home.", solution: "Built a boutique portfolio with refined typography and long-form layouts.", result: "A reading experience that matches the writing.", tech: ["WordPress"], url: "https://www.ruby-todd.com/", img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200&q=80" },
 
   // APPS
-  { title: "Unboxify", cat: "Apps", desc: "Product app experience.", details: "Custom mobile app development with polished UI and API-driven content.", tech: ["React Native", "REST API"], url: "https://www.unboxify.in", img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=1200&q=80" },
-  { title: "Olives.ie", cat: "Apps", desc: "Irish product platform.", details: "Product/e-commerce app experience with modern UI/UX.", tech: ["React", "API"], url: "https://olives.ie/", img: "https://images.unsplash.com/photo-1607082349566-187342175e2f?w=1200&q=80" },
-  { title: "MeetMux", cat: "Apps", desc: "Social/meeting platform.", details: "Social meetup platform — modern responsive UI with real-time features.", tech: ["React", "Realtime"], url: "https://www.meetmux.com/", img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" },
-  { title: "Linear (inspired)", cat: "Apps", desc: "Productivity app reference build.", details: "Reference-grade productivity app UI with dense information design and buttery motion.", tech: ["React", "TypeScript"], url: "https://linear.app/", img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&q=80" },
+  { title: "Unboxify", cat: "Apps", client: "Product startup", desc: "Mobile app with API-driven content.", problem: "The product needed a mobile app experience that felt as polished as the brand.", solution: "Built a cross-platform app with API-driven content and a refined interface.", result: "A consistent, fast app on both Android and iOS.", tech: ["React Native", "REST API"], url: "https://www.unboxify.in", img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=1200&q=80" },
+  { title: "Olives.ie", cat: "Apps", client: "Irish retailer", desc: "Product and ordering experience.", problem: "Ordering was clumsy on phones and losing customers.", solution: "Rebuilt the product and ordering journey with a mobile-first interface.", result: "Smoother ordering and fewer abandoned carts.", tech: ["React", "API"], url: "https://olives.ie/", img: "https://images.unsplash.com/photo-1607082349566-187342175e2f?w=1200&q=80" },
+  { title: "MeetMux", cat: "Apps", client: "Social platform", desc: "Social meetup platform with live features.", problem: "A social platform needed real-time interaction without feeling heavy.", solution: "Built responsive screens with real-time updates and clear social flows.", result: "Live interaction that stays fast on everyday phones.", tech: ["React", "Realtime"], url: "https://www.meetmux.com/", img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" },
 
   // SHOPIFY
-  { title: "Fitera Sport", cat: "Shopify", desc: "Sports & performance Shopify store.", details: "Shopify storefront for a performance sports brand — custom sections, product bundles and speed-tuned theme.", tech: ["Shopify", "Liquid"], url: "https://Fiterasport.store", img: "https://images.unsplash.com/photo-1483721310020-03333e577078?w=1200&q=80" },
-  { title: "The Saje", cat: "Shopify", desc: "Lifestyle Shopify storefront.", details: "Boutique lifestyle Shopify build with editorial merchandising.", tech: ["Shopify", "Liquid"], url: "https://www.thesaje.com", img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=80" },
-  { title: "RK Trends", cat: "Shopify", desc: "UAE fashion Shopify store.", details: "Fashion Shopify build for the UAE market — multi-currency, RTL-aware sections.", tech: ["Shopify", "Multi-currency"], url: "https://www.rktrends.ae/", img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&q=80" },
-  { title: "Element Home", cat: "Shopify", desc: "Home & living Shopify store.", details: "Home & living Shopify build with editorial category pages.", tech: ["Shopify", "Liquid"], url: "https://elementhome.net/", img: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=80" },
-  { title: "Saramor", cat: "Shopify", desc: "Fashion Shopify storefront.", details: "Fashion Shopify storefront with bundle logic and premium PDP.", tech: ["Shopify", "Liquid"], url: "https://saramor.store/", img: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1200&q=80" },
+  { title: "Fitera Sport", cat: "Shopify", client: "Sports brand", desc: "Performance sportswear storefront.", problem: "A slow theme was hurting both conversions and mobile experience.", solution: "Built custom sections, product bundles and a speed-tuned Shopify theme.", result: "Faster store with a stronger bundle-led average order value.", tech: ["Shopify", "Liquid"], url: "https://Fiterasport.store", img: "https://images.unsplash.com/photo-1483721310020-03333e577078?w=1200&q=80" },
+  { title: "The Saje", cat: "Shopify", client: "Lifestyle brand", desc: "Editorial lifestyle storefront.", problem: "Products looked generic in a stock theme.", solution: "Created editorial merchandising sections and a boutique product page.", result: "A storefront that reads like a brand, not a template.", tech: ["Shopify", "Liquid"], url: "https://www.thesaje.com", img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=80" },
+  { title: "RK Trends", cat: "Shopify", client: "UAE fashion", desc: "Multi-currency fashion store.", problem: "Selling across the UAE needed multi-currency and region-aware layouts.", solution: "Built multi-currency support with RTL-aware sections and localised content.", result: "A store that fits its market on the first visit.", tech: ["Shopify", "Multi-currency"], url: "https://www.rktrends.ae/", img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&q=80" },
+  { title: "Element Home", cat: "Shopify", client: "Home & living", desc: "Home and living storefront.", problem: "Large catalogue was hard to browse by room and style.", solution: "Built editorial category pages with clearer filtering and imagery.", result: "Shoppers reach the right product in fewer steps.", tech: ["Shopify", "Liquid"], url: "https://elementhome.net/", img: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=80" },
+  { title: "Saramor", cat: "Shopify", client: "Fashion brand", desc: "Fashion storefront with bundle logic.", problem: "Flat product pages were not encouraging larger orders.", solution: "Built a premium product page with bundle logic and upsell sections.", result: "Larger orders and a more premium shopping feel.", tech: ["Shopify", "Liquid"], url: "https://saramor.store/", img: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1200&q=80" },
 ];
 
 export function Portfolio() {
@@ -368,13 +370,18 @@ export function Portfolio() {
           <div>
             <Reveal>
               <span className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#D4AF37]">
-                <Sparkles size={12} /> Selected Work
+                <Sparkles size={12} /> Client Work
               </span>
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.05] text-white md:text-6xl">
-                Live projects — <span className="text-gradient-gold italic font-normal">click to explore.</span>
+                Real projects, <span className="text-gradient-gold italic font-normal">real outcomes.</span>
               </h2>
+            </Reveal>
+            <Reveal delay={0.15}>
+              <p className="mt-4 max-w-xl text-white/55">
+                Every project below is live. Open one to see the brief, what I built and the outcome.
+              </p>
             </Reveal>
           </div>
           <Reveal delay={0.2}>
@@ -396,7 +403,7 @@ export function Portfolio() {
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {filtered.map((p, i) => (
             <ProjectCard key={p.title + p.url} p={p} index={i} onClick={() => setOpenIdx(i)} />
           ))}
@@ -407,7 +414,7 @@ export function Portfolio() {
         {current && (
           <div>
             <div className="overflow-hidden rounded-2xl border border-[#D4AF37]/20">
-              <img src={current.img} alt={current.title} className="h-64 w-full object-cover md:h-80" />
+              <img src={current.img} alt={current.title} className="h-56 w-full object-cover md:h-72" />
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <span className="rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-[#E8C767]">
@@ -415,8 +422,22 @@ export function Portfolio() {
               </span>
               <h3 className="font-display text-3xl font-semibold text-white md:text-4xl">{current.title}</h3>
             </div>
-            <p className="mt-4 leading-relaxed text-white/75">{current.details}</p>
-            <div className="mt-5 flex flex-wrap gap-2">
+            <div className="mt-2 text-sm text-white/45">{current.client}</div>
+
+            <div className="mt-7 space-y-5">
+              {[
+                { label: "The brief", value: current.problem },
+                { label: "What I built", value: current.solution },
+                { label: "The outcome", value: current.result },
+              ].map((row) => (
+                <div key={row.label} className="border-l border-[#D4AF37]/30 pl-5">
+                  <div className="font-mono text-[11px] uppercase tracking-[0.25em] text-[#D4AF37]/80">{row.label}</div>
+                  <p className="mt-1.5 leading-relaxed text-white/75">{row.value}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-6 flex flex-wrap gap-2">
               {current.tech.map((t) => (
                 <span key={t} className="rounded-full border border-white/10 px-3 py-1 text-[11px] text-white/60">{t}</span>
               ))}
@@ -444,39 +465,32 @@ function ProjectCard({ p, index, onClick }: { p: Project; index: number; onClick
     <motion.button
       type="button"
       onClick={onClick}
-      initial={{ opacity: 0, y: 40, scale: 0.96 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.7, delay: (index % 3) * 0.08, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -8 }}
-      className="group relative overflow-hidden rounded-3xl border border-[#D4AF37]/15 bg-[#0a0a0a] text-left"
+      transition={{ duration: 0.6, delay: (index % 3) * 0.06, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -6 }}
+      className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0a0a0a] text-left transition-colors hover:border-[#D4AF37]/40"
     >
       <div className="relative aspect-[16/10] overflow-hidden">
         <img
           src={p.img}
           alt={p.title}
           loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-110"
+          className="h-full w-full object-cover transition-transform duration-[900ms] group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent" />
-        <div className="absolute left-6 top-6">
-          <span className="rounded-full border border-[#D4AF37]/40 bg-black/40 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-[#E8C767] backdrop-blur">
-            {p.cat}
-          </span>
-        </div>
-        <div className="absolute inset-0 flex items-end justify-end p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-          <div className="rounded-full bg-[#D4AF37] px-3 py-1.5 text-[11px] font-medium text-black">View details →</div>
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/30 to-transparent" />
+        <span className="absolute left-5 top-5 rounded-full border border-[#D4AF37]/40 bg-black/50 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-[#E8C767] backdrop-blur">
+          {p.cat}
+        </span>
       </div>
       <div className="p-6">
         <h3 className="font-display text-xl font-medium text-white md:text-2xl">{p.title}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-white/60">{p.desc}</p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {p.tech.map((t) => (
-            <span key={t} className="rounded-full border border-white/10 px-3 py-1 text-[11px] text-white/60">{t}</span>
-          ))}
+        <div className="mt-1 text-xs uppercase tracking-widest text-white/40">{p.client}</div>
+        <p className="mt-3 text-sm leading-relaxed text-white/60">{p.desc}</p>
+        <div className="mt-5 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-[#D4AF37] transition-transform group-hover:translate-x-1">
+          View case study <ArrowUpRight size={14} />
         </div>
-        <div className="mt-4 truncate text-xs text-[#D4AF37]/70">{p.url.replace(/^https?:\/\//, "")}</div>
       </div>
     </motion.button>
   );
@@ -693,30 +707,20 @@ export function Contact() {
                   </div>
                 ))}
                 <div>
-                  <div className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-[#D4AF37]/75">Project Type</div>
-                  <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+                  <label htmlFor="projectType" className="mb-3 block font-mono text-xs uppercase tracking-[0.2em] text-[#D4AF37]/75">
+                    Project Type
+                  </label>
+                  <select
+                    id="projectType"
+                    name="projectType"
+                    value={state.projectType}
+                    onChange={(e) => setState({ ...state, projectType: e.target.value })}
+                    className="w-full rounded-xl border border-white/15 bg-[#0a0a0a] px-4 py-3 text-white outline-none transition-colors focus:border-[#D4AF37]"
+                  >
                     {projectTypes.map((type) => (
-                      <label
-                        key={type}
-                        className={`group relative cursor-pointer rounded-2xl border p-4 text-center text-xs uppercase tracking-widest transition-all duration-300 ${
-                          state.projectType === type
-                            ? "border-[#D4AF37] bg-[#D4AF37]/10 text-[#E8C767] shadow-[0_0_30px_-18px_rgba(212,175,55,0.9)]"
-                            : "border-white/10 bg-white/[0.02] text-white/55 hover:border-[#D4AF37]/50 hover:text-[#E8C767]"
-                        }`}
-                      >
-                        <input
-                          type="radio"
-                          name="projectType"
-                          value={type}
-                          checked={state.projectType === type}
-                          onChange={() => setState({ ...state, projectType: type })}
-                          className="sr-only"
-                        />
-                        <span className="mx-auto mb-2 block h-2 w-2 rounded-full bg-[#D4AF37] opacity-40 transition-opacity group-hover:opacity-100" />
-                        {type}
-                      </label>
+                      <option key={type} value={type}>{type}</option>
                     ))}
-                  </div>
+                  </select>
                 </div>
                 <div className="relative">
                   <label className={`absolute left-0 pointer-events-none font-mono text-xs uppercase tracking-[0.2em] transition-all duration-300 ${focus === "message" || state.message ? "-top-1 text-[10px] text-[#D4AF37]" : "top-4 text-white/40"}`}>

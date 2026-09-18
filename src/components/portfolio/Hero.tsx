@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, Suspense, lazy, useState } from "react";
 import { ArrowDown, ArrowUpRight, Mail } from "lucide-react";
 import { MagneticButton } from "./MagneticButton";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const HeroScene = lazy(() => import("./HeroScene").then((m) => ({ default: m.HeroScene })));
 
@@ -19,6 +20,7 @@ const particleSeed = Array.from({ length: 24 }, (_, i) => {
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
@@ -26,11 +28,15 @@ export function Hero() {
 
   return (
     <section id="top" ref={ref} className="relative min-h-screen overflow-hidden bg-[#050505] pt-20">
-      {/* 3D scene */}
+      {/* Visual backdrop: full 3D on larger screens, lightweight gold glow on phones */}
       <div className="absolute inset-0">
-        <Suspense fallback={null}>
-          <HeroScene />
-        </Suspense>
+        {isMobile ? (
+          <LightBackdrop />
+        ) : (
+          <Suspense fallback={null}>
+            <HeroScene />
+          </Suspense>
+        )}
       </div>
 
       {/* Radial vignette */}
@@ -38,7 +44,7 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#050505] to-transparent" />
 
       {/* Floating particles */}
-      <Particles />
+      <Particles count={isMobile ? 8 : 24} />
 
       {/* Content */}
       <motion.div
@@ -59,7 +65,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-5xl font-semibold leading-[0.95] tracking-tight text-white md:text-7xl lg:text-[8rem]"
+          className="font-display text-[2.6rem] font-semibold leading-[1] tracking-tight text-white sm:text-5xl md:text-7xl lg:text-[8rem]"
         >
           <span className="text-gradient-gold italic font-normal">App Developer</span>
           <br />
@@ -111,7 +117,17 @@ export function Hero() {
   );
 }
 
-function Particles() {
+function LightBackdrop() {
+  return (
+    <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute left-1/2 top-1/3 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#D4AF37]/25 blur-[90px]" />
+      <div className="absolute left-1/2 top-1/3 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#E8C767]/20 blur-[60px] animate-gold-pulse" />
+      <div className="absolute left-1/2 top-1/3 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#D4AF37]/25" />
+    </div>
+  );
+}
+
+function Particles({ count = 24 }: { count?: number }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -122,7 +138,7 @@ function Particles() {
 
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      {particleSeed.map((particle, i) => (
+      {particleSeed.slice(0, count).map((particle, i) => (
         <motion.div
           key={i}
           className="absolute rounded-full bg-[#D4AF37]"
