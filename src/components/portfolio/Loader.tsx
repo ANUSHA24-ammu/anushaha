@@ -33,7 +33,7 @@ export function Loader() {
       className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#050505]"
       initial={{ opacity: 1, y: 0 }}
       animate={done ? { opacity: 0, y: "-100%" } : { opacity: 1, y: 0 }}
-      transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
+      transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
     >
       <motion.div
         className="mb-8 font-display text-4xl md:text-6xl font-semibold tracking-tight text-gradient-gold"
