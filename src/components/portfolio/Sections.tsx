@@ -693,30 +693,20 @@ export function Contact() {
                   </div>
                 ))}
                 <div>
-                  <div className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-[#D4AF37]/75">Project Type</div>
-                  <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+                  <label htmlFor="projectType" className="mb-3 block font-mono text-xs uppercase tracking-[0.2em] text-[#D4AF37]/75">
+                    Project Type
+                  </label>
+                  <select
+                    id="projectType"
+                    name="projectType"
+                    value={state.projectType}
+                    onChange={(e) => setState({ ...state, projectType: e.target.value })}
+                    className="w-full rounded-xl border border-white/15 bg-[#0a0a0a] px-4 py-3 text-white outline-none transition-colors focus:border-[#D4AF37]"
+                  >
                     {projectTypes.map((type) => (
-                      <label
-                        key={type}
-                        className={`group relative cursor-pointer rounded-2xl border p-4 text-center text-xs uppercase tracking-widest transition-all duration-300 ${
-                          state.projectType === type
-                            ? "border-[#D4AF37] bg-[#D4AF37]/10 text-[#E8C767] shadow-[0_0_30px_-18px_rgba(212,175,55,0.9)]"
-                            : "border-white/10 bg-white/[0.02] text-white/55 hover:border-[#D4AF37]/50 hover:text-[#E8C767]"
-                        }`}
-                      >
-                        <input
-                          type="radio"
-                          name="projectType"
-                          value={type}
-                          checked={state.projectType === type}
-                          onChange={() => setState({ ...state, projectType: type })}
-                          className="sr-only"
-                        />
-                        <span className="mx-auto mb-2 block h-2 w-2 rounded-full bg-[#D4AF37] opacity-40 transition-opacity group-hover:opacity-100" />
-                        {type}
-                      </label>
+                      <option key={type} value={type}>{type}</option>
                     ))}
-                  </div>
+                  </select>
                 </div>
                 <div className="relative">
                   <label className={`absolute left-0 pointer-events-none font-mono text-xs uppercase tracking-[0.2em] transition-all duration-300 ${focus === "message" || state.message ? "-top-1 text-[10px] text-[#D4AF37]" : "top-4 text-white/40"}`}>
