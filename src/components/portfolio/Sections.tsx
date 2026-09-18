@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { motion, useMotionValue, useMotionTemplate, useSpring } from "framer-motion";
+import { useRef, useState } from "react";
 import {
   Smartphone, Apple, Globe, Layers, ShoppingBag, Palette,
   FileCode, Store, CreditCard, Rocket, Building2, Briefcase,

@@ -61,6 +61,26 @@ export function Hero() {
           <span className="text-xs uppercase tracking-[0.3em] text-[#E8C767]">Anusha H A · Bangalore · 4+ Years</span>
         </motion.div>
 
+        {/* Mobile-only portrait, sits above the heading */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mb-8 md:hidden"
+        >
+          <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-[#D4AF37]/35 via-[#E8C767]/15 to-transparent blur-2xl" />
+          <div className="relative h-[210px] w-[170px] overflow-hidden rounded-[1.75rem] border border-[#D4AF37]/45 bg-[#0a0a0a] p-1.5 xs:h-[240px] xs:w-[190px] sm:h-[280px] sm:w-[225px]">
+            <img
+              src={anushaAsset.url}
+              alt="Anusha H A — App Developer & Full Stack Developer"
+              width={225}
+              height={280}
+              className="h-full w-full rounded-[1.45rem] object-cover object-top"
+            />
+            <div className="pointer-events-none absolute inset-1.5 rounded-[1.45rem] ring-1 ring-inset ring-white/10" />
+          </div>
+        </motion.div>
+
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
