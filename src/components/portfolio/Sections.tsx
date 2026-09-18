@@ -500,9 +500,20 @@ function ProjectCard({ p, index, onClick }: { p: Project; index: number; onClick
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, delay: (index % 3) * 0.06, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -8 }}
+      whileTap={{ scale: 0.985 }}
       style={{ rotateX: springX, rotateY: springY, transformPerspective: 1000, transformStyle: "preserve-3d" }}
       className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0a0a0a] text-left transition-colors hover:border-[#D4AF37]/40 hover:shadow-[0_30px_80px_-40px_rgba(212,175,55,0.65)]"
     >
+      <motion.div
+        aria-hidden
+        animate={{ rotate: 360 }}
+        transition={{ duration: 14 + (index % 4) * 2, repeat: Infinity, ease: "linear" }}
+        className="pointer-events-none absolute -inset-[65%] opacity-20 [background:conic-gradient(from_0deg,transparent_0deg,transparent_285deg,#D4AF37_330deg,transparent_360deg)]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-px z-[1] rounded-[15px] bg-[#0a0a0a]"
+      />
       <div className="relative aspect-[16/10] overflow-hidden">
         <motion.img
           src={p.img}
@@ -521,7 +532,7 @@ function ProjectCard({ p, index, onClick }: { p: Project; index: number; onClick
         style={{ background: useMotionTemplate`radial-gradient(400px circle at ${glareX}% ${glareY}%, rgba(212,175,55,0.18), transparent 60%)` }}
         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
       />
-      <motion.div style={{ translateZ: 25 }} className="p-6">
+      <motion.div style={{ translateZ: 25 }} className="relative z-[2] p-6">
         <h3 className="font-display text-xl font-medium text-white md:text-2xl">{p.title}</h3>
         <div className="mt-1 text-xs uppercase tracking-widest text-white/40">{p.client}</div>
         <p className="mt-3 text-sm leading-relaxed text-white/60">{p.desc}</p>
