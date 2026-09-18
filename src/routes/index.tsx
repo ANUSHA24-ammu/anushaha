@@ -12,6 +12,14 @@ import { Loader } from "@/components/portfolio/Loader";
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
+    meta: [
+      { title: "Anusha H A — App & Full Stack Developer" },
+      { name: "description", content: "Anusha H A creates premium mobile apps, websites, Shopify stores, and full-stack products for clients worldwide." },
+      { property: "og:title", content: "Anusha H A — App & Full Stack Developer" },
+      { property: "og:description", content: "Explore premium mobile apps, websites, Shopify stores, and full-stack client work by Anusha H A." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
     scripts: [
       {
         type: "application/ld+json",

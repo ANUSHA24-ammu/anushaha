@@ -27,14 +27,14 @@ export function About() {
               <motion.div
                 animate={{ y: [0, -12, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="relative"
+                className="relative pb-28 sm:pb-24 lg:pb-0"
               >
                 <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-[#D4AF37]/40 via-[#E8C767]/20 to-transparent blur-2xl" />
                 <div className="relative overflow-hidden rounded-[2rem] border border-[#D4AF37]/40 bg-[#0a0a0a] p-2">
                   <img
                     src={anushaAsset.url}
                     alt="Anusha H A — App Developer & Full Stack Developer"
-                    className="h-[340px] w-full rounded-[1.6rem] object-cover object-top sm:h-[420px] md:h-auto"
+                    className="block h-auto w-full rounded-[1.6rem] object-contain"
                     loading="lazy"
                   />
                   <div className="pointer-events-none absolute inset-2 rounded-[1.6rem] ring-1 ring-inset ring-white/10" />
@@ -45,7 +45,7 @@ export function About() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 0.7 }}
-                className="glass-strong absolute -bottom-4 right-2 rounded-2xl px-4 py-3 sm:-right-6 md:-bottom-8 md:-right-8 md:px-5 md:py-4"
+                className="glass-strong absolute bottom-0 right-0 rounded-2xl px-4 py-3 lg:-bottom-8 lg:-right-8 lg:px-5 lg:py-4"
               >
                 <div className="flex items-center gap-3">
                   <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-[#E8C767] to-[#A8862A] text-black">
@@ -62,7 +62,7 @@ export function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.6, duration: 0.7 }}
-                className="glass-strong absolute -top-3 left-2 flex items-center gap-2 rounded-full px-3 py-1.5 md:-top-4 md:-left-4 md:px-4 md:py-2"
+                className="glass-strong absolute bottom-16 left-0 flex items-center gap-2 rounded-full px-3 py-1.5 lg:-left-4 lg:-top-4 lg:bottom-auto lg:px-4 lg:py-2"
               >
                 <MapPin size={14} className="text-[#D4AF37]" />
                 <span className="text-xs text-white/85">Bangalore, Karnataka</span>
@@ -636,11 +636,10 @@ export function Testimonials() {
 
 /* ============================== CONTACT ============================== */
 export function Contact() {
-  const initialContactState = { name: "", email: "", projectType: "Website", message: "" };
+  const initialContactState = { name: "", email: "", message: "" };
   const [state, setState] = useState(initialContactState);
   const [sent, setSent] = useState(false);
   const [focus, setFocus] = useState<string | null>(null);
-  const projectTypes = ["Website", "App", "Shopify", "Full Stack"];
 
   const handleSubmit = () => {
     setSent(true);
@@ -743,22 +742,6 @@ export function Contact() {
                     />
                   </div>
                 ))}
-                <div>
-                  <label htmlFor="projectType" className="mb-3 block font-mono text-xs uppercase tracking-[0.2em] text-[#D4AF37]/75">
-                    Project Type
-                  </label>
-                  <select
-                    id="projectType"
-                    name="projectType"
-                    value={state.projectType}
-                    onChange={(e) => setState({ ...state, projectType: e.target.value })}
-                    className="w-full rounded-xl border border-white/15 bg-[#0a0a0a] px-4 py-3 text-white outline-none transition-colors focus:border-[#D4AF37]"
-                  >
-                    {projectTypes.map((type) => (
-                      <option key={type} value={type}>{type}</option>
-                    ))}
-                  </select>
-                </div>
                 <div className="relative">
                   <label className={`absolute left-0 pointer-events-none font-mono text-xs uppercase tracking-[0.2em] transition-all duration-300 ${focus === "message" || state.message ? "-top-1 text-[10px] text-[#D4AF37]" : "top-4 text-white/40"}`}>
                     Tell me about your project
