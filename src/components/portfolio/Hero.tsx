@@ -117,7 +117,17 @@ export function Hero() {
   );
 }
 
-function Particles() {
+function LightBackdrop() {
+  return (
+    <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute left-1/2 top-1/3 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#D4AF37]/25 blur-[90px]" />
+      <div className="absolute left-1/2 top-1/3 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#E8C767]/20 blur-[60px] animate-gold-pulse" />
+      <div className="absolute left-1/2 top-1/3 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#D4AF37]/25" />
+    </div>
+  );
+}
+
+function Particles({ count = 24 }: { count?: number }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -128,7 +138,7 @@ function Particles() {
 
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      {particleSeed.map((particle, i) => (
+      {particleSeed.slice(0, count).map((particle, i) => (
         <motion.div
           key={i}
           className="absolute rounded-full bg-[#D4AF37]"
