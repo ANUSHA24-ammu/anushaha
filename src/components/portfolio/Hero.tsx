@@ -20,6 +20,7 @@ const particleSeed = Array.from({ length: 24 }, (_, i) => {
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
@@ -27,11 +28,15 @@ export function Hero() {
 
   return (
     <section id="top" ref={ref} className="relative min-h-screen overflow-hidden bg-[#050505] pt-20">
-      {/* 3D scene */}
+      {/* Visual backdrop: full 3D on larger screens, lightweight gold glow on phones */}
       <div className="absolute inset-0">
-        <Suspense fallback={null}>
-          <HeroScene />
-        </Suspense>
+        {isMobile ? (
+          <LightBackdrop />
+        ) : (
+          <Suspense fallback={null}>
+            <HeroScene />
+          </Suspense>
+        )}
       </div>
 
       {/* Radial vignette */}
@@ -39,7 +44,7 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#050505] to-transparent" />
 
       {/* Floating particles */}
-      <Particles />
+      <Particles count={isMobile ? 8 : 24} />
 
       {/* Content */}
       <motion.div
