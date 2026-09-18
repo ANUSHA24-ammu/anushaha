@@ -3,7 +3,6 @@ import { useEffect, useRef, Suspense, lazy, useState } from "react";
 import { ArrowDown, ArrowUpRight, Mail } from "lucide-react";
 import { MagneticButton } from "./MagneticButton";
 import { useIsMobile } from "@/hooks/use-mobile";
-import anushaAsset from "@/assets/anusha.jpeg.asset.json";
 
 const HeroScene = lazy(() => import("./HeroScene").then((m) => ({ default: m.HeroScene })));
 
@@ -60,24 +59,6 @@ export function Hero() {
         >
           <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF37] animate-gold-pulse" />
           <span className="text-xs uppercase tracking-[0.3em] text-[#E8C767]">Anusha H A · Bangalore · 4+ Years</span>
-        </motion.div>
-
-        {/* Portrait for phones and tablets, sits above the heading */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.94 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          className="relative z-20 mx-auto mb-8 w-[62%] min-w-[150px] max-w-[260px] lg:hidden"
-        >
-          <div className="pointer-events-none absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-[#D4AF37]/35 via-[#E8C767]/15 to-transparent blur-2xl" />
-          <div className="relative overflow-hidden rounded-[1.75rem] border border-[#D4AF37]/45 bg-[#0a0a0a] p-1.5">
-            <img
-              src={anushaAsset.url}
-              alt="Anusha H A — App Developer & Full Stack Developer"
-              className="block h-auto w-full rounded-[1.45rem] object-cover"
-            />
-            <div className="pointer-events-none absolute inset-1.5 rounded-[1.45rem] ring-1 ring-inset ring-white/10" />
-          </div>
         </motion.div>
 
         <motion.h1
