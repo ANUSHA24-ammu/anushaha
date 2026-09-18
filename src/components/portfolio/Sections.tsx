@@ -530,7 +530,7 @@ function ProjectCard({ p, index, onClick }: { p: Project; index: number; onClick
       <motion.div
         aria-hidden
         style={{ background: useMotionTemplate`radial-gradient(400px circle at ${glareX}% ${glareY}%, rgba(212,175,55,0.18), transparent 60%)` }}
-        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 z-[3] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
       />
       <motion.div style={{ translateZ: 25 }} className="relative z-[2] p-6">
         <h3 className="font-display text-xl font-medium text-white md:text-2xl">{p.title}</h3>
