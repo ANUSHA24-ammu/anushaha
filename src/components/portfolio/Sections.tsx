@@ -12,12 +12,12 @@ import { Reveal } from "./Reveal";
 import { Counter } from "./Counter";
 import { MagneticButton } from "./MagneticButton";
 import { Modal } from "./Modal";
-import anushaAsset from "@/assets/anusha.jpeg.asset.json";
+import anushaPortrait from "@/assets/anusha.jpeg";
 
 /* ============================== ABOUT ============================== */
 export function About() {
-  const [portraitRetry, setPortraitRetry] = useState(false);
-  const portraitSrc = portraitRetry ? `${anushaAsset.url}?retry=1` : anushaAsset.url;
+  const portraitSrc = anushaPortrait;
+
 
   return (
     <section id="about" className="relative overflow-hidden py-32 md:py-40">
