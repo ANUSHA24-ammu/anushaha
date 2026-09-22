@@ -43,10 +43,8 @@ export function About() {
                     loading="eager"
                     decoding="sync"
                     fetchPriority="high"
-                    onError={() => {
-                      if (!portraitRetry) setPortraitRetry(true);
-                    }}
                   />
+
                   <div className="pointer-events-none absolute inset-2 rounded-[1.6rem] ring-1 ring-inset ring-white/10" />
                 </div>
               </motion.div>
