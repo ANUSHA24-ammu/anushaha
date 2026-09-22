@@ -12,12 +12,12 @@ import { Reveal } from "./Reveal";
 import { Counter } from "./Counter";
 import { MagneticButton } from "./MagneticButton";
 import { Modal } from "./Modal";
-import anushaAsset from "@/assets/anusha.jpeg.asset.json";
+import anushaPortrait from "@/assets/anusha.jpeg";
 
 /* ============================== ABOUT ============================== */
 export function About() {
-  const [portraitRetry, setPortraitRetry] = useState(false);
-  const portraitSrc = portraitRetry ? `${anushaAsset.url}?retry=1` : anushaAsset.url;
+  const portraitSrc = anushaPortrait;
+
 
   return (
     <section id="about" className="relative overflow-hidden py-32 md:py-40">
@@ -43,10 +43,8 @@ export function About() {
                     loading="eager"
                     decoding="sync"
                     fetchPriority="high"
-                    onError={() => {
-                      if (!portraitRetry) setPortraitRetry(true);
-                    }}
                   />
+
                   <div className="pointer-events-none absolute inset-2 rounded-[1.6rem] ring-1 ring-inset ring-white/10" />
                 </div>
               </motion.div>
