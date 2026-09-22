@@ -16,6 +16,9 @@ import anushaAsset from "@/assets/anusha.jpeg.asset.json";
 
 /* ============================== ABOUT ============================== */
 export function About() {
+  const [portraitRetry, setPortraitRetry] = useState(false);
+  const portraitSrc = portraitRetry ? `${anushaAsset.url}?retry=1` : anushaAsset.url;
+
   return (
     <section id="about" className="relative overflow-hidden py-32 md:py-40">
       <div className="pointer-events-none absolute -top-40 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[#D4AF37]/10 blur-[120px]" />
@@ -32,13 +35,17 @@ export function About() {
                 <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-[#D4AF37]/40 via-[#E8C767]/20 to-transparent blur-2xl" />
                 <div className="relative rounded-[2rem] border border-[#D4AF37]/40 bg-[#0a0a0a] p-2">
                   <img
-                    src={anushaAsset.url}
+                    src={portraitSrc}
                     alt="Anusha H A — App Developer & Full Stack Developer"
-                    className="block h-auto w-full max-w-full rounded-[1.6rem] object-contain opacity-100"
-                    style={{ visibility: "visible" }}
+                    width={1080}
+                    height={1354}
+                    className="block h-auto w-full max-w-full rounded-[1.6rem] object-contain"
                     loading="eager"
-                    decoding="async"
+                    decoding="sync"
                     fetchPriority="high"
+                    onError={() => {
+                      if (!portraitRetry) setPortraitRetry(true);
+                    }}
                   />
                   <div className="pointer-events-none absolute inset-2 rounded-[1.6rem] ring-1 ring-inset ring-white/10" />
                 </div>
@@ -346,6 +353,7 @@ const projects: Project[] = [
   { title: "Author Pratik", cat: "Websites", client: "Author", desc: "Author branding site with book showcase.", problem: "No central home for books, blog and speaking enquiries.", solution: "Built an editorial author site with book showcase, blog and enquiry forms.", result: "One destination for readers, press and event organisers.", tech: ["WordPress", "ACF"], url: "http://authorpratik.com", img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&q=80" },
   { title: "Barry Miller", cat: "Websites", client: "Personal brand", desc: "Personal brand site with case studies.", problem: "Needed a credible online presence for a consulting practice.", solution: "Designed an elegant personal brand site with case studies and press coverage.", result: "A polished presence that supports high-value conversations.", tech: ["WordPress"], url: "https://www.barrymiller.net/", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&q=80" },
   { title: "Ruby Todd", cat: "Websites", client: "Author", desc: "Boutique author portfolio.", problem: "Long-form writing needed a calm, readable home.", solution: "Built a boutique portfolio with refined typography and long-form layouts.", result: "A reading experience that matches the writing.", tech: ["WordPress"], url: "https://www.ruby-todd.com/", img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200&q=80" },
+  { title: "LearnWorlds", cat: "Websites", client: "Education technology", desc: "Udemy-style e-learning platform for courses, instructors and learners.", problem: "Learners needed one clear destination to discover courses, track progress and continue lessons across devices.", solution: "Built a responsive course marketplace with category discovery, instructor profiles, structured lesson pages, enrolment flows and learner progress dashboards.", result: "A scalable learning experience that makes finding, purchasing and completing courses simple on mobile and desktop.", tech: ["React", "TypeScript", "Learning Platform", "Responsive UI"], url: "https://learnworls.com", img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80" },
 
   // APPS
   { title: "Unboxify", cat: "Apps", client: "Product startup", desc: "Mobile app with API-driven content.", problem: "The product needed a mobile app experience that felt as polished as the brand.", solution: "Built a cross-platform app with API-driven content and a refined interface.", result: "A consistent, fast app on both Android and iOS.", tech: ["React Native", "REST API"], url: "https://www.unboxify.in", img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=1200&q=80" },
